@@ -11,6 +11,7 @@ namespace TestClassLibrary
         public void test()
         {
             Console.WriteLine("hello world");
+            Console.WriteLine("Hi All");
         }
     }
 }
