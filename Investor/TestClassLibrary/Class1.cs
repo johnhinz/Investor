@@ -15,6 +15,7 @@ namespace TestClassLibrary
             Console.WriteLine("Happy New Year!!"); // Commented by Young Choi
             Console.WriteLine(  "Updated");
             Console.WriteLine("hello");
+            Console.WriteLine("hi");
         }
     }
 }
