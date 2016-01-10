@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Investor.Common.Service.Client.Poco;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace Investor.Common.Service.Client.Interface
 {
-    public class Class1
+    public interface IClientRepository
     {
+        ClientPoco GetClient(long id);
     }
 }

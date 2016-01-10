@@ -1,7 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
+﻿using System.Web.Http;
+using Investor.Common.Shared.IoC;
+using Microsoft.Practices.Unity;
+using Investor.Common.Service.Client.Interface;
+using Investor.Common.Service.Client.Data;
 
 namespace Investor.Common.Service.Client.Api
 {
@@ -19,6 +20,11 @@ namespace Investor.Common.Service.Client.Api
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            var container = new UnityContainer();
+            container.RegisterType<IClientRepository, ClientRepository>(new HierarchicalLifetimeManager());
+
+            config.DependencyResolver = new UnityResolver(container);
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Investor.Common.Service.Client.Poco
 {
-    public class Client
+    public class ClientPoco
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
