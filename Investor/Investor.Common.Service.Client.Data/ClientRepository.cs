@@ -10,7 +10,7 @@ namespace Investor.Common.Service.Client.Data
 {
     public class ClientRepository : IClientRepository
     {
-        public ClientPoco GetClient(long id)
+        public ClientPoco Get(long id)
         {
             return new ClientPoco() { FirstName = "Joe", LastName = "Smith" };
         }

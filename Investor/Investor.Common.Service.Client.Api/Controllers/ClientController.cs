@@ -12,17 +12,18 @@ namespace Investor.Common.Service.Client.Api.Controllers
     [RoutePrefix ("api.invest.com/client")]
     public class ClientController : ApiController
     {
-        private IClientRepository _repository;
+        private IClientLogic _logic;
 
-        public ClientController(IClientRepository repository)
+        public ClientController(IClientLogic logic)
         {
-            _repository = repository;
+            _logic = logic;
         }
 
+        [HttpGet]
         [Route ("{id}")]
         public ClientPoco Get()
         {
-            return _repository.GetClient(1);
+            return _logic.Get(1);
         }
     }
 }

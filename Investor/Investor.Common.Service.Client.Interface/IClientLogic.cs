@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Investor.Common.Service.Client.Interface
 {
-    public interface IClientRepository
+    public interface IClientLogic
     {
         ClientPoco Get(long id);
     }

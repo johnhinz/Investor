@@ -163,6 +163,10 @@
       <Project>{8e48d560-199a-4b6d-9291-773deed95161}</Project>
       <Name>Investor.Common.Service.Client.Interface</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Investor.Common.Service.Client.Logic\Investor.Common.Service.Client.Logic.csproj">
+      <Project>{971d42ce-dfc0-480c-a7c1-43bf7c064835}</Project>
+      <Name>Investor.Common.Service.Client.Logic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Investor.Common.Service.Client.Poco\Investor.Common.Service.Client.Poco.csproj">
       <Project>{6d95fae9-04d4-4a76-ae77-544c9d5dda5f}</Project>
       <Name>Investor.Common.Service.Client.Poco</Name>
