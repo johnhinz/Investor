@@ -1,29 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestClassLibrary", "TestClassLibrary\TestClassLibrary.csproj", "{92206DDA-64C2-4513-AFE4-4CF5BFD532D6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Investor.Common.Service.Client", "Investor.Common.Service.Client", "{B060288C-AFC4-4124-8AF1-60DA60C04162}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investor.Common.Service.Client.Api", "Investor.Common.Service.Client.Api\Investor.Common.Service.Client.Api.csproj", "{002F9058-260C-4EB0-95B6-02F06B4AB1CA}"
-	ProjectSection(ProjectDependencies) = postProject
-		{8984B55F-40EF-45E1-884F-837BA5531820} = {8984B55F-40EF-45E1-884F-837BA5531820}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investor.Common.Service.Client.Logic", "Investor.Common.Service.Client.Logic\Investor.Common.Service.Client.Logic.csproj", "{971D42CE-DFC0-480C-A7C1-43BF7C064835}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investor.Common.Service.Client.Data", "Investor.Common.Service.Client.Data\Investor.Common.Service.Client.Data.csproj", "{4DFE870A-DD93-4CDC-9E2D-36D648F7EB43}"
-	ProjectSection(ProjectDependencies) = postProject
-		{8E48D560-199A-4B6D-9291-773DEED95161} = {8E48D560-199A-4B6D-9291-773DEED95161}
-		{6D95FAE9-04D4-4A76-AE77-544C9D5DDA5F} = {6D95FAE9-04D4-4A76-AE77-544C9D5DDA5F}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investor.Common.Service.Client.Interface", "Investor.Common.Service.Client.Interface\Investor.Common.Service.Client.Interface.csproj", "{8E48D560-199A-4B6D-9291-773DEED95161}"
-	ProjectSection(ProjectDependencies) = postProject
-		{6D95FAE9-04D4-4A76-AE77-544C9D5DDA5F} = {6D95FAE9-04D4-4A76-AE77-544C9D5DDA5F}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investor.Common.Service.Client.Poco", "Investor.Common.Service.Client.Poco\Investor.Common.Service.Client.Poco.csproj", "{6D95FAE9-04D4-4A76-AE77-544C9D5DDA5F}"
 EndProject
