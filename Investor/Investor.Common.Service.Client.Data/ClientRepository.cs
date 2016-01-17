@@ -5,14 +5,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Investor.Common.Service.Client.Poco;
+using Investor.Common.Shared.EntityFramework;
 
 namespace Investor.Common.Service.Client.Data
 {
     public class ClientRepository : IClientRepository
     {
+        protected InvestorContext _db;
+        public ClientRepository()
+        {
+            _db = new InvestorContext();
+        }
+
         public ClientPoco Get(long id)
         {
-            return new ClientPoco() { FirstName = "Joe", LastName = "Smith" };
+            return _db.Clients.Where(c => c.Id == id).FirstOrDefault();
         }
     }
 }
