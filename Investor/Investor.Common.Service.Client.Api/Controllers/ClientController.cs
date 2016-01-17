@@ -24,7 +24,7 @@ namespace Investor.Common.Service.Client.Api.Controllers
         [Route ("{clientId}")]
         public HttpResponseMessage Get(long clientId)
         {
-            var client = _logic.Get(id);
+            var client = _logic.Get(clientId);
             return Request.CreateResponse(HttpStatusCode.OK, client);
         }
 
