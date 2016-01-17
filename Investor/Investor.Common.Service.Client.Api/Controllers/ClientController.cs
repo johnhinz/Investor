@@ -21,9 +21,10 @@ namespace Investor.Common.Service.Client.Api.Controllers
 
         [HttpGet]
         [Route ("{id}")]
-        public ClientPoco Get()
+        public HttpResponseMessage Get(int id)
         {
-            return _logic.Get(1);
+            var client = _logic.Get(id);
+            return Request.CreateResponse(HttpStatusCode.OK, client);
         }
     }
 }
