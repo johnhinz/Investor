@@ -12,6 +12,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investor.Common.Service.Client.Logic", "Investor.Common.Service.Client.Logic\Investor.Common.Service.Client.Logic.csproj", "{971D42CE-DFC0-480C-A7C1-43BF7C064835}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investor.Common.Service.Client.Data", "Investor.Common.Service.Client.Data\Investor.Common.Service.Client.Data.csproj", "{4DFE870A-DD93-4CDC-9E2D-36D648F7EB43}"
+	ProjectSection(ProjectDependencies) = postProject
+		{97103FE7-F45F-44A0-BC35-1B079210551F} = {97103FE7-F45F-44A0-BC35-1B079210551F}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investor.Common.Service.Client.Interface", "Investor.Common.Service.Client.Interface\Investor.Common.Service.Client.Interface.csproj", "{8E48D560-199A-4B6D-9291-773DEED95161}"
 EndProject
