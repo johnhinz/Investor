@@ -17,9 +17,9 @@ namespace Investor.Common.Service.Client.Logic
             _repository = repository;
         }
 
-        public ClientPoco Get(long id)
+        public ClientPoco Read(long id)
         {
-            return _repository.Get(id);
+            return _repository.Read(id);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Investor.Common.Service.Client.Test.Stubs
 {
     class LogicStub : IClientLogic
     {
-        public ClientPoco Get(long id)
+        public ClientPoco Read(long id)
         {
             return new ClientPoco() { FirstName = "Joe", LastName = "Smith" };
         }

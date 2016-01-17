@@ -9,6 +9,6 @@ namespace Investor.Common.Service.Client.Interface
 {
     public interface IClientRepository
     {
-        ClientPoco Get(long id);
+        ClientPoco Read(long id);
     }
 }

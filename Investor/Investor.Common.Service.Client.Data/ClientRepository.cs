@@ -17,7 +17,7 @@ namespace Investor.Common.Service.Client.Data
             _db = new InvestorContext();
         }
 
-        public ClientPoco Get(long id)
+        public ClientPoco Read(long id)
         {
             return _db.Clients.Where(c => c.Id == id).FirstOrDefault();
         }
