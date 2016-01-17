@@ -35,7 +35,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -50,8 +64,26 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="ApiTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Stubs\LogicStub.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Investor.Common.Service.Client.Api\Investor.Common.Service.Client.Api.csproj">
+      <Project>{002f9058-260c-4eb0-95b6-02f06b4ab1ca}</Project>
+      <Name>Investor.Common.Service.Client.Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Investor.Common.Service.Client.Interface\Investor.Common.Service.Client.Interface.csproj">
+      <Project>{8e48d560-199a-4b6d-9291-773deed95161}</Project>
+      <Name>Investor.Common.Service.Client.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Investor.Common.Service.Client.Poco\Investor.Common.Service.Client.Poco.csproj">
+      <Project>{6d95fae9-04d4-4a76-ae77-544c9d5dda5f}</Project>
+      <Name>Investor.Common.Service.Client.Poco</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
