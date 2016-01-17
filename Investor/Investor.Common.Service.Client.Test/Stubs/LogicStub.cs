@@ -14,5 +14,9 @@ namespace Investor.Common.Service.Client.Test.Stubs
         {
             return new ClientPoco() { FirstName = "Joe", LastName = "Smith" };
         }
+        public void Create(ClientPoco client)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

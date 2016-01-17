@@ -8,6 +8,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Investor.Common.Service.Client", "Investor.Common.Service.Client", "{B060288C-AFC4-4124-8AF1-60DA60C04162}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investor.Common.Service.Client.Api", "Investor.Common.Service.Client.Api\Investor.Common.Service.Client.Api.csproj", "{002F9058-260C-4EB0-95B6-02F06B4AB1CA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{97103FE7-F45F-44A0-BC35-1B079210551F} = {97103FE7-F45F-44A0-BC35-1B079210551F}
+		{724440FF-74F4-4C90-B254-3732F6A0FD08} = {724440FF-74F4-4C90-B254-3732F6A0FD08}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investor.Common.Service.Client.Logic", "Investor.Common.Service.Client.Logic\Investor.Common.Service.Client.Logic.csproj", "{971D42CE-DFC0-480C-A7C1-43BF7C064835}"
 EndProject

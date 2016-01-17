@@ -49,9 +49,11 @@ namespace Investor.Common.Service.Client.Api.Controllers
         }
 
         [HttpPost]
+        [Route ("create")]
         public HttpResponseMessage CreateClient([FromBody] ClientPoco client)
         {
-            throw new NotImplementedException();
+            _logic.Create(client);
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
         [HttpPost]
