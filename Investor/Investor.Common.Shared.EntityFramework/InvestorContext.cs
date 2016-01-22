@@ -1,4 +1,5 @@
 ﻿using Investor.Common.Service.Client.Poco;
+using Investor.Common.Service.Investment.Poco;
 using Investor.Common.Shared.EntityFramework.Mapping;
 using System;
 using System.Collections.Generic;
@@ -18,9 +19,12 @@ namespace Investor.Common.Shared.EntityFramework
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new ClientMapping());
+           
         }
 
         public DbSet<ClientPoco> Clients { get; set; }
+
+        public DbSet<InvestmentPoco> Investments { get; set; }
 
     }
 }
