@@ -1,5 +1,7 @@
 namespace Investor.Common.Shared.EntityFramework.Migrations
 {
+    using Service.Client.Poco;
+    using Service.Investment.Poco;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -9,23 +11,17 @@ namespace Investor.Common.Shared.EntityFramework.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(Investor.Common.Shared.EntityFramework.InvestorContext context)
         {
             //  This method will be called after migrating to the latest version.
+            context.Clients.AddOrUpdate(
+                c => c.FirstName, new ClientPoco() { FirstName = "Joe", LastName = "Smith" });
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            context.Investments.AddOrUpdate(
+                i => i.InvestmentType, new InvestmentPoco() { InvestmentType = "RRSP" });
         }
     }
 }
