@@ -19,7 +19,7 @@ namespace Investor.Common.Shared.EntityFramework
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new ClientMapping());
-           
+            modelBuilder.Configurations.Add(new InvestmentMapping());
         }
 
         public DbSet<ClientPoco> Clients { get; set; }
