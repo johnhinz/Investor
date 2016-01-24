@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="InvestorContext.cs" />
+    <Compile Include="Mapping\AddressMapping.cs" />
     <Compile Include="Mapping\ClientMapping.cs" />
     <Compile Include="Mapping\InvestmentMapping.cs" />
     <Compile Include="Migrations\201601170345007_init.cs" />
@@ -76,6 +77,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Investor.Common.Service.Address.Poco\Investor.Common.Service.Address.Poco.csproj">
+      <Project>{724440ff-74f4-4c90-b254-3732f6a0fd08}</Project>
+      <Name>Investor.Common.Service.Address.Poco</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Investor.Common.Service.Client.Poco\Investor.Common.Service.Client.Poco.csproj">
       <Project>{6d95fae9-04d4-4a76-ae77-544c9d5dda5f}</Project>
       <Name>Investor.Common.Service.Client.Poco</Name>
