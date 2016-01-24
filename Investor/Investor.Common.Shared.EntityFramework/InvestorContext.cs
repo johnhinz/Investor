@@ -14,6 +14,7 @@ namespace Investor.Common.Shared.EntityFramework
     {
         public InvestorContext() : base ("InvestorContext")
         {
+            
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
