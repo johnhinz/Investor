@@ -22,9 +22,9 @@ namespace Investor.Common.Service.Company.Api.Controllers
 
         [HttpGet]
         [Route("{id}")]
-        public CompanyPoco Get()
+        public CompanyPoco Get(long id)
         {
-            return _logic.Get(1);
+            return _logic.Get(id);
         }
     }
 }

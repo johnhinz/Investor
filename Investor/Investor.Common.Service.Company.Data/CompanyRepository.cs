@@ -1,5 +1,6 @@
 ﻿using Investor.Common.Service.Company.Interface;
 using Investor.Common.Service.Company.Poco;
+using Investor.Common.Shared.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,15 @@ namespace Investor.Common.Service.Company.Data
 {
     public class CompanyRepository : ICompanyRepository
     {
+        private InvestorContext _db;
+
+        public CompanyRepository()
+        {
+            _db = new InvestorContext();
+        }
         public CompanyPoco Get(long id)
         {
-            return new CompanyPoco() { CompanyName = "Joe Smith Investments" };
+            return _db.Companies.Where(comp => comp.Id == id).FirstOrDefault();
         }
     }
 }
