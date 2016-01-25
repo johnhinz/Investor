@@ -66,8 +66,15 @@
     <Compile Include="Migrations\201601171426228_init2.Designer.cs">
       <DependentUpon>201601240416568_add-migration addInvestment.resx</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201601252122275_githubUpdate.cs" />
+    <Compile Include="Migrations\201601252122275_githubUpdate.Designer.cs">
+      <DependentUpon>201601252122275_githubUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Migrations\201601252122275_githubUpdate.resx">
+      <DependentUpon>201601252122275_githubUpdate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
