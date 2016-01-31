@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html ng-app="app">
+<head>
+    <title></title>
+</head>
+<body ng-controller="Main as vm">
+
+    <input type="text" ng-model="vm.food" placeholder="Enter food" />
+
+    <p>Sriracha sauce is great with {{vm.food}}!</p>
+
+
+    <div ng-controller="ClientController">
+        <table class="table">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+            <tr ng-repeat="client in clients">
+                <td>{{client.FirstName}}</td>
+                <td>{{client.LastName}}</td>
+            </tr>
+        </table>
+    </div>
+
+
+    <script src="Scripts/angular.min.js"></script>
+    <script src="app/app.module.js"></script>
+    <script src="app/main.js"></script>
+
+</body>
+</html>
