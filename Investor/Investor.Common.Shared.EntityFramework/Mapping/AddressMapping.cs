@@ -13,7 +13,7 @@ namespace Investor.Common.Shared.EntityFramework.Mapping
         public AddressMapping()
         {
             ToTable("Address");
-            HasKey(a => a.Id);
+            HasKey(a => a.Address_Id);
         }
     }
 }
