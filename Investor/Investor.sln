@@ -62,10 +62,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investor.Common.Service.Inv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investor.Common.Service.Investment.Poco", "Investor.Common.Service.Investment.Poco\Investor.Common.Service.Investment.Poco.csproj", "{1B10F79E-3A36-4814-9F1C-7DDA0F06445B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investor.Web", "Investor.Web\Investor.Web.csproj", "{841817FA-8EE2-4F9C-A69F-0D1C49E66446}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investor.Web.Tests", "Investor.Web.Tests\Investor.Web.Tests.csproj", "{EAF54083-122F-4CD8-9E14-04DE9C415B81}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -156,14 +152,6 @@ Global
 		{1B10F79E-3A36-4814-9F1C-7DDA0F06445B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B10F79E-3A36-4814-9F1C-7DDA0F06445B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B10F79E-3A36-4814-9F1C-7DDA0F06445B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{841817FA-8EE2-4F9C-A69F-0D1C49E66446}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{841817FA-8EE2-4F9C-A69F-0D1C49E66446}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{841817FA-8EE2-4F9C-A69F-0D1C49E66446}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{841817FA-8EE2-4F9C-A69F-0D1C49E66446}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EAF54083-122F-4CD8-9E14-04DE9C415B81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EAF54083-122F-4CD8-9E14-04DE9C415B81}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EAF54083-122F-4CD8-9E14-04DE9C415B81}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EAF54083-122F-4CD8-9E14-04DE9C415B81}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
