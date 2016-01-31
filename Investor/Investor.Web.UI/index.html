@@ -1,17 +1,15 @@
 ﻿<!DOCTYPE html>
-
 <html ng-app="app">
 <head>
     <title></title>
 </head>
-<body ng-controller="Main as vm">
+<body>
 
-    <input type="text" ng-model="vm.food" placeholder="Enter food" />
-
-    <p>Sriracha sauce is great with {{vm.food}}!</p>
-
-
-    <div ng-controller="ClientController">
+    <div ng-controller="Main as vm">
+        <input type="text" ng-model="vm.food" placeholder="Enter food" />
+        <p>Sriracha sauce is great with {{vm.food}}!</p>
+    </div>
+    <div ng-controller="ClientController as clients">
         <table class="table">
             <tr>
                 <th>First Name</th>
@@ -24,10 +22,8 @@
         </table>
     </div>
 
-
     <script src="Scripts/angular.min.js"></script>
     <script src="app/app.module.js"></script>
     <script src="app/main.js"></script>
-
 </body>
 </html>
