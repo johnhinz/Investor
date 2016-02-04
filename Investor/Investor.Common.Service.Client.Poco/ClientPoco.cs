@@ -15,6 +15,8 @@ namespace Investor.Common.Service.Client.Poco
         public string LastName { get; set; }
         public DateTime DoB { get; set; }
         public string SocialIns { get; set; }
-        public virtual AddressPoco Address { get; set; }
+        public virtual ICollection<AddressPoco> Addresses { get; set; }
+
+        // public virtual PhoneNumberPoco PhoneNumber {get;set;}
     }
 }

@@ -31,7 +31,7 @@ namespace Investor.Common.Shared.EntityFramework
 
             // specify client to address relation
             modelBuilder.Entity<ClientPoco>()
-                .HasOptional<AddressPoco>(c => c.Address);
+                .HasMany<AddressPoco>(c => c.Addresses);
         }
 
         public DbSet<ClientPoco> Clients { get; set; }

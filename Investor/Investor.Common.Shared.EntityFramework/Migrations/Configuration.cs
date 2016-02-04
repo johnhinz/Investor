@@ -12,6 +12,8 @@ namespace Investor.Common.Shared.EntityFramework.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
+
         }
 
         protected override void Seed(Investor.Common.Shared.EntityFramework.InvestorContext context)
