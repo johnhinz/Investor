@@ -1,5 +1,4 @@
-﻿using Investor.Common.Service.Address.Poco;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +15,5 @@ namespace Investor.Common.Service.Company.Poco
         //public long AddressId{get; set;}
         public long PhoneNumber { get; set; }
         public long AgentID { get; set; }
-        public virtual AddressPoco Address { get; set; }
     }
 }

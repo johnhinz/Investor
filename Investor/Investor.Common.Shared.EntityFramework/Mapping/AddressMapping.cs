@@ -1,4 +1,4 @@
-﻿using Investor.Common.Service.Address.Poco;
+﻿using Investor.Common.Service.Client.Poco;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
@@ -13,7 +13,7 @@ namespace Investor.Common.Shared.EntityFramework.Mapping
         public AddressMapping()
         {
             ToTable("Address");
-            HasKey(a => a.Address_Id);
+            //HasKey(a => a.Address_Id);
         }
     }
 }

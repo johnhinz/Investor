@@ -1,4 +1,4 @@
-﻿using Investor.Common.Service.Address.Poco;
+﻿//using Investor.Common.Service.Address.Poco;
 using Investor.Common.Service.Client.Poco;
 using Investor.Common.Service.Company.Poco;
 using Investor.Common.Service.Investment.Poco;
@@ -26,12 +26,16 @@ namespace Investor.Common.Shared.EntityFramework
             modelBuilder.Configurations.Add(new AddressMapping());
             modelBuilder.Configurations.Add(new CompanyMapping());
 
-            modelBuilder.Entity<CompanyPoco>()
-                .HasOptional<AddressPoco>(comp => comp.Address);
-
-            // specify client to address relation
             modelBuilder.Entity<ClientPoco>()
-                .HasMany<AddressPoco>(c => c.Addresses);
+                .HasMany<AddressPoco>(c => c.Addresses)
+                .WithMany(a => a.Clients)
+                .Map(ca =>
+                    {
+                        ca.MapLeftKey("ClientId");
+                        ca.MapRightKey("AddressId");
+                        ca.ToTable("ClientAddresses");
+
+                    });
         }
 
         public DbSet<ClientPoco> Clients { get; set; }

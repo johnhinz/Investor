@@ -168,10 +168,6 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Investor.Common.Service.Address.Poco\Investor.Common.Service.Address.Poco.csproj">
-      <Project>{724440ff-74f4-4c90-b254-3732f6a0fd08}</Project>
-      <Name>Investor.Common.Service.Address.Poco</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Investor.Common.Service.Client.Data\Investor.Common.Service.Client.Data.csproj">
       <Project>{4dfe870a-dd93-4cdc-9e2d-36d648f7eb43}</Project>
       <Name>Investor.Common.Service.Client.Data</Name>

@@ -43,12 +43,6 @@
     <Compile Include="CompanyPoco.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Investor.Common.Service.Address.Poco\Investor.Common.Service.Address.Poco.csproj">
-      <Project>{724440ff-74f4-4c90-b254-3732f6a0fd08}</Project>
-      <Name>Investor.Common.Service.Address.Poco</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

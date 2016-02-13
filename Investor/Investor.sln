@@ -10,7 +10,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investor.Common.Service.Client.Api", "Investor.Common.Service.Client.Api\Investor.Common.Service.Client.Api.csproj", "{002F9058-260C-4EB0-95B6-02F06B4AB1CA}"
 	ProjectSection(ProjectDependencies) = postProject
 		{97103FE7-F45F-44A0-BC35-1B079210551F} = {97103FE7-F45F-44A0-BC35-1B079210551F}
-		{724440FF-74F4-4C90-B254-3732F6A0FD08} = {724440FF-74F4-4C90-B254-3732F6A0FD08}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investor.Common.Service.Client.Logic", "Investor.Common.Service.Client.Logic\Investor.Common.Service.Client.Logic.csproj", "{971D42CE-DFC0-480C-A7C1-43BF7C064835}"
@@ -43,10 +42,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investor.Common.Service.Company.Logic", "Investor.Common.Service.Company.Logic\Investor.Common.Service.Company.Logic.csproj", "{EAB0EC38-EF87-4F95-81AF-8A88DD4409AF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investor.Common.Service.Company.Poco", "Investor.Common.Service.Company.Poco\Investor.Common.Service.Company.Poco.csproj", "{71791D63-9865-465E-B765-872BB46B4575}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Investor.Common.Service.Address", "Investor.Common.Service.Address", "{C149A1C4-340A-4754-9D35-8B6426832BC2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investor.Common.Service.Address.Poco", "Investor.Common.Service.Address.Poco\Investor.Common.Service.Address.Poco.csproj", "{724440FF-74F4-4C90-B254-3732F6A0FD08}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investor.Common.Shared.EntityFramework", "Investor.Common.Shared.EntityFramework\Investor.Common.Shared.EntityFramework.csproj", "{97103FE7-F45F-44A0-BC35-1B079210551F}"
 EndProject
@@ -128,10 +123,6 @@ Global
 		{71791D63-9865-465E-B765-872BB46B4575}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71791D63-9865-465E-B765-872BB46B4575}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71791D63-9865-465E-B765-872BB46B4575}.Release|Any CPU.Build.0 = Release|Any CPU
-		{724440FF-74F4-4C90-B254-3732F6A0FD08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{724440FF-74F4-4C90-B254-3732F6A0FD08}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{724440FF-74F4-4C90-B254-3732F6A0FD08}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{724440FF-74F4-4C90-B254-3732F6A0FD08}.Release|Any CPU.Build.0 = Release|Any CPU
 		{97103FE7-F45F-44A0-BC35-1B079210551F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{97103FE7-F45F-44A0-BC35-1B079210551F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97103FE7-F45F-44A0-BC35-1B079210551F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -178,7 +169,6 @@ Global
 		{22D67BE7-140A-467C-9F75-560FB7C104E2} = {586440D0-D3C2-47BC-A844-F6BEB5165D0F}
 		{EAB0EC38-EF87-4F95-81AF-8A88DD4409AF} = {586440D0-D3C2-47BC-A844-F6BEB5165D0F}
 		{71791D63-9865-465E-B765-872BB46B4575} = {586440D0-D3C2-47BC-A844-F6BEB5165D0F}
-		{724440FF-74F4-4C90-B254-3732F6A0FD08} = {C149A1C4-340A-4754-9D35-8B6426832BC2}
 		{97103FE7-F45F-44A0-BC35-1B079210551F} = {8C521B92-8D8E-4BE1-B617-EBCE10008A51}
 		{125F59B7-5300-47D5-B0D8-CD9AD6F51EBC} = {0CAEA5F9-F31B-4ED4-9555-C7810DCA5D6F}
 		{93B8CD36-3141-470F-9C33-3A8842802947} = {0CAEA5F9-F31B-4ED4-9555-C7810DCA5D6F}

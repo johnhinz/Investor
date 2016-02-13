@@ -1,5 +1,4 @@
-﻿using Investor.Common.Service.Address.Poco;
-using Investor.Common.Service.Client.Interface;
+﻿using Investor.Common.Service.Client.Interface;
 using Investor.Common.Service.Client.Poco;
 using System;
 using System.Collections.Generic;
