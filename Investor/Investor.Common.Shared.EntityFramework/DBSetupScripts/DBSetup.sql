@@ -1,10 +1,16 @@
 ﻿USE Investor;
 
-DROP TABLE [dbo].[ClientAddresses];
-DROP TABLE [dbo].[Address];
-DROP TABLE [dbo].[Client];
-DROP TABLE [dbo].[Company];
-DROP TABLE [dbo].[Investment];
+
+IF EXISTS (select * from sys.objects where name = 'ClientAddresses' and type = 'u') 
+	DROP TABLE [dbo].[ClientAddresses];
+IF EXISTS (select * from sys.objects where name = 'Address' and type = 'u') 
+	DROP TABLE [dbo].[Address];
+IF EXISTS (select * from sys.objects where name = 'Client' and type = 'u') 
+	DROP TABLE [dbo].[Client];
+IF EXISTS (select * from sys.objects where name = 'Company' and type = 'u') 
+	DROP TABLE [dbo].[Company];
+IF EXISTS (select * from sys.objects where name = 'Investment' and type = 'u') 
+	DROP TABLE [dbo].[Investment];
 
 CREATE TABLE [dbo].[Address] (
     [Id]          BIGINT         IDENTITY (1, 1) NOT NULL,
@@ -32,11 +38,9 @@ CREATE TABLE [dbo].[ClientAddresses] (
     CONSTRAINT [FK_dbo.ClientAddresses_dbo.Address_AddressId] FOREIGN KEY ([AddressId]) REFERENCES [dbo].[Address] ([Id]) ON DELETE CASCADE
 );
 
-GO
 CREATE NONCLUSTERED INDEX [IX_ClientId]
     ON [dbo].[ClientAddresses]([ClientId] ASC);
 
-GO
 CREATE NONCLUSTERED INDEX [IX_AddressId]
     ON [dbo].[ClientAddresses]([AddressId] ASC);
 
@@ -55,3 +59,15 @@ CREATE TABLE [dbo].[Investment] (
     CONSTRAINT [PK_dbo.Investment] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
+SET IDENTITY_INSERT [dbo].[Client] ON;
+INSERT INTO CLIENT (Id, FirstName, LastName, DoB, SocialIns)
+	VALUES (1, 'Joe', 'Smith', '12/15/1993', '111-111-111');
+SET IDENTITY_INSERT [dbo].[Client] OFF;
+
+SET IDENTITY_INSERT [dbo].[Address] ON;
+INSERT INTO ADDRESS (Id, Street, City, Province, Postal_Code)
+	VALUES (1, '123 Some Street', 'Some City', 'Some Province', 'N5A2H8');
+SET IDENTITY_INSERT [dbo].[Address] ON;
+
+INSERT INTO ClientAddresses (ClientId, AddressId)
+	VALUES (1,1);
