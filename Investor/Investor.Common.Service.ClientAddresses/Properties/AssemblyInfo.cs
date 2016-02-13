@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Investor.Common.Service.Address.Poco")]
+[assembly: AssemblyTitle("Investor.Common.Service.ClientAddresses")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Investor.Common.Service.Address.Poco")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyCompany("Microsoft Corporation")]
+[assembly: AssemblyProduct("Investor.Common.Service.ClientAddresses")]
+[assembly: AssemblyCopyright("Copyright © Microsoft Corporation 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("724440ff-74f4-4c90-b254-3732f6a0fd08")]
+[assembly: Guid("5131e2ae-4652-4258-bcb7-29448806ceae")]
 
 // Version information for an assembly consists of the following four values:
 //
