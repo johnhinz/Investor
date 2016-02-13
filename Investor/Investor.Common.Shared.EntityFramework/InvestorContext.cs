@@ -16,7 +16,7 @@ namespace Investor.Common.Shared.EntityFramework
     {
         public InvestorContext() : base ("InvestorContext")
         {
-            
+            Database.SetInitializer<InvestorContext>(null);
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
