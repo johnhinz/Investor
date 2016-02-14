@@ -27,6 +27,8 @@ namespace Investor.Common.Service.Client.Api
             container.RegisterType<IClientLogic, ClientLogic>(new HierarchicalLifetimeManager());
 
             config.DependencyResolver = new UnityResolver(container);
+
+            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
         }
     }
 }
