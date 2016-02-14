@@ -29,6 +29,8 @@ namespace Investor.Common.Service.Client.Api
             config.DependencyResolver = new UnityResolver(container);
 
             config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+
+            config.EnableCors();
         }
     }
 }
