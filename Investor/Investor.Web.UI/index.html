@@ -2,14 +2,13 @@
 <html ng-app="app">
 <head>
     <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script src="/App/main.js"></script>
 </head>
 <body>
 
-    <div ng-controller="Main as vm">
-        <input type="text" ng-model="vm.food" placeholder="Enter food" />
-        <p>Sriracha sauce is great with {{vm.food}}!</p>
-    </div>
-    <div ng-controller="ClientController as clients">
+    <div ng-controller="ClientGet">
+        {{client.FirstName}}
         <table class="table">
             <tr>
                 <th>First Name</th>
@@ -21,9 +20,5 @@
             </tr>
         </table>
     </div>
-
-    <script src="Scripts/angular.min.js"></script>
-    <script src="app/app.module.js"></script>
-    <script src="app/main.js"></script>
 </body>
 </html>

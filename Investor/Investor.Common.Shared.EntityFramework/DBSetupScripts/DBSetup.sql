@@ -62,12 +62,20 @@ CREATE TABLE [dbo].[Investment] (
 SET IDENTITY_INSERT [dbo].[Client] ON;
 INSERT INTO CLIENT (Id, FirstName, LastName, DoB, SocialIns)
 	VALUES (1, 'Joe', 'Smith', '12/15/1993', '111-111-111');
+INSERT INTO CLIENT (Id, FirstName, LastName, DoB, SocialIns)
+	VALUES (2, 'Sally', 'Jones', '1/23/1987', '222-222-222');
 SET IDENTITY_INSERT [dbo].[Client] OFF;
 
 SET IDENTITY_INSERT [dbo].[Address] ON;
 INSERT INTO ADDRESS (Id, Street, City, Province, Postal_Code)
-	VALUES (1, '123 Some Street', 'Some City', 'Some Province', 'N5A2H8');
+	VALUES (1, '123 Some Street', 'Toronto', 'Ontario', 'N5A2H8');
+INSERT INTO ADDRESS (Id, Street, City, Province, Postal_Code)
+	VALUES (2, '345 Mill Street', 'Kitchener', 'Ontario', 'M5R3H9');
 SET IDENTITY_INSERT [dbo].[Address] ON;
 
 INSERT INTO ClientAddresses (ClientId, AddressId)
 	VALUES (1,1);
+INSERT INTO ClientAddresses (ClientId, AddressId)
+	VALUES (2,2);
+INSERT INTO ClientAddresses (ClientId, AddressId)
+	VALUES (1,2);
