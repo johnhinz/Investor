@@ -1,14 +1,13 @@
 ﻿<!DOCTYPE html>
-<html ng-app="app">
+<html ng-app="myApp">
 <head>
     <title></title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-    <script src="/App/main.js"></script>
+    <script type="text/javascript" src="Scripts/angular.min.js"></script>
+    <script type="text/javascript" src="App/app.module.js"></script>
+    <script type="text/javascript" src="App/main.js"></script>
 </head>
-<body>
-
-    <div ng-controller="ClientGet">
-        {{client.FirstName}}
+<body ng-controller="ClientController">
+    <div id="ClientTable" >
         <table class="table">
             <tr>
                 <th>First Name</th>
