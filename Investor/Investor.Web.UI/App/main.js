@@ -1,11 +1,13 @@
 ﻿app.controller('ClientController', function ($scope, $http) {
     $scope.clients = [];
+    
     $http.get('http://localhost:13254/api.invest.com/clients/1')
-        .success(function (response) {
-                $scope.clients = response.data;
+        .success(function (data) {
+                $scope.clients = data;
+                console.log(data);
         })
-        .error(function (response) {
-            console.log('Error: ' + response.data);
+        .error(function (data) {
+            console.log('Error: ' + data);
         })
     }
 );

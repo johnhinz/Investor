@@ -10,7 +10,7 @@ using System.Web.Http.Cors;
 
 namespace Investor.Common.Service.Client.Api.Controllers
 {
-    [EnableCors(origins: "http://localhost:64886/", headers: "*", methods: "*")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix ("api.invest.com/clients")]
     public class ClientController : ApiController
     {
@@ -26,10 +26,6 @@ namespace Investor.Common.Service.Client.Api.Controllers
         public HttpResponseMessage Get(long clientId)
         {
             var client = _logic.Read(clientId);
-
-            //HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.OK, client);
-            //response.Headers.Add("Access-Control-Allow-Origin", );
-
             return Request.CreateResponse(HttpStatusCode.OK, client);
         }
 
