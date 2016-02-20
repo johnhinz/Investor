@@ -13,7 +13,7 @@ namespace Investor.Common.Service.Company.Poco
         public string ContactName { get; set; }
 
         //public long AddressId{get; set;}
-        public long PhoneNumber { get; set; }
-        public long AgentID { get; set; }
+        public string PhoneNumber { get; set; }
+        public string AgentId { get; set; }
     }
 }
