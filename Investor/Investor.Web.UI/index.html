@@ -5,19 +5,38 @@
     <script type="text/javascript" src="Scripts/angular.min.js"></script>
     <script type="text/javascript" src="App/app.module.js"></script>
     <script type="text/javascript" src="App/main.js"></script>
+
+    <link rel="stylesheet" href="Content/bootstrap.min.css" />
+    <script src="Scripts/jquery-1.9.1.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
 </head>
-<body ng-controller="ClientController" >
-    <div id="ClientTable"  >
-        <table class="table">
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-            </tr>
-            <tr ng-repeat="client in clients">
-                <td>{{client.FirstName}}</td>
-                <td>{{client.LastName}}</td>
-            </tr>
-        </table>
-    </div>
+<body  >
+    <form ng-submit="submit()" ng-controller="ClientController">
+        <div id="ClientInfo"  >
+            <input type="text" ng-model="clientId" name="clientIdInput" />
+            <input type="submit" id="clientIdSubmit" value="Submit" />
+            <div>
+                Client Info:<br />
+                {{clients.FirstName}} {{clients.LastName}}<br />
+                {{clients.DoB}}<br />
+                {{clients.SocialIns}}<br />
+            </div>
+        
+            <table class="table">
+                <tr>
+                    <th>Street</th>
+                    <th>City</th>
+                    <th>Province</th>
+                    <th>Postal Code</th>
+                </tr>
+                <tr ng-repeat="addr in clients.Addresses">
+                    <td>{{addr.Street}}</td>
+                    <td>{{addr.City}}</td>
+                    <td>{{addr.Province}}</td>
+                    <td>{{addr.Postal_Code}}</td>
+                </tr>
+            </table>
+        </div>
+    </form>  
 </body>
 </html>
