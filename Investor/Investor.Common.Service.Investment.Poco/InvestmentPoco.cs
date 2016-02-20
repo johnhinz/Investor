@@ -10,5 +10,7 @@ namespace Investor.Common.Service.Investment.Poco
     {
         public long Id { get; set; }
         public string InvestmentType { get; set; }
+
+        public long CompanyId { get; set; }
     }
 }
