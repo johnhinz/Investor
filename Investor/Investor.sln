@@ -61,6 +61,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Investor.Web", "Investor.We
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investor.Web.UI", "Investor.Web.UI\Investor.Web.UI.csproj", "{4CAED0EE-8080-4630-BC68-0AFED701367D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wireframe", "Wireframe", "{BC965F09-88B8-4CA1-82C6-BF4C1D1928CF}"
+	ProjectSection(SolutionItems) = preProject
+		Wireframe\clients.html = Wireframe\clients.html
+		Wireframe\companies.html = Wireframe\companies.html
+		Wireframe\home.html = Wireframe\home.html
+		Wireframe\index.html = Wireframe\index.html
+		Wireframe\investments.html = Wireframe\investments.html
+		Wireframe\login.html = Wireframe\login.html
+		Wireframe\reports.html = Wireframe\reports.html
+		Wireframe\start.html = Wireframe\start.html
+		Wireframe\start_c_1.html = Wireframe\start_c_1.html
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
