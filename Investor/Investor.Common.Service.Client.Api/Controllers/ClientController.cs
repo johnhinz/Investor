@@ -8,12 +8,15 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
+
+
 namespace Investor.Common.Service.Client.Api.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix ("api.invest.com/clients")]
     public class ClientController : ApiController
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         private IClientLogic _logic;
 
         public ClientController(IClientLogic logic)
