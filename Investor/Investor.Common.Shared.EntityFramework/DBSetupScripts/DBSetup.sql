@@ -4,12 +4,14 @@ IF EXISTS (select * from sys.objects where name = 'ClientAddresses' and type = '
 	DROP TABLE [dbo].[ClientAddresses];
 IF EXISTS (select * from sys.objects where name = 'Address' and type = 'u') 
 	DROP TABLE [dbo].[Address];
+IF EXISTS (select * from sys.objects where name = 'InvestmentClient' and type = 'u') 
+	DROP TABLE [dbo].[InvestmentClient];
 IF EXISTS (select * from sys.objects where name = 'Client' and type = 'u') 
 	DROP TABLE [dbo].[Client];
-IF EXISTS (select * from sys.objects where name = 'Company' and type = 'u') 
-	DROP TABLE [dbo].[Company];
 IF EXISTS (select * from sys.objects where name = 'Investment' and type = 'u') 
 	DROP TABLE [dbo].[Investment];
+IF EXISTS (select * from sys.objects where name = 'Company' and type = 'u') 
+	DROP TABLE [dbo].[Company];
 
 CREATE TABLE [dbo].[Address] (
     [Id]          BIGINT         IDENTITY (1, 1) NOT NULL,
@@ -60,6 +62,15 @@ CREATE TABLE [dbo].[Investment] (
     CONSTRAINT [FK_dbo.Investment_dbo.Company_CompanyId] FOREIGN KEY ([CompanyId]) REFERENCES [dbo].[Company] ([Id]) ON DELETE CASCADE,
 );
 
+CREATE TABLE [dbo].[InvestmentClient] (
+	[ClientId]		BIGINT NOT NULL,
+	[InvestmentId]  BIGINT NOT NULL,
+	[ClientOrder] 	TINYINT NOT NULL
+    CONSTRAINT [PK_dbo.InvestmentClient] PRIMARY KEY CLUSTERED ([ClientId] ASC, [InvestmentId] ASC)
+    CONSTRAINT [FK_dbo.InvestmentClient_dbo.Client_ClientId] FOREIGN KEY ([ClientId]) REFERENCES [dbo].[Client] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_dbo.InvestmentClient_dbo.Invesetment_InvestmentId] FOREIGN KEY ([InvestmentId]) REFERENCES [dbo].[Investment] ([Id]) ON DELETE CASCADE,
+);
+
 SET IDENTITY_INSERT [dbo].[Client] ON;
 INSERT INTO CLIENT (Id, FirstName, LastName, DoB, SocialIns)
 	VALUES (1, 'Joe', 'Smith', '12/15/1993', '111-111-111');
@@ -94,8 +105,10 @@ INSERT INTO COMPANY (Id, CompanyName, ContactName, PhoneNumber, AgentId)
 	VALUES (2, 'Royal Bank', 'Sally Jones', '519-273-1633 x456', 'COMP');
 SET IDENTITY_INSERT [dbo].[Company] OFF;
 
-
 SET IDENTITY_INSERT [dbo].[Investment] ON;
 INSERT INTO INVESTMENT (Id, CompanyId, InvestmentType)
 	VALUES (1, 1, 'GIC');
 SET IDENTITY_INSERT [dbo].[Investment] OFF;
+
+INSERT INTO INVESTMENTCLIENT (ClientId, InvestmentId, ClientOrder)
+	VALUES (1, 1, 1);

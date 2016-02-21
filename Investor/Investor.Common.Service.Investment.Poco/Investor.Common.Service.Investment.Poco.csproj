@@ -40,8 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InvestmentClientPoco.cs" />
     <Compile Include="InvestmentPoco.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Investor.Common.Service.Client.Poco\Investor.Common.Service.Client.Poco.csproj">
+      <Project>{6d95fae9-04d4-4a76-ae77-544c9d5dda5f}</Project>
+      <Name>Investor.Common.Service.Client.Poco</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -28,6 +28,7 @@ namespace Investor.Common.Shared.EntityFramework
             modelBuilder.Configurations.Add(new InvestmentMapping());
             modelBuilder.Configurations.Add(new AddressMapping());
             modelBuilder.Configurations.Add(new CompanyMapping());
+            modelBuilder.Configurations.Add(new InvestmentClientMapping());
 
             modelBuilder.Entity<ClientPoco>()
                 .HasMany<AddressPoco>(c => c.Addresses)
