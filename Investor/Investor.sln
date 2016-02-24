@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestClassLibrary", "TestClassLibrary\TestClassLibrary.csproj", "{92206DDA-64C2-4513-AFE4-4CF5BFD532D6}"
 EndProject
@@ -72,6 +72,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wireframe", "Wireframe", "{
 		Wireframe\reports.html = Wireframe\reports.html
 		Wireframe\start.html = Wireframe\start.html
 		Wireframe\start_c_1.html = Wireframe\start_c_1.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Log4Net", "Log4Net", "{BCF05BEC-240D-4C1A-84BC-78B40034E485}"
+	ProjectSection(SolutionItems) = preProject
+		Log4Net.config = Log4Net.config
 	EndProjectSection
 EndProject
 Global

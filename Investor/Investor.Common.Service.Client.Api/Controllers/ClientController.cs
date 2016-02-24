@@ -8,31 +8,40 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
+
+
 namespace Investor.Common.Service.Client.Api.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix ("api.invest.com/clients")]
     public class ClientController : ApiController
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         private IClientLogic _logic;
 
         public ClientController(IClientLogic logic)
         {
             _logic = logic;
+          
         }
 
         [HttpGet]
         [Route ("{clientId}")]
+
         public HttpResponseMessage Get(long clientId)
         {
             var client = _logic.Read(clientId);
+            log.Debug("Getting Client!");
             return Request.CreateResponse(HttpStatusCode.OK, client);
+          
         }
 
         [HttpGet]
         [Route ("{clientId}/addresses")]
         public HttpResponseMessage GetAddresses(long clientId)
         {
+            log.Error("Error in getting address.");
             throw new NotImplementedException();
         }
 
@@ -54,6 +63,7 @@ namespace Investor.Common.Service.Client.Api.Controllers
         public HttpResponseMessage CreateClient([FromBody] ClientPoco client)
         {
             _logic.Create(client);
+            log.Debug("Creating new client.");
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
