@@ -27,5 +27,21 @@ namespace Investor.Common.Service.Client.Data
         {
             return _db.Clients.Where(c => c.Id == id).FirstOrDefault();
         }
+
+        public ClientPoco ReadLastName(string lastname)
+        {
+            return _db.Clients.Where(c => c.LastName == lastname).FirstOrDefault();
+        }
+
+        public ClientPoco ReadFirstName(string firstname)
+        {
+            return _db.Clients.Where(c => c.FirstName == firstname).FirstOrDefault();
+        }
+
+        public AddressPoco ReadAddresses(long id)
+        {
+            return _db.Addresses.Where(c => c.Clients.Equals(id)).FirstOrDefault();
+           
+        }
     }
 }

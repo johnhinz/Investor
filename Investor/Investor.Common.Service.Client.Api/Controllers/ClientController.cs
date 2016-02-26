@@ -41,8 +41,26 @@ namespace Investor.Common.Service.Client.Api.Controllers
         [Route ("{clientId}/addresses")]
         public HttpResponseMessage GetAddresses(long clientId)
         {
-            log.Error("Error in getting address.");
-            throw new NotImplementedException();
+            var client = _logic.ReadAddresses(clientId);
+            return Request.CreateResponse(HttpStatusCode.OK, client);
+        }
+
+        [HttpGet]
+        [Route("LastName/{LastName}")]
+        public HttpResponseMessage GetLastName(string lastname)
+        {
+            var client = _logic.ReadLastName(lastname);
+            return Request.CreateResponse(HttpStatusCode.OK, client);
+
+        }
+
+        [HttpGet]
+        [Route("FirstName/{FirstName}")]
+        public HttpResponseMessage GetFirstName(string firstname)
+        {
+            var client = _logic.ReadFirstName(firstname);
+            return Request.CreateResponse(HttpStatusCode.OK, client);
+
         }
 
         [HttpPut]

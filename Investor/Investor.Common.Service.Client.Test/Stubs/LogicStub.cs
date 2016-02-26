@@ -18,5 +18,25 @@ namespace Investor.Common.Service.Client.Test.Stubs
         {
             throw new NotImplementedException();
         }
+
+        public ClientPoco ReadLastName(string lastname)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ClientPoco ReadFirstName(string firstname)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ClientPoco ReadAddresses(long id)
+        {
+            throw new NotImplementedException();
+        }
+
+        AddressPoco IClientLogic.ReadAddresses(long id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
