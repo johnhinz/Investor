@@ -1,14 +1,6 @@
-﻿//using Investor.Common.Service.Address.Poco;
-using Investor.Common.Service.Client.Poco;
-using Investor.Common.Service.Company.Poco;
-using Investor.Common.Service.Investment.Poco;
-using Investor.Common.Shared.EntityFramework.Mapping;
-using System;
-using System.Collections.Generic;
+﻿using Investor.Common.Shared.EntityFramework.Mapping;
+using Investor.Common.Shared.Pocos;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Investor.Common.Shared.EntityFramework
 {

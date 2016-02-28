@@ -2,14 +2,13 @@
 
 using Microsoft.Practices.Unity;
 using Microsoft.Owin;
-using Microsoft.Owin.Security.OAuth;
 
 
 
 using Investor.Common.Shared.IoC;
-using Investor.Common.Service.Client.Interface;
 using Investor.Common.Service.Client.Data;
 using Investor.Common.Service.Client.Logic;
+using Investor.Common.Shared.Interfaces;
 //using Investor.Common.Shared.OAuth;
 
 

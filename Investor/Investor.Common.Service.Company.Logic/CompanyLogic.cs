@@ -1,14 +1,9 @@
-﻿using Investor.Common.Service.Company.Interface;
-using Investor.Common.Service.Company.Poco;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Investor.Common.Shared.Interfaces;
+using Investor.Common.Shared.Pocos;
 
 namespace Investor.Common.Service.Company.Logic
 {
-    public class CompanyLogic:ICompanyLogic
+    public class CompanyLogic : ICompanyLogic
     {
         private ICompanyRepository _repository;
 

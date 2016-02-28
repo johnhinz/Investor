@@ -1,11 +1,7 @@
-﻿using Investor.Common.Service.Investment.Interface;
-using Investor.Common.Service.Investment.Poco;
-using Investor.Common.Shared.EntityFramework;
-using System;
-using System.Collections.Generic;
+﻿using Investor.Common.Shared.EntityFramework;
+using Investor.Common.Shared.Interfaces;
+using Investor.Common.Shared.Pocos;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Investor.Common.Service.Investment.Data
 {

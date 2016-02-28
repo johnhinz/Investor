@@ -1,14 +1,16 @@
-﻿using Investor.Common.Service.Company.Poco;
+﻿using Investor.Common.Shared.Pocos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Investor.Common.Service.Company.Interface
+namespace Investor.Common.Shared.Interfaces
 {
-    public interface ICompanyLogic
+    public interface ICompanyRepository
     {
+
         CompanyPoco Read(long id);
+
     }
 }

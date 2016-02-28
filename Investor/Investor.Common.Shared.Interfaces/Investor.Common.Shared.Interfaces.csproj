@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{22D67BE7-140A-467C-9F75-560FB7C104E2}</ProjectGuid>
+    <ProjectGuid>{5A2693A2-088D-49CB-AA22-937A483365E0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Investor.Common.Service.Company.Interface</RootNamespace>
-    <AssemblyName>Investor.Common.Service.Company.Interface</AssemblyName>
+    <RootNamespace>Investor.Common.Shared.Interfaces</RootNamespace>
+    <AssemblyName>Investor.Common.Shared.Interfaces</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,14 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IClientLogic.cs" />
+    <Compile Include="IClientRepository.cs" />
     <Compile Include="ICompanyLogic.cs" />
     <Compile Include="ICompanyRepository.cs" />
+    <Compile Include="IInvestmentLogic.cs" />
+    <Compile Include="IInvestmentRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Investor.Common.Service.Company.Poco\Investor.Common.Service.Company.Poco.csproj">
-      <Project>{71791d63-9865-465e-b765-872bb46b4575}</Project>
-      <Name>Investor.Common.Service.Company.Poco</Name>
+    <ProjectReference Include="..\Investor.Common.Shared.Pocos\Investor.Common.Shared.Pocos.csproj">
+      <Project>{f1382fb5-ba1e-49e4-98f3-5d78f35d105c}</Project>
+      <Name>Investor.Common.Shared.Pocos</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

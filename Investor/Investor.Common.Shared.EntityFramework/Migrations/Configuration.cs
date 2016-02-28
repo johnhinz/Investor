@@ -1,11 +1,8 @@
+using Investor.Common.Shared.Pocos;
+using System.Data.Entity.Migrations;
+
 namespace Investor.Common.Shared.EntityFramework.Migrations
 {
-    using Service.Client.Poco;
-    using Service.Investment.Poco;
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<Investor.Common.Shared.EntityFramework.InvestorContext>
     {

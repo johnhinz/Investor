@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using Investor.Common.Service.Investment.Poco;
+﻿using Investor.Common.Shared.Pocos;
 using System.Data.Entity.ModelConfiguration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Investor.Common.Shared.EntityFramework.Mapping
 {
-   public class InvestmentMapping: EntityTypeConfiguration<InvestmentPoco>
+    public class InvestmentMapping: EntityTypeConfiguration<InvestmentPoco>
     {
         public InvestmentMapping()
         {

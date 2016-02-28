@@ -1,13 +1,12 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Investor.Common.Service.Client.Interface;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Investor.Common.Service.Client.Test.Stubs;
 using Investor.Common.Service.Client.Api.Controllers;
 using System.Web.Http;
 using System.Net.Http;
 using System.Web.Http.Hosting;
-using Investor.Common.Service.Client.Poco;
 using Newtonsoft.Json;
+using Investor.Common.Shared.Pocos;
+using Investor.Common.Shared.Interfaces;
 
 namespace Investor.Common.Service.Client.Test
 {

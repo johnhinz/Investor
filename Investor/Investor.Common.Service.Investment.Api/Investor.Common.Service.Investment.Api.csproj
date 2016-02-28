@@ -174,21 +174,21 @@
       <Project>{93b8cd36-3141-470f-9c33-3a8842802947}</Project>
       <Name>Investor.Common.Service.Investment.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Investor.Common.Service.Investment.Interface\Investor.Common.Service.Investment.Interface.csproj">
-      <Project>{ec5cec8b-b516-40a8-9f11-61ce3c4080db}</Project>
-      <Name>Investor.Common.Service.Investment.Interface</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Investor.Common.Service.Investment.Logic\Investor.Common.Service.Investment.Logic.csproj">
       <Project>{b275abe4-655a-458a-943c-e8c039de2e50}</Project>
       <Name>Investor.Common.Service.Investment.Logic</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Investor.Common.Service.Investment.Poco\Investor.Common.Service.Investment.Poco.csproj">
-      <Project>{1b10f79e-3a36-4814-9f1c-7dda0f06445b}</Project>
-      <Name>Investor.Common.Service.Investment.Poco</Name>
+    <ProjectReference Include="..\Investor.Common.Shared.Interfaces\Investor.Common.Shared.Interfaces.csproj">
+      <Project>{5a2693a2-088d-49cb-aa22-937a483365e0}</Project>
+      <Name>Investor.Common.Shared.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\Investor.Common.Shared.IoC\Investor.Common.Shared.IoC.csproj">
       <Project>{8984b55f-40ef-45e1-884f-837ba5531820}</Project>
       <Name>Investor.Common.Shared.IoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Investor.Common.Shared.Pocos\Investor.Common.Shared.Pocos.csproj">
+      <Project>{f1382fb5-ba1e-49e4-98f3-5d78f35d105c}</Project>
+      <Name>Investor.Common.Shared.Pocos</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

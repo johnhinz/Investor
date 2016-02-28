@@ -1,11 +1,8 @@
 ﻿using Investor.Common.Service.Company.Data;
-using Investor.Common.Service.Company.Interface;
 using Investor.Common.Service.Company.Logic;
+using Investor.Common.Shared.Interfaces;
 using Investor.Common.Shared.IoC;
 using Microsoft.Practices.Unity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web.Http;
 
 namespace Investor.Common.Service.Company.Api

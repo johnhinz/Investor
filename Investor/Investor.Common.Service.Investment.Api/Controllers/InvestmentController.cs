@@ -1,8 +1,5 @@
-﻿using Investor.Common.Service.Investment.Interface;
-using Investor.Common.Service.Investment.Poco;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Investor.Common.Shared.Interfaces;
+using Investor.Common.Shared.Pocos;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;

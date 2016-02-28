@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
+﻿using System.Web.Http;
 using Investor.Common.Shared.IoC;
 using Microsoft.Practices.Unity;
-using Investor.Common.Service.Investment.Interface;
 using Investor.Common.Service.Investment.Data;
 using Investor.Common.Service.Investment.Logic;
+using Investor.Common.Shared.Interfaces;
 
 namespace Investor.Common.Service.Investment.Api
 {

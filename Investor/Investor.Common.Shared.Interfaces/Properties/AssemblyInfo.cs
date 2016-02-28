@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Investor.Common.Service.Client.Interface")]
+[assembly: AssemblyTitle("Investor.Common.Shared.Interfaces")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Investor.Common.Service.Client.Interface")]
+[assembly: AssemblyProduct("Investor.Common.Shared.Interfaces")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("8e48d560-199a-4b6d-9291-773deed95161")]
+[assembly: Guid("5a2693a2-088d-49cb-aa22-937a483365e0")]
 
 // Version information for an assembly consists of the following four values:
 //

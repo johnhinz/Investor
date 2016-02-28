@@ -1,10 +1,7 @@
-﻿using Investor.Common.Service.Client.Interface;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Investor.Common.Service.Client.Poco;
+using Investor.Common.Shared.Pocos;
+using Investor.Common.Shared.Interfaces;
 
 namespace Investor.Common.Service.Client.Test.Stubs
 {

@@ -1,13 +1,13 @@
-﻿using Investor.Common.Service.Investment.Poco;
+﻿using Investor.Common.Shared.Pocos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Investor.Common.Service.Investment.Interface
+namespace Investor.Common.Shared.Interfaces
 {
-    public interface IInvestmentRepository
+    public interface IInvestmentLogic
     {
         InvestmentPoco Read(long id);
         void Create(InvestmentPoco investment);

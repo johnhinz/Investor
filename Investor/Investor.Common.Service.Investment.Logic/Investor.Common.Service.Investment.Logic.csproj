@@ -44,13 +44,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Investor.Common.Service.Investment.Interface\Investor.Common.Service.Investment.Interface.csproj">
-      <Project>{ec5cec8b-b516-40a8-9f11-61ce3c4080db}</Project>
-      <Name>Investor.Common.Service.Investment.Interface</Name>
+    <ProjectReference Include="..\Investor.Common.Shared.Interfaces\Investor.Common.Shared.Interfaces.csproj">
+      <Project>{5a2693a2-088d-49cb-aa22-937a483365e0}</Project>
+      <Name>Investor.Common.Shared.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Investor.Common.Service.Investment.Poco\Investor.Common.Service.Investment.Poco.csproj">
-      <Project>{1b10f79e-3a36-4814-9f1c-7dda0f06445b}</Project>
-      <Name>Investor.Common.Service.Investment.Poco</Name>
+    <ProjectReference Include="..\Investor.Common.Shared.Pocos\Investor.Common.Shared.Pocos.csproj">
+      <Project>{f1382fb5-ba1e-49e4-98f3-5d78f35d105c}</Project>
+      <Name>Investor.Common.Shared.Pocos</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

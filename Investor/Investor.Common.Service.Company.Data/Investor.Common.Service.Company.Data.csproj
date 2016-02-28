@@ -53,17 +53,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Investor.Common.Service.Company.Interface\Investor.Common.Service.Company.Interface.csproj">
-      <Project>{22d67be7-140a-467c-9f75-560fb7c104e2}</Project>
-      <Name>Investor.Common.Service.Company.Interface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Investor.Common.Service.Company.Poco\Investor.Common.Service.Company.Poco.csproj">
-      <Project>{71791d63-9865-465e-b765-872bb46b4575}</Project>
-      <Name>Investor.Common.Service.Company.Poco</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Investor.Common.Shared.EntityFramework\Investor.Common.Shared.EntityFramework.csproj">
       <Project>{97103fe7-f45f-44a0-bc35-1b079210551f}</Project>
       <Name>Investor.Common.Shared.EntityFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Investor.Common.Shared.Interfaces\Investor.Common.Shared.Interfaces.csproj">
+      <Project>{5a2693a2-088d-49cb-aa22-937a483365e0}</Project>
+      <Name>Investor.Common.Shared.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Investor.Common.Shared.Pocos\Investor.Common.Shared.Pocos.csproj">
+      <Project>{f1382fb5-ba1e-49e4-98f3-5d78f35d105c}</Project>
+      <Name>Investor.Common.Shared.Pocos</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
