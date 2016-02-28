@@ -40,10 +40,11 @@ namespace Investor.Common.Service.Investment.Api
       
 
         [HttpDelete]
-        [Route("api.invest.com/investments/{investmentId}")]
-        public HttpResponseMessage DeleteInvestment(long clientId)
+        [Route("{ID}")]
+        public HttpResponseMessage DeleteInvestment(long ID)
         {
-            throw new NotImplementedException();
+            _logic.Delete(ID);
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
       

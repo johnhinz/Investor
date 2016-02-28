@@ -23,6 +23,13 @@ namespace Investor.Common.Service.Investment.Data
             _db.SaveChanges();
         }
 
+        public void Delete(long id)
+        {
+            InvestmentPoco p = _db.Investments.Find(id);
+            _db.Investments.Remove(p);
+            _db.SaveChanges();
+        }
+
         public InvestmentPoco Read(long id)
         {
             return _db.Investments.Where(c => c.Id == id).FirstOrDefault();

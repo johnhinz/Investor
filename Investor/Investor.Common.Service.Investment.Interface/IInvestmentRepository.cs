@@ -11,5 +11,6 @@ namespace Investor.Common.Service.Investment.Interface
     {
         InvestmentPoco Read(long id);
         void Create(InvestmentPoco investment);
+        void Delete(long id);
     }
 }
