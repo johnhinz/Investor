@@ -28,10 +28,11 @@ namespace Investor.Common.Service.Client.Data
             return _db.Clients.Where(c => c.Id == id).FirstOrDefault();
         }
 
-        public ClientPoco ReadLastName(string lastname)
+        public IEnumerable<ClientPoco> ReadLastName(string searchString)
         {
-            return _db.Clients.Where(c => c.LastName == lastname).FirstOrDefault();
+            return _db.Clients.Where(c => c.LastName.Contains(searchString)).ToList();
         }
+
 
         public ClientPoco ReadFirstName(string firstname)
         {

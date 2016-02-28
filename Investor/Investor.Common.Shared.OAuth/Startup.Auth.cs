@@ -9,7 +9,7 @@ using Microsoft.Owin.Security.OAuth;
 using Owin;
 using Investor.Common.Shared.OAuth;
 
-namespace Investor.Common.Service.Client.Api.App_Start
+namespace Investor.Common.Shared.OAuth
 {
     public partial class Startup
     {

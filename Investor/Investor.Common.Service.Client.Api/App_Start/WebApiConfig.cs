@@ -4,12 +4,16 @@ using Microsoft.Practices.Unity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.OAuth;
 
+
+
 using Investor.Common.Shared.IoC;
 using Investor.Common.Service.Client.Interface;
 using Investor.Common.Service.Client.Data;
 using Investor.Common.Service.Client.Logic;
+//using Investor.Common.Shared.OAuth;
 
-[assembly: OwinStartup(typeof(Investor.Common.Service.Client.Api.App_Start.Startup))]
+
+[assembly: OwinStartup(typeof(Investor.Common.Shared.OAuth.Startup))]
 
 namespace Investor.Common.Service.Client.Api
 {
