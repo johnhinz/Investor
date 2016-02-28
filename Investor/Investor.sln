@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestClassLibrary", "TestClassLibrary\TestClassLibrary.csproj", "{92206DDA-64C2-4513-AFE4-4CF5BFD532D6}"
 EndProject
@@ -78,6 +78,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Log4Net", "Log4Net", "{BCF0
 	ProjectSection(SolutionItems) = preProject
 		Log4Net.config = Log4Net.config
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investor.Common.Shared.OAuth", "Investor.Common.Shared.OAuth\Investor.Common.Shared.OAuth.csproj", "{6533519A-DACB-497E-8DB3-AACBD6B99056}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -169,6 +171,10 @@ Global
 		{4CAED0EE-8080-4630-BC68-0AFED701367D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CAED0EE-8080-4630-BC68-0AFED701367D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CAED0EE-8080-4630-BC68-0AFED701367D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6533519A-DACB-497E-8DB3-AACBD6B99056}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6533519A-DACB-497E-8DB3-AACBD6B99056}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6533519A-DACB-497E-8DB3-AACBD6B99056}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6533519A-DACB-497E-8DB3-AACBD6B99056}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -194,5 +200,6 @@ Global
 		{EC5CEC8B-B516-40A8-9F11-61CE3C4080DB} = {0CAEA5F9-F31B-4ED4-9555-C7810DCA5D6F}
 		{1B10F79E-3A36-4814-9F1C-7DDA0F06445B} = {0CAEA5F9-F31B-4ED4-9555-C7810DCA5D6F}
 		{4CAED0EE-8080-4630-BC68-0AFED701367D} = {CE41D01B-B50D-4D77-A73B-B5C589DF4B84}
+		{6533519A-DACB-497E-8DB3-AACBD6B99056} = {8C521B92-8D8E-4BE1-B617-EBCE10008A51}
 	EndGlobalSection
 EndGlobal

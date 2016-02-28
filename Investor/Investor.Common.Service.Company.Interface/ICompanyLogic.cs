@@ -9,6 +9,6 @@ namespace Investor.Common.Service.Company.Interface
 {
     public interface ICompanyLogic
     {
-        CompanyPoco Get(long id);
+        CompanyPoco Read(long id);
     }
 }

@@ -19,7 +19,7 @@ namespace Investor.Common.Service.Client.Test.Stubs
             throw new NotImplementedException();
         }
 
-        public ClientPoco ReadLastName(string lastname)
+        public IEnumerable<ClientPoco> ReadLastName(string lastname)
         {
             throw new NotImplementedException();
         }

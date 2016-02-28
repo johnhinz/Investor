@@ -17,7 +17,7 @@ namespace Investor.Common.Service.Company.Data
         {
             _db = new InvestorContext();
         }
-        public CompanyPoco Get(long id)
+        public CompanyPoco Read(long id)
         {
             return _db.Companies.Where(comp => comp.Id == id).FirstOrDefault();
         }

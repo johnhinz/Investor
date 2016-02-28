@@ -12,7 +12,7 @@ namespace Investor.Common.Service.Client.Interface
         ClientPoco Read(long id);
         void Create(ClientPoco client);
 
-        ClientPoco ReadLastName(string lastname);
+        IEnumerable<ClientPoco> ReadLastName(string lastname);
 
         ClientPoco ReadFirstName(string firstname);
 

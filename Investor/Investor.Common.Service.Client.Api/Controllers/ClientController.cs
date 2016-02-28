@@ -51,7 +51,6 @@ namespace Investor.Common.Service.Client.Api.Controllers
         {
             var client = _logic.ReadLastName(lastname);
             return Request.CreateResponse(HttpStatusCode.OK, client);
-
         }
 
         [HttpGet]

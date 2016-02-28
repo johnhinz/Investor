@@ -27,9 +27,10 @@ namespace Investor.Common.Service.Client.Logic
             return _repository.Read(id);
         }
 
-        public ClientPoco ReadLastName(string lastname)
+        public IEnumerable<ClientPoco> ReadLastName(string lastname)
         {
             return _repository.ReadLastName(lastname);
+
         }
         public ClientPoco ReadFirstName(string firstname)
         {

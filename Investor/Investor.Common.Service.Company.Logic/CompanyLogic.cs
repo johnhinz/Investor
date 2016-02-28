@@ -17,9 +17,9 @@ namespace Investor.Common.Service.Company.Logic
             _repository = repository;
         }
 
-        public CompanyPoco Get(long id)
+        public CompanyPoco Read(long id)
         {
-            return _repository.Get(id);
+            return _repository.Read(id);
         }
 
     }
