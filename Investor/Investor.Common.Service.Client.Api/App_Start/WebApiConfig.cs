@@ -1,9 +1,19 @@
 ﻿using System.Web.Http;
-using Investor.Common.Shared.IoC;
+
 using Microsoft.Practices.Unity;
+using Microsoft.Owin;
+using Microsoft.Owin.Security.OAuth;
+
+
+
+using Investor.Common.Shared.IoC;
 using Investor.Common.Service.Client.Interface;
 using Investor.Common.Service.Client.Data;
 using Investor.Common.Service.Client.Logic;
+//using Investor.Common.Shared.OAuth;
+
+
+[assembly: OwinStartup(typeof(Investor.Common.Shared.OAuth.Startup))]
 
 namespace Investor.Common.Service.Client.Api
 {
@@ -11,16 +21,8 @@ namespace Investor.Common.Service.Client.Api
     {
         public static void Register(HttpConfiguration config)
         {
-            // Web API configuration and services
-
             // Web API routes
             config.MapHttpAttributeRoutes();
-
-            //config.Routes.MapHttpRoute(
-            //    name: "DefaultApi",
-            //    routeTemplate: "api/{controller}/{id}",
-            //    defaults: new { id = RouteParameter.Optional }
-            //);
 
             var container = new UnityContainer();
             container.RegisterType<IClientRepository, ClientRepository>(new HierarchicalLifetimeManager());
@@ -31,6 +33,9 @@ namespace Investor.Common.Service.Client.Api
             config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
 
             config.EnableCors();
+
+            //config.SuppressDefaultHostAuthentication();
+            //config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
         }
     }
 }

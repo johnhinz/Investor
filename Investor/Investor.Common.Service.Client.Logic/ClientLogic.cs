@@ -26,5 +26,20 @@ namespace Investor.Common.Service.Client.Logic
         {
             return _repository.Read(id);
         }
+
+        public IEnumerable<ClientPoco> ReadLastName(string lastname)
+        {
+            return _repository.ReadLastName(lastname);
+
+        }
+        public ClientPoco ReadFirstName(string firstname)
+        {
+            return _repository.ReadFirstName(firstname);
+        }
+
+        public AddressPoco ReadAddresses(long id)
+        {
+            return _repository.ReadAddresses(id);
+        }
     }
 }
