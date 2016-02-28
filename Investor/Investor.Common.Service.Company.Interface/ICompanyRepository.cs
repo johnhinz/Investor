@@ -10,6 +10,7 @@ namespace Investor.Common.Service.Company.Interface
     public interface ICompanyRepository
     {
 
-        CompanyPoco Get(long id);
+        CompanyPoco Read(long id);
+
     }
 }
