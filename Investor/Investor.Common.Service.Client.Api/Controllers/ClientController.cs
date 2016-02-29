@@ -39,8 +39,8 @@ namespace Investor.Common.Service.Client.Api.Controllers
         [Route ("{clientId}/addresses")]
         public HttpResponseMessage GetAddresses(long clientId)
         {
-            var client = _logic.ReadAddresses(clientId);
-            return Request.CreateResponse(HttpStatusCode.OK, client);
+            var addresses = _logic.ReadAddresses(clientId);
+            return Request.CreateResponse(HttpStatusCode.OK, addresses);
         }
 
         [HttpGet]
@@ -61,9 +61,13 @@ namespace Investor.Common.Service.Client.Api.Controllers
         }
 
         [HttpPut]
+        [Route ("update")]
         public HttpResponseMessage UpdateClient([FromBody] ClientPoco client)
         {
-            throw new NotImplementedException();
+
+            _logic.UpdateClient (client);
+            
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
         [HttpPut]
@@ -90,10 +94,11 @@ namespace Investor.Common.Service.Client.Api.Controllers
         }
 
         [HttpDelete]
-        [Route ("api.invest.com/client/{clientId}")]
+        [Route ("{clientId}")]
         public HttpResponseMessage DeleteClient(long clientId)
         {
-            throw new NotImplementedException();
+            _logic.DeleteClient(clientId);
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
         [HttpDelete]

@@ -31,15 +31,31 @@ namespace Investor.Common.Service.Client.Data
         }
 
 
-        public ClientPoco ReadFirstName(string firstname)
+        public IEnumerable<ClientPoco> ReadFirstName(string firstname)
         {
-            return _db.Clients.Where(c => c.FirstName == firstname).FirstOrDefault();
+            return _db.Clients.Where(c => c.FirstName.Contains(firstname)).ToList();
         }
 
-        public AddressPoco ReadAddresses(long id)
+        public IEnumerable<AddressPoco> ReadAddresses(long id)
         {
-            return _db.Addresses.Where(c => c.Clients.Equals(id)).FirstOrDefault();
-           
+            return _db.Addresses.Where(a => a.Clients.Select(c => c.Id).Contains(id)).ToList();  
         }
+
+        public void DeleteClient(long id)
+        {
+            ClientPoco c = _db.Clients.Find(id);
+            _db.Clients.Remove(c);
+            _db.SaveChanges();
+        }
+        public void UpdateClient(ClientPoco client)
+        {
+            ClientPoco c = _db.Clients.Single(cu => cu.Id == client.Id);
+            c.FirstName = client.FirstName;
+            c.LastName = client.LastName;
+            c.DoB = client.DoB;
+            c.SocialIns = client.SocialIns;
+            _db.SaveChanges();
+        }
+
     }
 }

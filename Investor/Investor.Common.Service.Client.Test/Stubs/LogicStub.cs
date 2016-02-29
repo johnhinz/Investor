@@ -21,17 +21,24 @@ namespace Investor.Common.Service.Client.Test.Stubs
             throw new NotImplementedException();
         }
 
-        public ClientPoco ReadFirstName(string firstname)
+        public IEnumerable<ClientPoco> ReadFirstName(string firstname)
         {
             throw new NotImplementedException();
         }
 
-        public ClientPoco ReadAddresses(long id)
+        
+
+        public IEnumerable<AddressPoco> ReadAddresses(long id)
         {
             throw new NotImplementedException();
         }
 
-        AddressPoco IClientLogic.ReadAddresses(long id)
+        public void DeleteClient(long id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateClient(ClientPoco client)
         {
             throw new NotImplementedException();
         }
