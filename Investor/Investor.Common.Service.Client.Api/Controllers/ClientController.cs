@@ -74,7 +74,8 @@ namespace Investor.Common.Service.Client.Api.Controllers
         [Route ("{clientId}/address/{addressId}")]
         public HttpResponseMessage UpdateAddress(long clientId, [FromBody] AddressPoco address)
         {
-            throw new NotImplementedException();
+            _logic.UpdateAddress(clientId, address);
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
         [HttpPost]
@@ -90,7 +91,9 @@ namespace Investor.Common.Service.Client.Api.Controllers
         [Route ("{clientId}/addresses")]
         public HttpResponseMessage CreateAddress(long clientId, [FromBody] AddressPoco address)
         {
-            throw new NotImplementedException();
+            _logic.CreateAddress(clientId, address);
+            return Request.CreateResponse(HttpStatusCode.OK);
+
         }
 
         [HttpDelete]
@@ -105,7 +108,8 @@ namespace Investor.Common.Service.Client.Api.Controllers
         [Route ("{clientId}/address/{addressId}")]
         public HttpResponseMessage DeleteAddress(long clientId, long addressId)
         {
-            throw new NotImplementedException();
+            _logic.DeleteAddress(clientId, addressId);
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
     }
 }

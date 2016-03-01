@@ -21,5 +21,8 @@ namespace Investor.Common.Shared.Interfaces
         void DeleteClient(long id);
         void UpdateClient(ClientPoco client);
 
+        void CreateAddress(long id, AddressPoco address);
+        void DeleteAddress(long clientId, long addressId);
+        void UpdateAddress(long clientId, AddressPoco address);
     }
 }

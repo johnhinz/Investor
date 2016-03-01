@@ -1,6 +1,7 @@
 ﻿using Investor.Common.Shared.Interfaces;
 using Investor.Common.Shared.Pocos;
 using System.Collections.Generic;
+using System;
 
 namespace Investor.Common.Service.Client.Logic
 {
@@ -44,6 +45,23 @@ namespace Investor.Common.Service.Client.Logic
         public void UpdateClient(ClientPoco client)
         {
             _repository.UpdateClient (client);
+        }
+
+        public void CreateAddress(long id, AddressPoco address)
+        {
+            _repository.CreateAddress(id, address);
+        }
+
+        public void DeleteAddress(long clientId, long addressId)
+        {
+            _repository.DeleteAddress(clientId, addressId);
+
+        }
+
+        public void UpdateAddress(long clientId, AddressPoco address)
+        {
+            _repository.UpdateAddress(clientId, address);
+
         }
     }
 

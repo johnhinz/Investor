@@ -16,6 +16,7 @@ namespace Investor.Common.Service.Client.Test.Stubs
             throw new NotImplementedException();
         }
 
+
         public IEnumerable<ClientPoco> ReadLastName(string lastname)
         {
             throw new NotImplementedException();
@@ -39,6 +40,21 @@ namespace Investor.Common.Service.Client.Test.Stubs
         }
 
         public void UpdateClient(ClientPoco client)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CreateAddress(long id, AddressPoco address)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteAddress(long clientId, long addressId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateAddress(long clientId, AddressPoco address)
         {
             throw new NotImplementedException();
         }

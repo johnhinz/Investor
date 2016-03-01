@@ -56,6 +56,31 @@ namespace Investor.Common.Service.Client.Data
             c.SocialIns = client.SocialIns;
             _db.SaveChanges();
         }
+        public void CreateAddress(long id, AddressPoco address)
+        {
+            ClientPoco c =  _db.Clients.Single(cust => cust.Id == id);
+            c.Addresses.Add(address);
+            _db.SaveChanges();
+        }
+        public void DeleteAddress(long clientid,long addressid)
+        {
+            AddressPoco a = _db.Addresses.Single(ad => ad.Id == addressid);
+            ClientPoco c = _db.Clients.Single(cust => cust.Id == clientid);
+            c.Addresses.Remove (a);
+            _db.SaveChanges();
+            
+        }
+
+        public void UpdateAddress(long clientId, AddressPoco address)
+        {
+            ClientPoco c = _db.Clients.Single(cu => cu.Id == clientId);
+            AddressPoco a = c.Addresses.Single(ad => ad.Id == address.Id);
+            a.Street = address.Street;
+            a.Province = address.Province;
+            a.City = address.City;
+            a.Postal_Code = address.Postal_Code;
+            _db.SaveChanges();
+        }
 
     }
 }
