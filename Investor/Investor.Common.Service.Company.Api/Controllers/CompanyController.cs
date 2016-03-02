@@ -1,8 +1,10 @@
-﻿using Investor.Common.Shared.Interfaces;
+﻿using System.Configuration;
+using Investor.Common.Shared.Interfaces;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using Investor.Common.Shared.Pocos;
 
 
 namespace Investor.Common.Service.Company.Api.Controllers
@@ -21,17 +23,68 @@ namespace Investor.Common.Service.Company.Api.Controllers
 
         [HttpGet]
         [Route("{companyId}")]
-        public HttpResponseMessage Get(long companyId)
+        public HttpResponseMessage GetCompany(long companyId)
         {
-            var company = _logic.Read(companyId);
+            var company = _logic.ReadCompany(companyId);
             if (company == null)
             {
                 return Request.CreateResponse(HttpStatusCode.NotFound);
             }
             return Request.CreateResponse(HttpStatusCode.OK, company);
-          
+
+        }
+       /* [HttpGet]
+        [Route("CompanyAddress/{companyId}")]
+        public HttpResponseMessage GetCompanyAddress(long companyId)
+        {
+            var address = _logic.ReadAddress(companyId);
+            if (address == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, address);
+
+        }
+        */
+        [HttpPost]
+        [Route("CreateCompany")]
+        public HttpResponseMessage CreateCompany([FromBody] CompanyPoco company)
+        {
+            var isAdded = _logic.Add(company);
+            if (isAdded != null)
+            {
+                return Request.CreateResponse(HttpStatusCode.Created, isAdded);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+
+            }
         }
 
+        [HttpPut]
+        [Route("UpdateCompany")]
+        public HttpResponseMessage UpdateCompany(CompanyPoco company)
+        {
+            var isUpdated = _logic.Update(company.Id, company);
+            if (isUpdated == true)
+                return Request.CreateResponse(HttpStatusCode.OK, company);
+            else
+                return Request.CreateResponse(HttpStatusCode.NotModified, company);
+
+        }
+
+        [HttpDelete]
+        [Route("DeleteCompany/{id}")]
+        public HttpResponseMessage DeleteCompany(long id)
+        {
+            var isDeleted = _logic.Delete(id);
+            if (isDeleted == true)
+                return Request.CreateResponse(HttpStatusCode.OK);
+            else
+                return Request.CreateResponse(HttpStatusCode.NotModified);
+
+        }
 
     }
 }
