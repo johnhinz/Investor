@@ -7,5 +7,7 @@ namespace Investor.Common.Shared.Interfaces
         InvestmentPoco Read(long id);
         void Create(InvestmentPoco investment);
         void Delete(long id);
+        bool Update(long id,InvestmentPoco investment);
+       
     }
 }
