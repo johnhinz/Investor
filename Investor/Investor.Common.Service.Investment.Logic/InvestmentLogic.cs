@@ -32,8 +32,8 @@ namespace Investor.Common.Service.Investment.Logic
 
         public bool Update(long id, InvestmentPoco investment)
         {
-            var updated = _repository.Update(id, investment);
-            if (updated)
+            var isupdated = _repository.Update(id, investment);
+            if (isupdated)
             {
                 return true;
 
