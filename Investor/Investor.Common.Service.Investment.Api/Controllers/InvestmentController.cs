@@ -47,7 +47,7 @@ namespace Investor.Common.Service.Investment.Api
 
         [HttpPut]
         [Route("UpdateInvestment")]
-        public HttpResponseMessage UpdateInvestment(InvestmentPoco investment)
+        public HttpResponseMessage UpdateInvestment([FromBody]InvestmentPoco investment)
         {
             var isUpdated = _logic.Update(investment.Id, investment);
             if (isUpdated == true)
