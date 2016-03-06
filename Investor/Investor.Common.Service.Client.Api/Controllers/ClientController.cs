@@ -39,8 +39,8 @@ namespace Investor.Common.Service.Client.Api.Controllers
         [Route ("{clientId}/addresses")]
         public HttpResponseMessage GetAddresses(long clientId)
         {
-            var client = _logic.ReadAddresses(clientId);
-            return Request.CreateResponse(HttpStatusCode.OK, client);
+            var addresses = _logic.ReadAddresses(clientId);
+            return Request.CreateResponse(HttpStatusCode.OK, addresses);
         }
 
         [HttpGet]
@@ -61,16 +61,21 @@ namespace Investor.Common.Service.Client.Api.Controllers
         }
 
         [HttpPut]
+        [Route ("update")]
         public HttpResponseMessage UpdateClient([FromBody] ClientPoco client)
         {
-            throw new NotImplementedException();
+
+            _logic.UpdateClient (client);
+            
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
         [HttpPut]
         [Route ("{clientId}/address/{addressId}")]
         public HttpResponseMessage UpdateAddress(long clientId, [FromBody] AddressPoco address)
         {
-            throw new NotImplementedException();
+            _logic.UpdateAddress(clientId, address);
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
         [HttpPost]
@@ -86,21 +91,25 @@ namespace Investor.Common.Service.Client.Api.Controllers
         [Route ("{clientId}/addresses")]
         public HttpResponseMessage CreateAddress(long clientId, [FromBody] AddressPoco address)
         {
-            throw new NotImplementedException();
+            _logic.CreateAddress(clientId, address);
+            return Request.CreateResponse(HttpStatusCode.OK);
+
         }
 
         [HttpDelete]
-        [Route ("api.invest.com/client/{clientId}")]
+        [Route ("{clientId}")]
         public HttpResponseMessage DeleteClient(long clientId)
         {
-            throw new NotImplementedException();
+            _logic.DeleteClient(clientId);
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
         [HttpDelete]
         [Route ("{clientId}/address/{addressId}")]
         public HttpResponseMessage DeleteAddress(long clientId, long addressId)
         {
-            throw new NotImplementedException();
+            _logic.DeleteAddress(clientId, addressId);
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
     }
 }

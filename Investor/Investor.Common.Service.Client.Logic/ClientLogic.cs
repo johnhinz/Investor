@@ -1,6 +1,7 @@
 ﻿using Investor.Common.Shared.Interfaces;
 using Investor.Common.Shared.Pocos;
 using System.Collections.Generic;
+using System;
 
 namespace Investor.Common.Service.Client.Logic
 {
@@ -28,14 +29,40 @@ namespace Investor.Common.Service.Client.Logic
             return _repository.ReadLastName(lastname);
 
         }
-        public ClientPoco ReadFirstName(string firstname)
+        public IEnumerable<ClientPoco> ReadFirstName(string firstname)
         {
             return _repository.ReadFirstName(firstname);
         }
 
-        public AddressPoco ReadAddresses(long id)
+        public IEnumerable<AddressPoco> ReadAddresses(long id)
         {
             return _repository.ReadAddresses(id);
         }
+        public void DeleteClient(long id)
+        {
+            _repository.DeleteClient(id);
+        }
+        public void UpdateClient(ClientPoco client)
+        {
+            _repository.UpdateClient (client);
+        }
+
+        public void CreateAddress(long id, AddressPoco address)
+        {
+            _repository.CreateAddress(id, address);
+        }
+
+        public void DeleteAddress(long clientId, long addressId)
+        {
+            _repository.DeleteAddress(clientId, addressId);
+
+        }
+
+        public void UpdateAddress(long clientId, AddressPoco address)
+        {
+            _repository.UpdateAddress(clientId, address);
+
+        }
     }
+
 }

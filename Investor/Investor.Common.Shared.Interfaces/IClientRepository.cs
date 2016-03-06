@@ -14,8 +14,15 @@ namespace Investor.Common.Shared.Interfaces
 
         IEnumerable<ClientPoco> ReadLastName(string searchString);
 
-        ClientPoco ReadFirstName(string firstname);
+        IEnumerable<ClientPoco> ReadFirstName(string firstname);
 
-        AddressPoco ReadAddresses(long id);
+        IEnumerable<AddressPoco> ReadAddresses(long id);
+
+        void DeleteClient(long id);
+        void UpdateClient(ClientPoco client);
+
+        void CreateAddress(long id, AddressPoco address);
+        void DeleteAddress(long clientId, long addressId);
+        void UpdateAddress(long clientId, AddressPoco address);
     }
 }
