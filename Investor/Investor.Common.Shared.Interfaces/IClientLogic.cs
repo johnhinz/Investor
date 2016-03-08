@@ -16,12 +16,12 @@ namespace Investor.Common.Shared.Interfaces
 
         IEnumerable<ClientPoco> ReadFirstName(string firstname);
 
-        IEnumerable<AddressPoco> ReadAddresses(long id);
+        IEnumerable<ClientAddressPoco> ReadAddresses(long id);
 
         void DeleteClient(long id);
         void UpdateClient(ClientPoco client);
         void DeleteAddress(long clientId, long addressId);
-        void CreateAddress(long id, AddressPoco address);
-        void UpdateAddress(long clientId, AddressPoco address);
+        void CreateAddress(long id, ClientAddressPoco address);
+        void UpdateAddress(long clientId, ClientAddressPoco address);
     }
 }

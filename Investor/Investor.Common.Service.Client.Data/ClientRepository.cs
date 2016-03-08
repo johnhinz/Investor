@@ -36,9 +36,9 @@ namespace Investor.Common.Service.Client.Data
             return _db.Clients.Where(c => c.FirstName.Contains(firstname)).ToList();
         }
 
-        public IEnumerable<AddressPoco> ReadAddresses(long id)
+        public IEnumerable<ClientAddressPoco> ReadAddresses(long id)
         {
-            return _db.Addresses.Where(a => a.Clients.Select(c => c.Id).Contains(id)).ToList();  
+            return _db.ClientAddresses.Where(a => a.Clients.Select(c => c.Id).Contains(id)).ToList();  
         }
 
         public void DeleteClient(long id)
@@ -56,7 +56,7 @@ namespace Investor.Common.Service.Client.Data
             c.SocialIns = client.SocialIns;
             _db.SaveChanges();
         }
-        public void CreateAddress(long id, AddressPoco address)
+        public void CreateAddress(long id, ClientAddressPoco address)
         {
             ClientPoco c =  _db.Clients.Single(cust => cust.Id == id);
             c.Addresses.Add(address);
@@ -64,17 +64,17 @@ namespace Investor.Common.Service.Client.Data
         }
         public void DeleteAddress(long clientid,long addressid)
         {
-            AddressPoco a = _db.Addresses.Single(ad => ad.Id == addressid);
+            ClientAddressPoco a = _db.ClientAddresses.Single(ad => ad.Id == addressid);
             ClientPoco c = _db.Clients.Single(cust => cust.Id == clientid);
             c.Addresses.Remove (a);
             _db.SaveChanges();
             
         }
 
-        public void UpdateAddress(long clientId, AddressPoco address)
+        public void UpdateAddress(long clientId, ClientAddressPoco address)
         {
             ClientPoco c = _db.Clients.Single(cu => cu.Id == clientId);
-            AddressPoco a = c.Addresses.Single(ad => ad.Id == address.Id);
+            ClientAddressPoco a = c.Addresses.Single(ad => ad.Id == address.Id);
             a.Street = address.Street;
             a.Province = address.Province;
             a.City = address.City;

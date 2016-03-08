@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddressPoco.cs" />
+    <Compile Include="ClientAddressPoco.cs" />
     <Compile Include="ClientPoco.cs" />
     <Compile Include="CompanyPoco.cs" />
     <Compile Include="InvestmentClientPoco.cs" />

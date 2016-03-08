@@ -3,12 +3,13 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace Investor.Common.Shared.EntityFramework.Mapping
 {
-    class AddressMapping : EntityTypeConfiguration<AddressPoco>
+    class ClientAddressMapping : EntityTypeConfiguration<ClientAddressPoco>
     {
-        public AddressMapping()
+        public ClientAddressMapping()
         {
             ToTable("Address");
-            //HasKey(a => a.Address_Id);
+            HasKey(c => c.Id);
         }
+
     }
 }

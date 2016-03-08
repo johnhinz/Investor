@@ -34,7 +34,7 @@ namespace Investor.Common.Service.Client.Logic
             return _repository.ReadFirstName(firstname);
         }
 
-        public IEnumerable<AddressPoco> ReadAddresses(long id)
+        public IEnumerable<ClientAddressPoco> ReadAddresses(long id)
         {
             return _repository.ReadAddresses(id);
         }
@@ -47,7 +47,7 @@ namespace Investor.Common.Service.Client.Logic
             _repository.UpdateClient (client);
         }
 
-        public void CreateAddress(long id, AddressPoco address)
+        public void CreateAddress(long id, ClientAddressPoco address)
         {
             _repository.CreateAddress(id, address);
         }
@@ -58,7 +58,7 @@ namespace Investor.Common.Service.Client.Logic
 
         }
 
-        public void UpdateAddress(long clientId, AddressPoco address)
+        public void UpdateAddress(long clientId, ClientAddressPoco address)
         {
             _repository.UpdateAddress(clientId, address);
 

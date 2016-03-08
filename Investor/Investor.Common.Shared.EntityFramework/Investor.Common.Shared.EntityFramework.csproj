@@ -50,7 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="InvestorContext.cs" />
-    <Compile Include="Mapping\AddressMapping.cs" />
+    <Compile Include="Mapping\ClientAddressMapping.cs" />
     <Compile Include="Mapping\ClientMapping.cs" />
     <Compile Include="Mapping\CompanyMapping.cs" />
     <Compile Include="Mapping\InvestmentClientMapping.cs" />

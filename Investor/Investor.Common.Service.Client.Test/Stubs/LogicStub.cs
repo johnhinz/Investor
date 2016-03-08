@@ -29,7 +29,7 @@ namespace Investor.Common.Service.Client.Test.Stubs
 
         
 
-        public IEnumerable<AddressPoco> ReadAddresses(long id)
+        public IEnumerable<ClientAddressPoco> ReadAddresses(long id)
         {
             throw new NotImplementedException();
         }
@@ -44,7 +44,7 @@ namespace Investor.Common.Service.Client.Test.Stubs
             throw new NotImplementedException();
         }
 
-        public void CreateAddress(long id, AddressPoco address)
+        public void CreateAddress(long id, ClientAddressPoco address)
         {
             throw new NotImplementedException();
         }
@@ -54,7 +54,7 @@ namespace Investor.Common.Service.Client.Test.Stubs
             throw new NotImplementedException();
         }
 
-        public void UpdateAddress(long clientId, AddressPoco address)
+        public void UpdateAddress(long clientId, ClientAddressPoco address)
         {
             throw new NotImplementedException();
         }
