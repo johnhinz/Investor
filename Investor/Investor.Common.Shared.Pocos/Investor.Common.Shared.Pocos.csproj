@@ -43,6 +43,7 @@
     <Compile Include="AddressPoco.cs" />
     <Compile Include="ClientAddressPoco.cs" />
     <Compile Include="ClientPoco.cs" />
+    <Compile Include="CompanyAddressPoco.cs" />
     <Compile Include="CompanyPoco.cs" />
     <Compile Include="InvestmentClientPoco.cs" />
     <Compile Include="InvestmentPoco.cs" />
