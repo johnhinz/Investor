@@ -47,6 +47,7 @@
     <Compile Include="CompanyPoco.cs" />
     <Compile Include="InvestmentClientPoco.cs" />
     <Compile Include="InvestmentPoco.cs" />
+    <Compile Include="PohoneNumberPoco.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
