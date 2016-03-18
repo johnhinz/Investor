@@ -15,6 +15,6 @@ namespace Investor.Common.Shared.Pocos
         //public long AddressId{get; set;}
         public string PhoneNumber { get; set; }
         public string AgentId { get; set; }
-       // public virtual ICollection<AddressPoco> Addresses { get; set; }
+        public virtual ICollection<CompanyAddressPoco> Addresses { get; set; }
     }
 }

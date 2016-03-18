@@ -2,6 +2,7 @@
 using Investor.Common.Shared.Interfaces;
 using Investor.Common.Shared.Pocos;
 using System.Linq;
+using System;
 
 namespace Investor.Common.Service.Investment.Data
 {
@@ -29,6 +30,24 @@ namespace Investor.Common.Service.Investment.Data
         public InvestmentPoco Read(long id)
         {
             return _db.Investments.Where(c => c.Id == id).FirstOrDefault();
+        }
+
+       
+
+        public bool Update(long id, InvestmentPoco investment)
+        {
+            try
+            {
+                _db.Entry(investment).State = System.Data.Entity.EntityState.Modified;
+                _db.SaveChanges();
+                return true;
+
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
     }
 }

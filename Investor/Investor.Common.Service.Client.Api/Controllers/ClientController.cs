@@ -72,7 +72,7 @@ namespace Investor.Common.Service.Client.Api.Controllers
 
         [HttpPut]
         [Route ("{clientId}/address/{addressId}")]
-        public HttpResponseMessage UpdateAddress(long clientId, [FromBody] AddressPoco address)
+        public HttpResponseMessage UpdateAddress(long clientId, [FromBody] ClientAddressPoco address)
         {
             _logic.UpdateAddress(clientId, address);
             return Request.CreateResponse(HttpStatusCode.OK);
@@ -89,7 +89,7 @@ namespace Investor.Common.Service.Client.Api.Controllers
 
         [HttpPost]
         [Route ("{clientId}/addresses")]
-        public HttpResponseMessage CreateAddress(long clientId, [FromBody] AddressPoco address)
+        public HttpResponseMessage CreateAddress(long clientId, [FromBody] ClientAddressPoco address)
         {
             _logic.CreateAddress(clientId, address);
             return Request.CreateResponse(HttpStatusCode.OK);

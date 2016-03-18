@@ -14,7 +14,7 @@ namespace Investor.Common.Shared.Pocos
         public string LastName { get; set; }
         public DateTime DoB { get; set; }
         public string SocialIns { get; set; }
-        public virtual ICollection<AddressPoco> Addresses { get; set; }
+        public virtual ICollection<ClientAddressPoco> Addresses { get; set; }
 
         // public virtual PhoneNumberPoco PhoneNumber {get;set;}
     }

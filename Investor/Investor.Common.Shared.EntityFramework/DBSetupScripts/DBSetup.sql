@@ -1,5 +1,7 @@
 ﻿USE Investor;
 
+IF EXISTS (select * from sys.objects where name = 'CompanyAddresses' and type = 'u') 
+	DROP TABLE [dbo].[CompanyAddresses];
 IF EXISTS (select * from sys.objects where name = 'ClientAddresses' and type = 'u') 
 	DROP TABLE [dbo].[ClientAddresses];
 IF EXISTS (select * from sys.objects where name = 'Address' and type = 'u') 
@@ -52,6 +54,14 @@ CREATE TABLE [dbo].[Company] (
     [PhoneNumber] NVARCHAR (MAX) NULL,
     [AgentId]     NVARCHAR (MAX) NULL,
     CONSTRAINT [PK_dbo.Company] PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+CREATE TABLE [dbo].[CompanyAddresses] (
+    [CompanyId]  BIGINT NOT NULL,
+    [AddressId] BIGINT NOT NULL,
+    CONSTRAINT [PK_dbo.CompanyAddresses] PRIMARY KEY CLUSTERED ([CompanyId] ASC, [AddressId] ASC),
+    CONSTRAINT [FK_dbo.CompanyAddresses_dbo.Company_Id] FOREIGN KEY ([CompanyId]) REFERENCES [dbo].[Company] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_dbo.CompanyAddresses_dbo.Address_AddressId] FOREIGN KEY ([AddressId]) REFERENCES [dbo].[Address] ([Id]) ON DELETE CASCADE
 );
 
 CREATE TABLE [dbo].[Investment] (

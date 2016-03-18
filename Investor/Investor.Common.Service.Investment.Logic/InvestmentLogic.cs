@@ -1,4 +1,5 @@
-﻿using Investor.Common.Shared.Interfaces;
+﻿using System;
+using Investor.Common.Shared.Interfaces;
 using Investor.Common.Shared.Pocos;
 
 namespace Investor.Common.Service.Investment.Logic
@@ -25,6 +26,22 @@ namespace Investor.Common.Service.Investment.Logic
         public InvestmentPoco Read(long id)
         {
             return _repository.Read(id);
+        }
+
+
+
+        public bool Update(long id, InvestmentPoco investment)
+        {
+            var isupdated = _repository.Update(id, investment);
+            if (isupdated)
+            {
+                return true;
+
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
