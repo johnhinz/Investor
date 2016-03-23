@@ -1,11 +1,15 @@
 ﻿USE Investor;
 
-IF EXISTS (select * from sys.objects where name = 'CompanyAddresses' and type = 'u') 
-	DROP TABLE [dbo].[CompanyAddresses];
-IF EXISTS (select * from sys.objects where name = 'ClientAddresses' and type = 'u') 
-	DROP TABLE [dbo].[ClientAddresses];
-IF EXISTS (select * from sys.objects where name = 'Address' and type = 'u') 
-	DROP TABLE [dbo].[Address];
+IF EXISTS (select * from sys.objects where name = 'CompanyAddressJoin' and type = 'u') 
+	DROP TABLE [dbo].[CompanyAddressJoin];
+IF EXISTS (select * from sys.objects where name = 'ClientAddressJoin' and type = 'u') 
+	DROP TABLE [dbo].[ClientAddressJoin];
+
+IF EXISTS (select * from sys.objects where name = 'CompanyAddress' and type = 'u') 
+	DROP TABLE [dbo].[CompanyAddress];
+IF EXISTS (select * from sys.objects where name = 'ClientAddress' and type = 'u') 
+	DROP TABLE [dbo].[ClientAddress];
+
 IF EXISTS (select * from sys.objects where name = 'InvestmentClient' and type = 'u') 
 	DROP TABLE [dbo].[InvestmentClient];
 IF EXISTS (select * from sys.objects where name = 'Client' and type = 'u') 
@@ -15,14 +19,6 @@ IF EXISTS (select * from sys.objects where name = 'Investment' and type = 'u')
 IF EXISTS (select * from sys.objects where name = 'Company' and type = 'u') 
 	DROP TABLE [dbo].[Company];
 
-CREATE TABLE [dbo].[Address] (
-    [Id]          BIGINT         IDENTITY (1, 1) NOT NULL,
-    [Street]      NVARCHAR (MAX) NULL,
-    [City]        NVARCHAR (MAX) NULL,
-    [Province]    NVARCHAR (MAX) NULL,
-    [Postal_Code] NVARCHAR (MAX) NULL,
-    CONSTRAINT [PK_dbo.Address] PRIMARY KEY CLUSTERED ([Id] ASC)
-);
 
 CREATE TABLE [dbo].[Client] (
     [Id]        BIGINT         IDENTITY (1, 1) NOT NULL,
@@ -33,19 +29,40 @@ CREATE TABLE [dbo].[Client] (
     CONSTRAINT [PK_dbo.Client] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
-CREATE TABLE [dbo].[ClientAddresses] (
-    [ClientId]  BIGINT NOT NULL,
-    [AddressId] BIGINT NOT NULL,
-    CONSTRAINT [PK_dbo.ClientAddresses] PRIMARY KEY CLUSTERED ([ClientId] ASC, [AddressId] ASC),
-    CONSTRAINT [FK_dbo.ClientAddresses_dbo.Client_ClientId] FOREIGN KEY ([ClientId]) REFERENCES [dbo].[Client] ([Id]) ON DELETE CASCADE,
-    CONSTRAINT [FK_dbo.ClientAddresses_dbo.Address_AddressId] FOREIGN KEY ([AddressId]) REFERENCES [dbo].[Address] ([Id]) ON DELETE CASCADE
-);
+CREATE TABLE [dbo].[ClientAddress](
+	[AddressId] [bigint] IDENTITY(1,1) NOT NULL,
+	[Street] [nvarchar](max) NULL,
+	[City] [nvarchar](max) NULL,
+	[Province] [nvarchar](max) NULL,
+	[Postal_Code] [nvarchar](max) NULL,
+ CONSTRAINT [PK_dbo.ClientAddress] PRIMARY KEY CLUSTERED 
+	(
+		[AddressId] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+	) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
-CREATE NONCLUSTERED INDEX [IX_ClientId]
-    ON [dbo].[ClientAddresses]([ClientId] ASC);
+	CREATE TABLE [dbo].[ClientAddressJoin](
+	[ClientId] [bigint] NOT NULL,
+	[AddressId] [bigint] NOT NULL,
+	CONSTRAINT [PK_dbo.ClientAddressJoin] PRIMARY KEY CLUSTERED 
+	(
+		[ClientId] ASC,
+		[AddressId] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+	) ON [PRIMARY]
 
-CREATE NONCLUSTERED INDEX [IX_AddressId]
-    ON [dbo].[ClientAddresses]([AddressId] ASC);
+ALTER TABLE [dbo].[ClientAddressJoin]  WITH CHECK ADD  CONSTRAINT [FK_dbo.ClientAddressJoin_dbo.Client_ClientId] FOREIGN KEY([ClientId])
+REFERENCES [dbo].[Client] ([Id])
+ON DELETE CASCADE
+
+ALTER TABLE [dbo].[ClientAddressJoin] CHECK CONSTRAINT [FK_dbo.ClientAddressJoin_dbo.Client_ClientId]
+
+ALTER TABLE [dbo].[ClientAddressJoin]  WITH CHECK ADD  CONSTRAINT [FK_dbo.ClientAddressJoin_dbo.ClientAddress_AddressId] FOREIGN KEY([AddressId])
+REFERENCES [dbo].[ClientAddress] ([AddressId])
+ON DELETE CASCADE
+
+ALTER TABLE [dbo].[ClientAddressJoin] CHECK CONSTRAINT [FK_dbo.ClientAddressJoin_dbo.ClientAddress_AddressId]
+
 
 CREATE TABLE [dbo].[Company] (
     [Id]          BIGINT         IDENTITY (1, 1) NOT NULL,
@@ -56,13 +73,42 @@ CREATE TABLE [dbo].[Company] (
     CONSTRAINT [PK_dbo.Company] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
-CREATE TABLE [dbo].[CompanyAddresses] (
-    [CompanyId]  BIGINT NOT NULL,
-    [AddressId] BIGINT NOT NULL,
-    CONSTRAINT [PK_dbo.CompanyAddresses] PRIMARY KEY CLUSTERED ([CompanyId] ASC, [AddressId] ASC),
-    CONSTRAINT [FK_dbo.CompanyAddresses_dbo.Company_Id] FOREIGN KEY ([CompanyId]) REFERENCES [dbo].[Company] ([Id]) ON DELETE CASCADE,
-    CONSTRAINT [FK_dbo.CompanyAddresses_dbo.Address_AddressId] FOREIGN KEY ([AddressId]) REFERENCES [dbo].[Address] ([Id]) ON DELETE CASCADE
-);
+CREATE TABLE [dbo].[CompanyAddress](
+	[AddressId] [bigint] IDENTITY(1,1) NOT NULL,
+	[Street] [nvarchar](max) NULL,
+	[City] [nvarchar](max) NULL,
+	[Province] [nvarchar](max) NULL,
+	[Postal_Code] [nvarchar](max) NULL,
+	CONSTRAINT [PK_dbo.CompanyAddress] PRIMARY KEY CLUSTERED 
+	(
+		[AddressId] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+	) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+	CREATE TABLE [dbo].[CompanyAddressJoin](
+	[CompanyId] [bigint] NOT NULL,
+	[AddressId] [bigint] NOT NULL,
+	CONSTRAINT [PK_dbo.CompanyAddressJoin] PRIMARY KEY CLUSTERED 
+	(
+		[CompanyId] ASC,
+		[AddressId] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+
+ALTER TABLE [dbo].[CompanyAddressJoin]  WITH CHECK ADD  CONSTRAINT [FK_dbo.CompanyAddressJoin_dbo.Company_CompanyId] FOREIGN KEY([CompanyId])
+REFERENCES [dbo].[Company] ([Id])
+ON DELETE CASCADE
+
+ALTER TABLE [dbo].[CompanyAddressJoin] CHECK CONSTRAINT [FK_dbo.CompanyAddressJoin_dbo.Company_CompanyId]
+
+ALTER TABLE [dbo].[CompanyAddressJoin]  WITH CHECK ADD  CONSTRAINT [FK_dbo.CompanyAddressJoin_dbo.CompanyAddress_AddressId] FOREIGN KEY([AddressId])
+REFERENCES [dbo].[CompanyAddress] ([AddressId])
+ON DELETE CASCADE
+
+ALTER TABLE [dbo].[CompanyAddressJoin] CHECK CONSTRAINT [FK_dbo.CompanyAddressJoin_dbo.CompanyAddress_AddressId]
+
+
+
 
 CREATE TABLE [dbo].[Investment] (
     [Id]             BIGINT IDENTITY (1, 1) NOT NULL,
@@ -90,22 +136,24 @@ INSERT INTO CLIENT (Id, FirstName, LastName, DoB, SocialIns)
 	VALUES (3, 'Rick', 'James', '2/15/1973', '333-333-333');
 SET IDENTITY_INSERT [dbo].[Client] OFF;
 
-SET IDENTITY_INSERT [dbo].[Address] ON;
-INSERT INTO ADDRESS (Id, Street, City, Province, Postal_Code)
+SET IDENTITY_INSERT [dbo].[ClientAddress] ON;
+INSERT INTO ClientAddress (AddressId, Street, City, Province, Postal_Code)
 	VALUES (1, '123 Some Street', 'Toronto', 'Ontario', 'N5A2H8');
-INSERT INTO ADDRESS (Id, Street, City, Province, Postal_Code)
+INSERT INTO ClientAddress (AddressId, Street, City, Province, Postal_Code)
 	VALUES (2, '345 Mill Street', 'Kitchener', 'Ontario', 'M5R3H9');
-INSERT INTO ADDRESS (Id, Street, City, Province, Postal_Code)
+INSERT INTO ClientAddress (AddressId, Street, City, Province, Postal_Code)
 	VALUES (3, '250 Humber Blvd.', 'Brampton', 'Ontario', 'X5R6H8');
-SET IDENTITY_INSERT [dbo].[Address] OFF;
+SET IDENTITY_INSERT [dbo].[ClientAddress] OFF;
 
-INSERT INTO ClientAddresses (ClientId, AddressId)
+
+
+INSERT INTO ClientAddressJoin (ClientId, AddressId)
 	VALUES (1,1);
-INSERT INTO ClientAddresses (ClientId, AddressId)
+INSERT INTO ClientAddressJoin (ClientId, AddressId)
 	VALUES (1,2);
-INSERT INTO ClientAddresses (ClientId, AddressId)
+INSERT INTO ClientAddressJoin (ClientId, AddressId)
 	VALUES (2,2);
-INSERT INTO ClientAddresses (ClientId, AddressId)
+INSERT INTO ClientAddressJoin (ClientId, AddressId)
 	VALUES (3,3);
 
 SET IDENTITY_INSERT [dbo].[Company] ON;
@@ -122,3 +170,5 @@ SET IDENTITY_INSERT [dbo].[Investment] OFF;
 
 INSERT INTO INVESTMENTCLIENT (ClientId, InvestmentId, ClientOrder)
 	VALUES (1, 1, 1);
+
+	GO

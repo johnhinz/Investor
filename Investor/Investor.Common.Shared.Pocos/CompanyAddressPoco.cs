@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace Investor.Common.Shared.Pocos
 {
-    public class CompanyAddressPoco : AddressPoco
+    public class CompanyAddressPoco 
     {
+        public long AddressId { get; set; }
+        public string Street { get; set; }
+        public string City { get; set; }
+        public string Province { get; set; }
+        public string Postal_Code { get; set; }
+
         public virtual ICollection<CompanyPoco> Companies { get; set; }
     }
 }

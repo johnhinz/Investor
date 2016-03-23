@@ -30,7 +30,7 @@ namespace Investor.Common.Shared.EntityFramework
                     {
                         ca.MapLeftKey("ClientId");
                         ca.MapRightKey("AddressId");
-                        ca.ToTable("ClientAddresses");
+                        ca.ToTable("ClientAddressJoin");
 
                     });
             modelBuilder.Entity<CompanyPoco>()
@@ -40,7 +40,7 @@ namespace Investor.Common.Shared.EntityFramework
                 {
                     ca.MapLeftKey("CompanyId");
                     ca.MapRightKey("AddressId");
-                    ca.ToTable("CompanyAddresses");
+                    ca.ToTable("CompanyAddressJoin");
 
                 });
 

@@ -56,6 +56,10 @@
     <Compile Include="Mapping\CompanyMapping.cs" />
     <Compile Include="Mapping\InvestmentClientMapping.cs" />
     <Compile Include="Mapping\InvestmentMapping.cs" />
+    <Compile Include="Migrations\201603230127462_test1.cs" />
+    <Compile Include="Migrations\201603230127462_test1.Designer.cs">
+      <DependentUpon>201603230127462_test1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -71,6 +75,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DBSetupScripts\DBSetup.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201603230127462_test1.resx">
+      <DependentUpon>201603230127462_test1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

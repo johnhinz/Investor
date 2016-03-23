@@ -64,7 +64,7 @@ namespace Investor.Common.Service.Client.Data
         }
         public void DeleteAddress(long clientid,long addressid)
         {
-            ClientAddressPoco a = _db.ClientAddresses.Single(ad => ad.Id == addressid);
+            ClientAddressPoco a = _db.ClientAddresses.Single(ad => ad.AddressId == addressid);
             ClientPoco c = _db.Clients.Single(cust => cust.Id == clientid);
             c.Addresses.Remove (a);
             _db.SaveChanges();
@@ -74,7 +74,7 @@ namespace Investor.Common.Service.Client.Data
         public void UpdateAddress(long clientId, ClientAddressPoco address)
         {
             ClientPoco c = _db.Clients.Single(cu => cu.Id == clientId);
-            ClientAddressPoco a = c.Addresses.Single(ad => ad.Id == address.Id);
+            ClientAddressPoco a = c.Addresses.Single(ad => ad.AddressId == address.AddressId);
             a.Street = address.Street;
             a.Province = address.Province;
             a.City = address.City;

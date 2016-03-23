@@ -12,8 +12,10 @@ namespace Investor.Common.Shared.EntityFramework.Mapping
     {
         public CompanyAddressMapping()
         {
-            ToTable("Address");
-            HasKey(c => c.Id);
+            ToTable("CompanyAddress");
+            HasKey(c => c.AddressId);
+
+            HasMany(a => a.Companies);
         }
     }
 }

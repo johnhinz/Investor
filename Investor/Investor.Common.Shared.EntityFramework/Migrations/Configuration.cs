@@ -14,12 +14,6 @@ namespace Investor.Common.Shared.EntityFramework.Migrations
 
         protected override void Seed(Investor.Common.Shared.EntityFramework.InvestorContext context)
         {
-            //  This method will be called after migrating to the latest version.
-            context.Clients.AddOrUpdate(
-                c => c.FirstName, new ClientPoco() { FirstName = "Joe", LastName = "Smith" });
-
-            context.Investments.AddOrUpdate(
-                i => i.InvestmentType, new InvestmentPoco() { InvestmentType = "RRSP" });
         }
     }
 }

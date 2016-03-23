@@ -7,8 +7,10 @@ namespace Investor.Common.Shared.EntityFramework.Mapping
     {
         public ClientAddressMapping()
         {
-            ToTable("Address");
-            HasKey(c => c.Id);
+            ToTable("ClientAddress");
+            HasKey(c => c.AddressId);
+
+            HasMany(a => a.Clients);
         }
 
     }
