@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Investor.Common.Shared.Pocos
 {
-   public class PohoneNumberPoco
+   public class PhoneNumberPoco
     {
         public long Id { get; set; }
         public string PhoneNo { get; set; }
