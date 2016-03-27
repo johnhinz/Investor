@@ -9,7 +9,7 @@ namespace Investor.Common.Shared.EntityFramework.Mapping
         {
             ToTable("InvestmentClient");
             HasMany(im => im.Clients);
-            HasRequired(im => im.Investment);
+            HasRequired(im => im.Investments);
         }
     }
 }
