@@ -6,10 +6,18 @@ using System.Threading.Tasks;
 
 namespace Investor.Common.Shared.Pocos
 {
-   public class PhoneNumberPoco
+
+    public enum PhoneNumberEnum
+    {
+        Cell,
+        Work,
+        Home,
+        Fax
+    }
+    public class PhoneNumberPoco
     {
         public long Id { get; set; }
         public string PhoneNo { get; set; }
-        public string type { get; set; }
+        public PhoneNumberEnum PhoneType { get; set; }
     }
 }
