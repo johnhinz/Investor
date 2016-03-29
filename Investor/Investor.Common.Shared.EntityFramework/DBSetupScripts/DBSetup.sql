@@ -10,6 +10,16 @@ IF EXISTS (select * from sys.objects where name = 'CompanyAddress' and type = 'u
 IF EXISTS (select * from sys.objects where name = 'ClientAddress' and type = 'u') 
 	DROP TABLE [dbo].[ClientAddress];
 
+IF EXISTS (select * from sys.objects where name = 'CompanyPhoneNumberJoin' and type = 'u') 
+	DROP TABLE [dbo].[CompanyPhoneNumberJoin];
+IF EXISTS (select * from sys.objects where name = 'ClientPhoneNumebrJoin' and type = 'u') 
+	DROP TABLE [dbo].[ClientPhoneNumberJoin];
+
+IF EXISTS (select * from sys.objects where name = 'CompanyPhoneNumber' and type = 'u') 
+	DROP TABLE [dbo].[CompanyPhoneNumber];
+IF EXISTS (select * from sys.objects where name = 'ClientPhoneNumber' and type = 'u') 
+	DROP TABLE [dbo].[ClientPhoneNumber];
+
 IF EXISTS (select * from sys.objects where name = 'InvestmentClient' and type = 'u') 
 	DROP TABLE [dbo].[InvestmentClient];
 IF EXISTS (select * from sys.objects where name = 'Client' and type = 'u') 
