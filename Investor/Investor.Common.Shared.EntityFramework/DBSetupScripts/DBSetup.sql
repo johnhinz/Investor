@@ -73,6 +73,39 @@ ON DELETE CASCADE
 
 ALTER TABLE [dbo].[ClientAddressJoin] CHECK CONSTRAINT [FK_dbo.ClientAddressJoin_dbo.ClientAddress_AddressId]
 
+CREATE TABLE [dbo].[ClientPhoneNumber](
+	[PhoneNumberId] [bigint] IDENTITY(1,1) NOT NULL,
+	[PhoneNo] [nvarchar](max) NULL,
+	[PhoneType] [nvarchar](max) NULL,
+	
+ CONSTRAINT [PK_dbo.ClientPhoneNumber] PRIMARY KEY CLUSTERED 
+	(
+		[PhoneNumberId] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+	) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+CREATE TABLE [dbo].[ClientPhoneNumberJoin](
+	[ClientId] [bigint] NOT NULL,
+	[PhoneNumberId] [bigint] NOT NULL,
+	CONSTRAINT [PK_dbo.ClientPhoneNumberJoin] PRIMARY KEY CLUSTERED 
+	(
+		[ClientId] ASC,
+		[PhoneNumberId] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+
+ALTER TABLE [dbo].[ClientPhoneNumberJoin]  WITH CHECK ADD  CONSTRAINT [FK_dbo.ClientPhoneNumberJoin_dbo.Client_ClientId] FOREIGN KEY([ClientId])
+REFERENCES [dbo].[Client] ([Id])
+ON DELETE CASCADE
+
+ALTER TABLE [dbo].[ClientPhoneNumberJoin] CHECK CONSTRAINT [FK_dbo.ClientPhoneNumberJoin_dbo.Client_ClientId]
+
+ALTER TABLE [dbo].[ClientPhoneNumberJoin]  WITH CHECK ADD  CONSTRAINT [FK_dbo.ClientPhoneNumberJoin_dbo.ClientPhoneNumber_PhoneNumberId] FOREIGN KEY([PhoneNumberId])
+REFERENCES [dbo].[ClientPhoneNumber] ([PhoneNumberId])
+ON DELETE CASCADE
+
+
+ALTER TABLE [dbo].[ClientPhoneNumberJoin] CHECK CONSTRAINT [FK_dbo.ClientPhoneNumberJoin_dbo.ClientPhoneNumber_PhoneNumberId]
 
 CREATE TABLE [dbo].[Company] (
     [Id]          BIGINT         IDENTITY (1, 1) NOT NULL,
@@ -117,7 +150,39 @@ ON DELETE CASCADE
 
 ALTER TABLE [dbo].[CompanyAddressJoin] CHECK CONSTRAINT [FK_dbo.CompanyAddressJoin_dbo.CompanyAddress_AddressId]
 
+CREATE TABLE [dbo].[CompanyPhoneNumber](
+	[PhoneNumberId] [bigint] IDENTITY(1,1) NOT NULL,
+	[PhoneNo] [nvarchar](max) NULL,
+	[PhoneType] [nvarchar](max) NULL,
+	CONSTRAINT [PK_dbo.CompanyPhoneNumber] PRIMARY KEY CLUSTERED 
+	(
+		[PhoneNumberId] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+	) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
+
+CREATE TABLE [dbo].[CompanyPhoneNumberJoin](
+	[CompanyId] [bigint] NOT NULL,
+	[PhoneNumberId] [bigint] NOT NULL,
+	CONSTRAINT [PK_dbo.CompanyPhoneNumberJoin] PRIMARY KEY CLUSTERED 
+	(
+		[CompanyId] ASC,
+		[PhoneNumberId] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+
+
+ALTER TABLE [dbo].[CompanyPhoneNumberJoin]  WITH CHECK ADD  CONSTRAINT [FK_dbo.CompanyPhoneNumberJoin_dbo.Company_CompanyId] FOREIGN KEY([CompanyId])
+REFERENCES [dbo].[Company] ([Id])
+ON DELETE CASCADE
+
+ALTER TABLE [dbo].[CompanyPhoneNumberJoin] CHECK CONSTRAINT [FK_dbo.CompanyPhoneNumberJoin_dbo.Company_CompanyId]
+
+ALTER TABLE [dbo].[CompanyPhoneNumberJoin]  WITH CHECK ADD  CONSTRAINT [FK_dbo.CompanyPhoneNumberJoin_dbo.CompanyPhoneNumber_PhoneNumberId] FOREIGN KEY([PhoneNumberId])
+REFERENCES [dbo].[CompanyPhoneNumber] ([PhoneNumberId])
+ON DELETE CASCADE
+
+ALTER TABLE [dbo].[CompanyPhoneNumberJoin] CHECK CONSTRAINT [FK_dbo.CompanyPhoneNumberJoin_dbo.CompanyPhoneNumber_PhoneNumberId]
 
 
 CREATE TABLE [dbo].[Investment] (
@@ -157,6 +222,7 @@ SET IDENTITY_INSERT [dbo].[ClientAddress] OFF;
 
 
 
+
 INSERT INTO ClientAddressJoin (ClientId, AddressId)
 	VALUES (1,1);
 INSERT INTO ClientAddressJoin (ClientId, AddressId)
@@ -165,6 +231,25 @@ INSERT INTO ClientAddressJoin (ClientId, AddressId)
 	VALUES (2,2);
 INSERT INTO ClientAddressJoin (ClientId, AddressId)
 	VALUES (3,3);
+
+	SET IDENTITY_INSERT [dbo].[ClientPhoneNumber] ON;
+INSERT INTO ClientPhoneNumber (PhoneNumberId, PhoneNo, PhoneType)
+	VALUES (1, '905-908-5566', 'Home');
+INSERT INTO ClientPhoneNumber (PhoneNumberId, PhoneNo, PhoneType)
+	VALUES (2, '222-333-4444', 'Cell');
+INSERT INTO ClientPhoneNumber (PhoneNumberId, PhoneNo, PhoneType)
+	VALUES (3, '888-908-4456', 'Work');
+SET IDENTITY_INSERT [dbo].[ClientPhoneNumber] OFF;
+
+INSERT INTO ClientPhoneNumberJoin (ClientId, PhoneNumberId)
+	VALUES (1,1);
+INSERT INTO ClientPhoneNumberJoin (ClientId, PhoneNumberId)
+	VALUES (1,2);
+INSERT INTO ClientPhoneNumberJoin (ClientId, PhoneNumberId)
+	VALUES (2,2);
+INSERT INTO ClientPhoneNumberJoin (ClientId, PhoneNumberId)
+	VALUES (3,3);
+
 
 SET IDENTITY_INSERT [dbo].[Company] ON;
 INSERT INTO COMPANY (Id, CompanyName, ContactName, PhoneNumber, AgentId)
