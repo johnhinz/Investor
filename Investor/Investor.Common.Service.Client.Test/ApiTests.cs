@@ -18,7 +18,7 @@ namespace Investor.Common.Service.Client.Test
         public ApiTests()
         {
             IClientLogic logic = new LogicStub();
-            _controller = new ClientController(logic);
+            _controller = new ClientController(logic,null);
             _controller.Request = new HttpRequestMessage();
             _controller.Request.Properties.Add(HttpPropertyKeys.HttpConfigurationKey, new HttpConfiguration());
         }

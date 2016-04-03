@@ -38,16 +38,16 @@ namespace Investor.Common.Shared.EntityFramework
                     });
 
             modelBuilder.Entity<InvestmentPoco>()
-                .HasMany<InvestmentClientPoco>(c => c.Clients)
-                .WithMany(a => a.Investments)
-                .Map(ca =>
-                {
-                    ca.MapLeftKey("InvestmentId");
-                    ca.MapRightKey("ClientId");
-                    ca.ToTable("InvestmentClientJoin");
+                .HasMany<InvestmentClientPoco>(c => c.Clients);
+               // .WithMany(a => a.I)
+                //.Map(ca =>
+                //{
+                //    ca.MapLeftKey("InvestmentId");
+                //    ca.MapRightKey("ClientId");
+                //    ca.ToTable("InvestmentClientJoin");
 
 
-                });
+                //});
             modelBuilder.Entity<CompanyPoco>()
                 .HasMany<CompanyAddressPoco>(c => c.Addresses)
                 .WithMany(a => a.Companies)
