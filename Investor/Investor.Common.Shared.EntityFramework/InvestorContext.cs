@@ -23,6 +23,7 @@ namespace Investor.Common.Shared.EntityFramework
             modelBuilder.Configurations.Add(new CompanyMapping());
             modelBuilder.Configurations.Add(new ClientPhoneNumberMapping());
             modelBuilder.Configurations.Add(new CompanyPhoneNumberMapping());
+            modelBuilder.Configurations.Add(new InvestmentClientMapping());
             //modelBuilder.Configurations.Add(new InvestmentClientMapping());
 
             modelBuilder.Entity<ClientPoco>()
@@ -35,6 +36,18 @@ namespace Investor.Common.Shared.EntityFramework
                         ca.ToTable("ClientAddressJoin");
 
                     });
+
+            modelBuilder.Entity<InvestmentPoco>()
+                .HasMany<InvestmentClientPoco>(c => c.Clients);
+               // .WithMany(a => a.I)
+                //.Map(ca =>
+                //{
+                //    ca.MapLeftKey("InvestmentId");
+                //    ca.MapRightKey("ClientId");
+                //    ca.ToTable("InvestmentClientJoin");
+
+
+                //});
             modelBuilder.Entity<CompanyPoco>()
                 .HasMany<CompanyAddressPoco>(c => c.Addresses)
                 .WithMany(a => a.Companies)
@@ -72,6 +85,7 @@ namespace Investor.Common.Shared.EntityFramework
         public DbSet<InvestmentPoco> Investments { get; set; }
         public DbSet<ClientAddressPoco> ClientAddresses { get; set; }
         public DbSet<CompanyAddressPoco> CompanyAddresses { get; set; }
+        public DbSet<InvestmentClientPoco> InvestmentClients { get; set; }
         public DbSet <ClientPhoneNumberPoco > ClientPhones { get; set; }
         public DbSet <CompanyPhoneNumberPoco > CompanyPhones { get; set; }
 
