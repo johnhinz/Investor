@@ -36,8 +36,9 @@ namespace Investor.Common.Service.Investment.Data
 
         public IEnumerable<InvestmentClientPoco> ReadClient(long id)
         {
-           
-            return _db.InvestmentClients.Where(a=>a.Investments.Select(c=>c.Id).Contains(id)).ToList();
+
+            return null;
+           // return _db.InvestmentClients.Where(a=>a.Investments.Select(c=>c.Id).Contains(id)).ToList();
         }
 
         public bool Update(long id, InvestmentPoco investment)
