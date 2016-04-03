@@ -14,10 +14,12 @@ namespace Investor.Common.Shared.Pocos
         Home,
         Fax
     }
-    public class PhoneNumberPoco
+    public class ClientPhoneNumberPoco
     {
-        public long Id { get; set; }
+        public long PhoneNumberId { get; set; }
         public string PhoneNo { get; set; }
         public PhoneNumberEnum PhoneType { get; set; }
+        public virtual ICollection <ClientPoco > Clients { get; set; }
+
     }
 }
