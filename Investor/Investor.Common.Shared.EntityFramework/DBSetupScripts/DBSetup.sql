@@ -12,7 +12,7 @@ IF EXISTS (select * from sys.objects where name = 'ClientAddress' and type = 'u'
 
 IF EXISTS (select * from sys.objects where name = 'CompanyPhoneNumberJoin' and type = 'u') 
 	DROP TABLE [dbo].[CompanyPhoneNumberJoin];
-IF EXISTS (select * from sys.objects where name = 'ClientPhoneNumebrJoin' and type = 'u') 
+IF EXISTS (select * from sys.objects where name = 'ClientPhoneNumberJoin' and type = 'u') 
 	DROP TABLE [dbo].[ClientPhoneNumberJoin];
 
 IF EXISTS (select * from sys.objects where name = 'CompanyPhoneNumber' and type = 'u') 
@@ -76,7 +76,7 @@ ALTER TABLE [dbo].[ClientAddressJoin] CHECK CONSTRAINT [FK_dbo.ClientAddressJoin
 CREATE TABLE [dbo].[ClientPhoneNumber](
 	[PhoneNumberId] [bigint] IDENTITY(1,1) NOT NULL,
 	[PhoneNo] [nvarchar](max) NULL,
-	[PhoneType] [nvarchar](max) NULL,
+	[PhoneType] [int] NOT NULL,
 	
  CONSTRAINT [PK_dbo.ClientPhoneNumber] PRIMARY KEY CLUSTERED 
 	(
@@ -153,7 +153,7 @@ ALTER TABLE [dbo].[CompanyAddressJoin] CHECK CONSTRAINT [FK_dbo.CompanyAddressJo
 CREATE TABLE [dbo].[CompanyPhoneNumber](
 	[PhoneNumberId] [bigint] IDENTITY(1,1) NOT NULL,
 	[PhoneNo] [nvarchar](max) NULL,
-	[PhoneType] [nvarchar](max) NULL,
+	[PhoneType] [int] NOT NULL,
 	CONSTRAINT [PK_dbo.CompanyPhoneNumber] PRIMARY KEY CLUSTERED 
 	(
 		[PhoneNumberId] ASC
@@ -234,11 +234,11 @@ INSERT INTO ClientAddressJoin (ClientId, AddressId)
 
 	SET IDENTITY_INSERT [dbo].[ClientPhoneNumber] ON;
 INSERT INTO ClientPhoneNumber (PhoneNumberId, PhoneNo, PhoneType)
-	VALUES (1, '905-908-5566', 'Home');
+	VALUES (1, '905-908-5566', 3);
 INSERT INTO ClientPhoneNumber (PhoneNumberId, PhoneNo, PhoneType)
-	VALUES (2, '222-333-4444', 'Cell');
+	VALUES (2, '222-333-4444', 0);
 INSERT INTO ClientPhoneNumber (PhoneNumberId, PhoneNo, PhoneType)
-	VALUES (3, '888-908-4456', 'Work');
+	VALUES (3, '888-908-4456', 1);
 SET IDENTITY_INSERT [dbo].[ClientPhoneNumber] OFF;
 
 INSERT INTO ClientPhoneNumberJoin (ClientId, PhoneNumberId)

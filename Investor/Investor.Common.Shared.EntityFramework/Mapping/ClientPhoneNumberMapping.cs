@@ -14,7 +14,7 @@ namespace Investor.Common.Shared.EntityFramework.Mapping
         public ClientPhoneNumberMapping ()
         {
             ToTable("ClientPhoneNumber");
-            HasKey(c => c.Id);
+            HasKey(c => c.PhoneNumberId);
             HasMany(p => p.Clients);
 
         }
