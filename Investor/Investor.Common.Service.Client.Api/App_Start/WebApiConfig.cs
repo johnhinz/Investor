@@ -9,6 +9,8 @@ using Investor.Common.Shared.IoC;
 using Investor.Common.Service.Client.Data;
 using Investor.Common.Service.Client.Logic;
 using Investor.Common.Shared.Interfaces;
+using log4net;
+using System.Reflection;
 //using Investor.Common.Shared.OAuth;
 
 
@@ -26,6 +28,7 @@ namespace Investor.Common.Service.Client.Api
             var container = new UnityContainer();
             container.RegisterType<IClientRepository, ClientRepository>(new HierarchicalLifetimeManager());
             container.RegisterType<IClientLogic, ClientLogic>(new HierarchicalLifetimeManager());
+            container.RegisterType<ILog>(new InjectionFactory(x => LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType)));
 
             config.DependencyResolver = new UnityResolver(container);
 

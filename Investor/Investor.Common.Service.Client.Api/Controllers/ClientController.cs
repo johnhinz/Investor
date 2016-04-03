@@ -1,12 +1,10 @@
 ﻿using Investor.Common.Shared.Interfaces;
 using Investor.Common.Shared.Pocos;
-using System;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
-
-
+using log4net;
 
 namespace Investor.Common.Service.Client.Api.Controllers
 {
@@ -14,25 +12,30 @@ namespace Investor.Common.Service.Client.Api.Controllers
     [RoutePrefix ("api.invest.com/clients")]
     public class ClientController : ApiController
     {
-        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private readonly ILog _log;
+        private readonly IClientLogic _logic;
 
-        private IClientLogic _logic;
-
-        public ClientController(IClientLogic logic)
+        public ClientController(IClientLogic logic, ILog log)
         {
             _logic = logic;
-          
+            _log = log;
         }
 
         [HttpGet]
         [Route ("{clientId}")]
-
-        public HttpResponseMessage Get(long clientId)
+        public IHttpActionResult Get(long clientId)
         {
+            _log.Debug("Getting Client!");
+            _log.DebugFormat("Method: Get, Accept: {0}", Request.Headers.Accept.ToString());
             var client = _logic.Read(clientId);
-            log.Debug("Getting Client!");
-            return Request.CreateResponse(HttpStatusCode.OK, client);
-          
+            if (client == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(client);
+            }
         }
 
         [HttpGet]
@@ -83,7 +86,7 @@ namespace Investor.Common.Service.Client.Api.Controllers
         public HttpResponseMessage CreateClient([FromBody] ClientPoco client)
         {
             _logic.Create(client);
-            log.Debug("Creating new client.");
+            _log.Debug("Creating new client.");
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
