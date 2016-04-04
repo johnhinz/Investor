@@ -38,7 +38,7 @@ namespace Investor.Common.Service.Investment.Data
         {
 
             return null;
-           // return _db.InvestmentClients.Where(a=>a.Investments.Select(c=>c.Id).Contains(id)).ToList();
+           //return _db.InvestmentClients.Where(a=>a.Investments.Select(c=>c.Id).Contains(id)).ToList();
         }
 
         public bool Update(long id, InvestmentPoco investment)

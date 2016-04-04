@@ -188,10 +188,18 @@ ALTER TABLE [dbo].[CompanyPhoneNumberJoin] CHECK CONSTRAINT [FK_dbo.CompanyPhone
 CREATE TABLE [dbo].[Investment] (
     [Id]             BIGINT IDENTITY (1, 1) NOT NULL,
 	[CompanyId]		 BIGINT NOT NULL,
-    [InvestmentType] NVARCHAR (MAX) NULL,
+    [InvestmentType] int NULL,
     CONSTRAINT [PK_dbo.Investment] PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [FK_dbo.Investment_dbo.Company_CompanyId] FOREIGN KEY ([CompanyId]) REFERENCES [dbo].[Company] ([Id]) ON DELETE CASCADE,
 );
+Alter table Investment
+Alter column InvestmentType int;
+ALTER TABLE Investment ADD
+Amount BIGINT NULL,
+Term   INT NULL,
+StartDate DATETIME2(7) NULL,
+MatureDate DATETIME2(7) NULL,
+ClientId BIGINT NULL DEFAULT '';
 
 CREATE TABLE [dbo].[InvestmentClient] (
 	[ClientId]		BIGINT NOT NULL,
@@ -260,7 +268,10 @@ SET IDENTITY_INSERT [dbo].[Company] OFF;
 
 SET IDENTITY_INSERT [dbo].[Investment] ON;
 INSERT INTO INVESTMENT (Id, CompanyId, InvestmentType)
-	VALUES (1, 1, 'GIC');
+	VALUES (1, 1, 1);
+INSERT INTO INVESTMENT (Id, CompanyId, InvestmentType)
+	VALUES (2, 1, 3);
+
 SET IDENTITY_INSERT [dbo].[Investment] OFF;
 
 INSERT INTO INVESTMENTCLIENT (ClientId, InvestmentId, ClientOrder)
