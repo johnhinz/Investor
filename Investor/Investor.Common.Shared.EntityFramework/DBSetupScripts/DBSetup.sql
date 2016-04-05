@@ -28,6 +28,8 @@ IF EXISTS (select * from sys.objects where name = 'Investment' and type = 'u')
 	DROP TABLE [dbo].[Investment];
 IF EXISTS (select * from sys.objects where name = 'Company' and type = 'u') 
 	DROP TABLE [dbo].[Company];
+IF EXISTS (select * from sys.objects where name = 'InvestmentType' and type = 'u') 
+	DROP TABLE [dbo].[Company];
 
 
 CREATE TABLE [dbo].[Client] (
@@ -185,21 +187,28 @@ ON DELETE CASCADE
 ALTER TABLE [dbo].[CompanyPhoneNumberJoin] CHECK CONSTRAINT [FK_dbo.CompanyPhoneNumberJoin_dbo.CompanyPhoneNumber_PhoneNumberId]
 
 
-CREATE TABLE [dbo].[Investment] (
-    [Id]             BIGINT IDENTITY (1, 1) NOT NULL,
-	[CompanyId]		 BIGINT NOT NULL,
-    [InvestmentType] int NULL,
-    CONSTRAINT [PK_dbo.Investment] PRIMARY KEY CLUSTERED ([Id] ASC),
-    CONSTRAINT [FK_dbo.Investment_dbo.Company_CompanyId] FOREIGN KEY ([CompanyId]) REFERENCES [dbo].[Company] ([Id]) ON DELETE CASCADE,
+
+CREATE TABLE [dbo].[Investment]
+(
+	[Id] BIGINT IDENTITY(1,1) NOT NULL, 
+    [CompanyId] BIGINT NOT NULL, 
+    [InvestmentType] BIGINT NOT NULL, 
+    [Amount] NUMERIC NULL, 
+    [Term] INT NULL, 
+    [StartDate] DATETIME2(7) NULL, 
+    [MatureDate] DATETIME2(7) NULL, 
+    [ClientId] BIGINT NOT NULL, 
+	 CONSTRAINT [PK_dbo.Investment] PRIMARY KEY CLUSTERED ([Id] ASC),
+	 CONSTRAINT [FK_dbo.Investment_dbo.Company_CompanyId] FOREIGN KEY ([CompanyId]) REFERENCES [dbo].[Company] ([Id]) ON DELETE CASCADE,
+     CONSTRAINT [FK_dbo.Investment_dbo.Client_ClientId] FOREIGN KEY ([ClientId]) REFERENCES [dbo].[Client] ([Id]) ON DELETE CASCADE,
 );
-Alter table Investment
-Alter column InvestmentType int;
-ALTER TABLE Investment ADD
-Amount BIGINT NULL,
-Term   INT NULL,
-StartDate DATETIME2(7) NULL,
-MatureDate DATETIME2(7) NULL,
-ClientId BIGINT NULL DEFAULT '';
+
+CREATE TABLE [dbo].[InvestmentType]
+(
+	[Id] BIGINT IDENTITY(1,1) NOT NULL , 
+    [InvestmentType] NVARCHAR(MAX) NULL,
+	CONSTRAINT [PK_dbo.InvestmentType] PRIMARY KEY CLUSTERED ([Id] ASC)
+);
 
 CREATE TABLE [dbo].[InvestmentClient] (
 	[ClientId]		BIGINT NOT NULL,

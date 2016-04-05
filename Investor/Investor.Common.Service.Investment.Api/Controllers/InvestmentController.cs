@@ -42,7 +42,13 @@ namespace Investor.Common.Service.Investment.Api
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-      
+      [HttpPost]
+      [Route("CreateInvestmentType")]
+      public HttpResponseMessage CreateInvestmentType([FromBody] InvestmentTypePoco investmenttype)
+        {
+            _logic.CreateInvestmentType(investmenttype);
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
 
         [HttpDelete]
         [Route("{ID}")]

@@ -7,24 +7,27 @@ using System.Threading.Tasks;
 
 namespace Investor.Common.Shared.Pocos
 {
-    public enum InvestmentTypeEnum
-    {
-        GIC,
-        RSP,
-        RIF,
-        TFSA,
-        ESP,
-        DSP
-    }
+    
     [DataContract]
     public class InvestmentPoco
     {
         [DataMember]
         public long Id { get; set; }
         [DataMember]
-        public InvestmentTypeEnum InvestmentType { get; set; }
+        public long InvestmentType { get; set; }
         [DataMember]
         public long CompanyId { get; set; }
+        [DataMember]
+        public int Amount { get; set; }
+        [DataMember]
+        public int Term { get; set; }
+        [DataMember]
+        public DateTime StartDate { get; set; }
+        [DataMember]
+        public DateTime MatureDate { get; set; }
+        [DataMember]
+        public long ClientId { get; set; } 
+
         public virtual ICollection<ClientPoco> Clients { get; set; }
     }
 }

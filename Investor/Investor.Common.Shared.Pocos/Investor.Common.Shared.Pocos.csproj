@@ -49,6 +49,7 @@
     <Compile Include="InvestmentClientPoco.cs" />
     <Compile Include="InvestmentPoco.cs" />
     <Compile Include="ClientPhoneNumberPoco.cs" />
+    <Compile Include="InvestmentTypePoco.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

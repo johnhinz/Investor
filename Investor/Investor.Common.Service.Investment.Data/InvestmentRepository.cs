@@ -22,6 +22,12 @@ namespace Investor.Common.Service.Investment.Data
             _db.SaveChanges();
         }
 
+        public void CreateInvestmentType(InvestmentTypePoco investmenttype)
+        {
+            _db.InvestmentTypes.Add(investmenttype);
+            _db.SaveChanges();
+        }
+
         public void Delete(long id)
         {
             InvestmentPoco p = _db.Investments.Find(id);

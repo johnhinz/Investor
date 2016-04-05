@@ -19,6 +19,11 @@ namespace Investor.Common.Service.Investment.Logic
             _repository.Create(investment);
         }
 
+        public void CreateInvestmentType(InvestmentTypePoco investmenttype)
+        {
+            _repository.CreateInvestmentType(investmenttype);
+        }
+
         public void Delete(long id)
         {
             _repository.Delete(id);

@@ -23,6 +23,7 @@ namespace Investor.Common.Shared.EntityFramework
             modelBuilder.Configurations.Add(new CompanyMapping());
             modelBuilder.Configurations.Add(new ClientPhoneNumberMapping());
             modelBuilder.Configurations.Add(new CompanyPhoneNumberMapping());
+            modelBuilder.Configurations.Add(new InvestmentTypeMapping());
             //modelBuilder.Configurations.Add(new InvestmentClientMapping());
 
             // map clients to investments
@@ -92,6 +93,7 @@ namespace Investor.Common.Shared.EntityFramework
         public DbSet<CompanyAddressPoco> CompanyAddresses { get; set; }
         public DbSet <ClientPhoneNumberPoco > ClientPhones { get; set; }
         public DbSet <CompanyPhoneNumberPoco > CompanyPhones { get; set; }
+        public DbSet<InvestmentTypePoco> InvestmentTypes { get; set; }
 
     }
 }
