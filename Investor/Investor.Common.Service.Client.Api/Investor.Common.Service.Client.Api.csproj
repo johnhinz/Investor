@@ -190,6 +190,10 @@
       <Project>{971d42ce-dfc0-480c-a7c1-43bf7c064835}</Project>
       <Name>Investor.Common.Service.Client.Logic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Investor.Common.Shared.DataTransferObjects\Investor.Common.Shared.DataTransferObjects.csproj">
+      <Project>{eb0f9d35-cc05-40d6-89b3-a0601e4562e5}</Project>
+      <Name>Investor.Common.Shared.DataTransferObjects</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Investor.Common.Shared.Interfaces\Investor.Common.Shared.Interfaces.csproj">
       <Project>{5a2693a2-088d-49cb-aa22-937a483365e0}</Project>
       <Name>Investor.Common.Shared.Interfaces</Name>

@@ -1,17 +1,22 @@
 ﻿using Investor.Common.Shared.Interfaces;
 using Investor.Common.Shared.Pocos;
 using System.Collections.Generic;
-using System;
+using AutoMapper;
+using Investor.Common.Shared.DataTransferObjects;
 
 namespace Investor.Common.Service.Client.Logic
 {
     public class ClientLogic : IClientLogic
     {
-        private IClientRepository _repository;
+        private readonly IClientRepository _repository;
+        private readonly IMapper _mapper;
 
         public ClientLogic(IClientRepository repository)
         {
             _repository = repository;
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<ClientPoco, ClientDto>());
+            _mapper = config.CreateMapper();
+
         }
 
         public void Create(ClientPoco client)
@@ -19,9 +24,19 @@ namespace Investor.Common.Service.Client.Logic
             _repository.Create(client);
         }
 
-        public ClientPoco Read(long id)
+        public ClientDto Read(long id)
         {
-            return _repository.Read(id);
+            var clientPoco = _repository.Read(id);
+            if (clientPoco != null)
+            {
+                ClientDto dto = _mapper.Map<ClientDto>(clientPoco);
+                return dto;
+            }
+            else
+            {
+                return null;
+            }
+
         }
 
         public IEnumerable<ClientPoco> ReadLastName(string lastname)

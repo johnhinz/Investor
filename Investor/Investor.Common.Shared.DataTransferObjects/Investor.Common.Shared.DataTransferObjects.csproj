@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5A2693A2-088D-49CB-AA22-937A483365E0}</ProjectGuid>
+    <ProjectGuid>{EB0F9D35-CC05-40D6-89B3-A0601E4562E5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Investor.Common.Shared.Interfaces</RootNamespace>
-    <AssemblyName>Investor.Common.Shared.Interfaces</AssemblyName>
+    <RootNamespace>Investor.Common.Shared.DataTransferObjects</RootNamespace>
+    <AssemblyName>Investor.Common.Shared.DataTransferObjects</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,23 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IClientLogic.cs" />
-    <Compile Include="IClientRepository.cs" />
-    <Compile Include="ICompanyLogic.cs" />
-    <Compile Include="ICompanyRepository.cs" />
-    <Compile Include="IInvestmentLogic.cs" />
-    <Compile Include="IInvestmentRepository.cs" />
+    <Compile Include="ClientDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Investor.Common.Shared.DataTransferObjects\Investor.Common.Shared.DataTransferObjects.csproj">
-      <Project>{eb0f9d35-cc05-40d6-89b3-a0601e4562e5}</Project>
-      <Name>Investor.Common.Shared.DataTransferObjects</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Investor.Common.Shared.Pocos\Investor.Common.Shared.Pocos.csproj">
-      <Project>{f1382fb5-ba1e-49e4-98f3-5d78f35d105c}</Project>
-      <Name>Investor.Common.Shared.Pocos</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
