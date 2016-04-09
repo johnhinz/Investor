@@ -216,7 +216,7 @@ CREATE TABLE [dbo].[InvestmentClient] (
 	[ClientOrder] 	TINYINT NOT NULL
     CONSTRAINT [PK_dbo.InvestmentClient] PRIMARY KEY CLUSTERED ([ClientId] ASC, [InvestmentId] ASC)
     CONSTRAINT [FK_dbo.InvestmentClient_dbo.Client_ClientId] FOREIGN KEY ([ClientId]) REFERENCES [dbo].[Client] ([Id]) ON DELETE CASCADE,
-    CONSTRAINT [FK_dbo.InvestmentClient_dbo.Invesetment_InvestmentId] FOREIGN KEY ([InvestmentId]) REFERENCES [dbo].[Investment] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_dbo.InvestmentClient_dbo.Invesetment_InvestmentId] FOREIGN KEY ([InvestmentId]) REFERENCES [dbo].[Investment] ([Id]),
 );
 
 SET IDENTITY_INSERT [dbo].[Client] ON;
