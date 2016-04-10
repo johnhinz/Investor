@@ -14,7 +14,7 @@ namespace Investor.Common.Service.Company.Logic
             _repository = repository;
         }
 
-        
+
 
         public CompanyPoco ReadCompany(long id)
         {
@@ -31,9 +31,9 @@ namespace Investor.Common.Service.Company.Logic
             return _repository.Add(company);
         }
 
-        public bool Update(long id,CompanyPoco company)
+        public bool Update(long id, CompanyPoco company)
         {
-          var isupdated=  _repository.Update(id, company);
+            var isupdated = _repository.Update(id, company);
             if (isupdated)
             {
                 return true;
@@ -59,7 +59,35 @@ namespace Investor.Common.Service.Company.Logic
             }
         }
 
-        
-       
+
+
+
+
+        public IEnumerable<CompanyAddressPoco> ReadAddresses(long id)
+        {
+            return _repository.ReadAddresses(id);
+        }
+
+
+        public bool UpdateAddress(long companyId, CompanyAddressPoco address)
+        {
+            var isupdated = _repository.UpdateAddress(companyId, address);
+            if (isupdated)
+            {
+                return true;
+
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        public void DeleteAddress(long companyId, long addressId)
+        {
+            _repository.DeleteAddress(companyId, addressId);
+
+        }
     }
 }
