@@ -59,35 +59,7 @@ namespace Investor.Common.Service.Company.Logic
             }
         }
 
-
-
-
-
-        public IEnumerable<CompanyAddressPoco> ReadAddresses(long id)
-        {
-            return _repository.ReadAddresses(id);
-        }
-
-
-        public bool UpdateAddress(long companyId, CompanyAddressPoco address)
-        {
-            var isupdated = _repository.UpdateAddress(companyId, address);
-            if (isupdated)
-            {
-                return true;
-
-            }
-            else
-            {
-                return false;
-            }
-            
-        }
-
-        public void DeleteAddress(long companyId, long addressId)
-        {
-            _repository.DeleteAddress(companyId, addressId);
-
-        }
+        
+       
     }
 }

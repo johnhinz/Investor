@@ -14,11 +14,8 @@ namespace Investor.Common.Shared.Interfaces
       //  AddressPoco ReadAddress(long id);
 
         CompanyPoco Add(CompanyPoco company);
-        IEnumerable<CompanyAddressPoco> ReadAddresses(long id);
        
         bool Update(long id,CompanyPoco company);
-        bool UpdateAddress(long id, CompanyAddressPoco address);
-        void DeleteAddress(long companyId, long addressId);
         bool Delete(long id);
 
     }

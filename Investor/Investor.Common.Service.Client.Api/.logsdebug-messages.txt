@@ -26,31 +26,3 @@
 2016-04-04 19:55:13,009 [6] DEBUG Investor.Common.Service.Client.Api.WebApiConfig+<>c [(null)] - Getting Client!
 
 2016-04-04 19:55:13,072 [6] DEBUG Investor.Common.Service.Client.Api.WebApiConfig+<>c [(null)] - Method: Get, Accept: 
-
-2016-04-09 15:17:52,033 [6] DEBUG Investor.Common.Service.Client.Api.WebApiConfig+<>c [(null)] - Getting Client!
-
-2016-04-09 15:17:52,080 [6] DEBUG Investor.Common.Service.Client.Api.WebApiConfig+<>c [(null)] - Method: Get, Accept: 
-
-2016-04-09 15:21:14,638 [9] DEBUG Investor.Common.Service.Client.Api.WebApiConfig+<>c [(null)] - Getting Client!
-
-2016-04-09 15:21:14,685 [9] DEBUG Investor.Common.Service.Client.Api.WebApiConfig+<>c [(null)] - Method: Get, Accept: 
-
-2016-04-09 15:23:52,070 [9] DEBUG Investor.Common.Service.Client.Api.WebApiConfig+<>c [(null)] - Getting Client!
-
-2016-04-09 15:23:52,085 [9] DEBUG Investor.Common.Service.Client.Api.WebApiConfig+<>c [(null)] - Method: Get, Accept: 
-
-2016-04-09 15:26:11,011 [5] DEBUG Investor.Common.Service.Client.Api.WebApiConfig+<>c [(null)] - Getting Client!
-
-2016-04-09 15:26:11,027 [5] DEBUG Investor.Common.Service.Client.Api.WebApiConfig+<>c [(null)] - Method: Get, Accept: 
-
-2016-04-09 15:33:31,516 [7] DEBUG Investor.Common.Service.Client.Api.WebApiConfig+<>c [(null)] - Getting Client!
-
-2016-04-09 15:33:31,531 [7] DEBUG Investor.Common.Service.Client.Api.WebApiConfig+<>c [(null)] - Method: Get, Accept: 
-
-2016-04-09 15:49:15,121 [8] DEBUG Investor.Common.Service.Client.Api.WebApiConfig+<>c [(null)] - Getting Client!
-
-2016-04-09 15:49:15,145 [8] DEBUG Investor.Common.Service.Client.Api.WebApiConfig+<>c [(null)] - Method: Get, Accept: 
-
-2016-04-09 15:51:48,391 [6] DEBUG Investor.Common.Service.Client.Api.WebApiConfig+<>c [(null)] - Getting Client!
-
-2016-04-09 15:51:48,426 [6] DEBUG Investor.Common.Service.Client.Api.WebApiConfig+<>c [(null)] - Method: Get, Accept: 

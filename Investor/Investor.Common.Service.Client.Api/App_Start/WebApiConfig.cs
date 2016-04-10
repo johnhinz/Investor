@@ -25,16 +25,21 @@ namespace Investor.Common.Service.Client.Api
             // Web API routes
             config.MapHttpAttributeRoutes();
 
+            // IoC Injection setup
             var container = new UnityContainer();
             container.RegisterType<IClientRepository, ClientRepository>(new HierarchicalLifetimeManager());
             container.RegisterType<IClientLogic, ClientLogic>(new HierarchicalLifetimeManager());
             container.RegisterType<ILog>(new InjectionFactory(x => LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType)));
-
             config.DependencyResolver = new UnityResolver(container);
 
+            // JSON serialize settings
             config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
 
+            // CORS setup
             config.EnableCors();
+
+
+            config.Filters.Add(new BasicAuthenticationFilter(true));
 
             //config.SuppressDefaultHostAuthentication();
             //config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
