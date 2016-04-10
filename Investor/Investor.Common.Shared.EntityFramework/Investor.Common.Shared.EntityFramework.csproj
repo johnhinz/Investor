@@ -58,6 +58,7 @@
     <Compile Include="Mapping\CompanyPhoneNumberMapping.cs" />
     <Compile Include="Mapping\InvestmentClientMapping.cs" />
     <Compile Include="Mapping\InvestmentMapping.cs" />
+    <Compile Include="Mapping\InvestmentTypeMapping.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

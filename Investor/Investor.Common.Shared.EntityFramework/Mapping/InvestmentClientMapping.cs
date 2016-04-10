@@ -1,15 +1,12 @@
-﻿using Investor.Common.Shared.Pocos;
-using System.Data.Entity.ModelConfiguration;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Investor.Common.Shared.EntityFramework.Mapping
 {
-    class InvestmentClientMapping : EntityTypeConfiguration<InvestmentClientPoco>
+    class InvestmentClientMapping
     {
-        public InvestmentClientMapping()
-        {
-            ToTable("InvestmentClient");
-            HasMany(im => im.Clients);
-            HasRequired(im => im.Investment);
-        }
     }
 }

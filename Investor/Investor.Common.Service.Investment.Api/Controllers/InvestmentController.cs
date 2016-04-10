@@ -24,7 +24,15 @@ namespace Investor.Common.Service.Investment.Api
             return Request.CreateResponse(HttpStatusCode.OK, investment);
         }
 
-        
+        [HttpGet]
+        [Route("{investmentId}/clients")]
+        public HttpResponseMessage GetClients(long investmentId)
+        {
+            var clients = _logic.ReadClient(investmentId);
+            return Request.CreateResponse(HttpStatusCode.OK, clients);
+        }
+
+
 
         [HttpPost]
         [Route("createInvestment")]
@@ -34,7 +42,13 @@ namespace Investor.Common.Service.Investment.Api
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-      
+      [HttpPost]
+      [Route("CreateInvestmentType")]
+      public HttpResponseMessage CreateInvestmentType([FromBody] InvestmentTypePoco investmenttype)
+        {
+            _logic.CreateInvestmentType(investmenttype);
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
 
         [HttpDelete]
         [Route("{ID}")]

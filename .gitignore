@@ -210,4 +210,4 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
-/Investor/Investor.Common.Service.Client.Api
+*.txt

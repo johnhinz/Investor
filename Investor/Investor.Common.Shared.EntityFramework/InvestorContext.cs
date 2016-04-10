@@ -23,8 +23,21 @@ namespace Investor.Common.Shared.EntityFramework
             modelBuilder.Configurations.Add(new CompanyMapping());
             modelBuilder.Configurations.Add(new ClientPhoneNumberMapping());
             modelBuilder.Configurations.Add(new CompanyPhoneNumberMapping());
+            modelBuilder.Configurations.Add(new InvestmentTypeMapping());
             //modelBuilder.Configurations.Add(new InvestmentClientMapping());
 
+            // map clients to investments
+            modelBuilder.Entity<ClientPoco>()
+                .HasMany<InvestmentPoco>(c => c.Investments)
+                .WithMany(i => i.Clients)
+                .Map(ci =>
+                    {
+                        ci.MapLeftKey("ClientId");
+                        ci.MapRightKey("InvestmentId");
+                        ci.ToTable("InvestmentClient");
+                    });
+
+            // map clients to addresses
             modelBuilder.Entity<ClientPoco>()
                 .HasMany<ClientAddressPoco>(c => c.Addresses)
                 .WithMany(a => a.Clients)
@@ -35,6 +48,8 @@ namespace Investor.Common.Shared.EntityFramework
                         ca.ToTable("ClientAddressJoin");
 
                     });
+
+            // map companies to addresses
             modelBuilder.Entity<CompanyPoco>()
                 .HasMany<CompanyAddressPoco>(c => c.Addresses)
                 .WithMany(a => a.Companies)
@@ -45,6 +60,8 @@ namespace Investor.Common.Shared.EntityFramework
                     ca.ToTable("CompanyAddressJoin");
 
                 });
+
+            // map clients to phone numbers
             modelBuilder.Entity<ClientPoco>()
                 .HasMany<ClientPhoneNumberPoco>(c => c.PhoneNumbers)
                 .WithMany(p => p.Clients)
@@ -55,6 +72,8 @@ namespace Investor.Common.Shared.EntityFramework
                    ca.ToTable("ClientPhoneNumberJoin");
 
                });
+
+            // map companies to phone numbers
             modelBuilder.Entity<CompanyPoco>()
                 .HasMany<CompanyPhoneNumberPoco>(c => c.PhoneNumbers)
                 .WithMany(p => p.Companies)
@@ -74,6 +93,7 @@ namespace Investor.Common.Shared.EntityFramework
         public DbSet<CompanyAddressPoco> CompanyAddresses { get; set; }
         public DbSet <ClientPhoneNumberPoco > ClientPhones { get; set; }
         public DbSet <CompanyPhoneNumberPoco > CompanyPhones { get; set; }
+        public DbSet<InvestmentTypePoco> InvestmentTypes { get; set; }
 
     }
 }

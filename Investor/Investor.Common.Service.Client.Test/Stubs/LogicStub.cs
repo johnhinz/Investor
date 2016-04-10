@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using Investor.Common.Shared.Pocos;
 using Investor.Common.Shared.Interfaces;
+using Investor.Common.Shared.DataTransferObjects;
 
 namespace Investor.Common.Service.Client.Test.Stubs
 {
     class LogicStub : IClientLogic
     {
-        public ClientPoco Read(long id)
+        public ClientDto Read(long id)
         {
-            return new ClientPoco() { FirstName = "Joe", LastName = "Smith" };
+            return new ClientDto() { FirstName = "Joe", LastName = "Smith" };
         }
         public void Create(ClientPoco client)
         {

@@ -3,6 +3,8 @@ using Investor.Common.Shared.Interfaces;
 using Investor.Common.Shared.Pocos;
 using System.Linq;
 using System;
+using System.Collections.Generic;
+
 
 namespace Investor.Common.Service.Investment.Data
 {
@@ -20,6 +22,12 @@ namespace Investor.Common.Service.Investment.Data
             _db.SaveChanges();
         }
 
+        public void CreateInvestmentType(InvestmentTypePoco investmenttype)
+        {
+            _db.InvestmentTypes.Add(investmenttype);
+            _db.SaveChanges();
+        }
+
         public void Delete(long id)
         {
             InvestmentPoco p = _db.Investments.Find(id);
@@ -32,7 +40,12 @@ namespace Investor.Common.Service.Investment.Data
             return _db.Investments.Where(c => c.Id == id).FirstOrDefault();
         }
 
-       
+        public IEnumerable<InvestmentClientPoco> ReadClient(long id)
+        {
+
+            return null;
+           //return _db.InvestmentClients.Where(a=>a.Investments.Select(c=>c.Id).Contains(id)).ToList();
+        }
 
         public bool Update(long id, InvestmentPoco investment)
         {

@@ -1,23 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace Investor.Common.Shared.Pocos
 {
+    [DataContract]
     public class ClientPoco
     {
+        [DataMember]
         public long Id { get; set; }
-        //public long AddressId { get; set; }
+        [DataMember]
         public string FirstName { get; set; }
+        [DataMember]
         public string LastName { get; set; }
+        [DataMember]
         public DateTime DoB { get; set; }
+        [DataMember]
         public string SocialIns { get; set; }
         public virtual ICollection<ClientAddressPoco> Addresses { get; set; }
         public virtual ICollection <ClientPhoneNumberPoco > PhoneNumbers { get; set; }
-
-
-        // public virtual PhoneNumberPoco PhoneNumber {get;set;}
+        public virtual ICollection<InvestmentPoco> Investments { get; set; }     
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Investor.Common.Shared.Interfaces;
 using Investor.Common.Shared.Pocos;
 
@@ -18,6 +19,11 @@ namespace Investor.Common.Service.Investment.Logic
             _repository.Create(investment);
         }
 
+        public void CreateInvestmentType(InvestmentTypePoco investmenttype)
+        {
+            _repository.CreateInvestmentType(investmenttype);
+        }
+
         public void Delete(long id)
         {
             _repository.Delete(id);
@@ -28,7 +34,10 @@ namespace Investor.Common.Service.Investment.Logic
             return _repository.Read(id);
         }
 
-
+        public IEnumerable<InvestmentClientPoco> ReadClient(long id)
+        {
+            return _repository.ReadClient(id);
+        }
 
         public bool Update(long id, InvestmentPoco investment)
         {

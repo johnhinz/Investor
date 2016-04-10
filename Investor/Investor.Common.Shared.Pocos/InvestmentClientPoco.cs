@@ -8,8 +8,9 @@ namespace Investor.Common.Shared.Pocos
 {
     public class InvestmentClientPoco
     {
-        public virtual ICollection<ClientPoco> Clients { get; set; }
-        public virtual InvestmentPoco Investment { get; set; }
+        public long ClientId { get; set; }
+        public long InvestmentId { get; set; }
         public short ClientOrder { get; set; }
+        public virtual ICollection<ClientPoco> Clients { get; set; }
     }
 }

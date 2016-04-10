@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestClassLibrary", "TestClassLibrary\TestClassLibrary.csproj", "{92206DDA-64C2-4513-AFE4-4CF5BFD532D6}"
 EndProject
@@ -22,8 +22,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Investor.Common.Shared", "Investor.Common.Shared", "{8C521B92-8D8E-4BE1-B617-EBCE10008A51}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investor.Common.Shared.IoC", "Investor.Common.Shared.IoC\Investor.Common.Shared.IoC.csproj", "{8984B55F-40EF-45E1-884F-837BA5531820}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investor.Common.Shared.OWIN", "Investor.Common.Shared.OWIN\Investor.Common.Shared.OWIN.csproj", "{24C9A027-907E-4708-9710-66B65ACF168E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investor.Common.Service.Client.Test", "Investor.Common.Service.Client.Test\Investor.Common.Service.Client.Test.csproj", "{7C4B6402-C90D-49C4-AD69-7C1B5D9ABDCA}"
 EndProject
@@ -73,6 +71,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investor.Common.Shared.Poco
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investor.Common.Shared.Interfaces", "Investor.Common.Shared.Interfaces\Investor.Common.Shared.Interfaces.csproj", "{5A2693A2-088D-49CB-AA22-937A483365E0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investor.Common.Shared.DataTransferObjects", "Investor.Common.Shared.DataTransferObjects\Investor.Common.Shared.DataTransferObjects.csproj", "{EB0F9D35-CC05-40D6-89B3-A0601E4562E5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,10 +99,6 @@ Global
 		{8984B55F-40EF-45E1-884F-837BA5531820}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8984B55F-40EF-45E1-884F-837BA5531820}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8984B55F-40EF-45E1-884F-837BA5531820}.Release|Any CPU.Build.0 = Release|Any CPU
-		{24C9A027-907E-4708-9710-66B65ACF168E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{24C9A027-907E-4708-9710-66B65ACF168E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{24C9A027-907E-4708-9710-66B65ACF168E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{24C9A027-907E-4708-9710-66B65ACF168E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7C4B6402-C90D-49C4-AD69-7C1B5D9ABDCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7C4B6402-C90D-49C4-AD69-7C1B5D9ABDCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C4B6402-C90D-49C4-AD69-7C1B5D9ABDCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -151,6 +147,10 @@ Global
 		{5A2693A2-088D-49CB-AA22-937A483365E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A2693A2-088D-49CB-AA22-937A483365E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A2693A2-088D-49CB-AA22-937A483365E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB0F9D35-CC05-40D6-89B3-A0601E4562E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB0F9D35-CC05-40D6-89B3-A0601E4562E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB0F9D35-CC05-40D6-89B3-A0601E4562E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB0F9D35-CC05-40D6-89B3-A0601E4562E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -160,7 +160,6 @@ Global
 		{971D42CE-DFC0-480C-A7C1-43BF7C064835} = {B060288C-AFC4-4124-8AF1-60DA60C04162}
 		{4DFE870A-DD93-4CDC-9E2D-36D648F7EB43} = {B060288C-AFC4-4124-8AF1-60DA60C04162}
 		{8984B55F-40EF-45E1-884F-837BA5531820} = {8C521B92-8D8E-4BE1-B617-EBCE10008A51}
-		{24C9A027-907E-4708-9710-66B65ACF168E} = {8C521B92-8D8E-4BE1-B617-EBCE10008A51}
 		{7C4B6402-C90D-49C4-AD69-7C1B5D9ABDCA} = {B060288C-AFC4-4124-8AF1-60DA60C04162}
 		{F4DE0769-1F9A-4CB7-AA8E-A1A5923018E3} = {586440D0-D3C2-47BC-A844-F6BEB5165D0F}
 		{7F219D87-1310-4FA2-A2B7-52A2CA760F23} = {586440D0-D3C2-47BC-A844-F6BEB5165D0F}
@@ -173,5 +172,9 @@ Global
 		{6533519A-DACB-497E-8DB3-AACBD6B99056} = {8C521B92-8D8E-4BE1-B617-EBCE10008A51}
 		{F1382FB5-BA1E-49E4-98F3-5D78F35D105C} = {8C521B92-8D8E-4BE1-B617-EBCE10008A51}
 		{5A2693A2-088D-49CB-AA22-937A483365E0} = {8C521B92-8D8E-4BE1-B617-EBCE10008A51}
+		{EB0F9D35-CC05-40D6-89B3-A0601E4562E5} = {8C521B92-8D8E-4BE1-B617-EBCE10008A51}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8;packages\EnterpriseLibrary.TransientFaultHandling.Data.6.0.1304.1\lib\NET45
 	EndGlobalSection
 EndGlobal

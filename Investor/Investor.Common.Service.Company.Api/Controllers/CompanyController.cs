@@ -33,6 +33,36 @@ namespace Investor.Common.Service.Company.Api.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, company);
 
         }
+
+        [HttpGet]
+        [Route("{companyId}/addresses")]
+        public HttpResponseMessage GetAddresses(long companyId)
+        {
+            var addresses = _logic.ReadAddresses(companyId);
+            return Request.CreateResponse(HttpStatusCode.OK, addresses);
+        }
+
+        [HttpPut]
+        [Route("{companyId}/address/{addressId}")]
+        public HttpResponseMessage UpdateAddress(long companyId, [FromBody] CompanyAddressPoco address)
+        {
+            var isUpdated = _logic.UpdateAddress(companyId, address);
+            if (isUpdated == true)
+                return Request.CreateResponse(HttpStatusCode.OK,address);
+            else
+                return Request.CreateResponse(HttpStatusCode.NotModified,address);
+            
+           
+        }
+
+        [HttpDelete]
+        [Route("{companyId}/address/{addressId}")]
+        public HttpResponseMessage DeleteAddress(long companyId, long addressId)
+        {
+            _logic.DeleteAddress(companyId, addressId);
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
+
        /* [HttpGet]
         [Route("CompanyAddress/{companyId}")]
         public HttpResponseMessage GetCompanyAddress(long companyId)

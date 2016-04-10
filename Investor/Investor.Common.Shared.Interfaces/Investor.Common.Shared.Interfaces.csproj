@@ -49,6 +49,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Investor.Common.Shared.DataTransferObjects\Investor.Common.Shared.DataTransferObjects.csproj">
+      <Project>{eb0f9d35-cc05-40d6-89b3-a0601e4562e5}</Project>
+      <Name>Investor.Common.Shared.DataTransferObjects</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Investor.Common.Shared.Pocos\Investor.Common.Shared.Pocos.csproj">
       <Project>{f1382fb5-ba1e-49e4-98f3-5d78f35d105c}</Project>
       <Name>Investor.Common.Shared.Pocos</Name>
