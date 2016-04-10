@@ -78,6 +78,13 @@ namespace Investor.Common.Service.Client.Logic
             _repository.UpdateAddress(clientId, address);
 
         }
+
+        ClientDto IClientLogic.Read(long id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+     
     }
 
 }
