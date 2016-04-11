@@ -23,6 +23,13 @@ namespace Investor.Common.Service.Investment.Api
             var investment = _logic.Read(investmentId);
             return Request.CreateResponse(HttpStatusCode.OK, investment);
         }
+        [HttpGet]
+        [Route("investmenttype/{investmentId}")]
+        public HttpResponseMessage GetInvestmentType(long investmentId)
+        {
+            var investment = _logic.ReadInvestmentType(investmentId);
+            return Request.CreateResponse(HttpStatusCode.OK, investment);
+        }
 
         [HttpGet]
         [Route("{investmentId}/clients")]
@@ -58,6 +65,13 @@ namespace Investor.Common.Service.Investment.Api
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
+        [HttpDelete]
+        [Route("investmenttype/{id}")]
+        public HttpResponseMessage DeleteInvestmenttype(long id)
+        {
+            _logic.DeleteInvestmentType(id);
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
 
         [HttpPut]
         [Route("UpdateInvestment")]

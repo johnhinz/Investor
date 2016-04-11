@@ -1,5 +1,5 @@
 ﻿using Investor.Common.Shared.Pocos;
-using Investor.Common.Shared.DataTransferObjects;
+
 using System.Collections.Generic;
 
 
@@ -7,7 +7,7 @@ namespace Investor.Common.Shared.Interfaces
 {
     public interface IClientLogic
     {
-        ClientDto Read(long id);
+        //ClientDto Read(long id);
         void Create(ClientPoco client);
 
         IEnumerable<ClientPoco> ReadLastName(string lastname);

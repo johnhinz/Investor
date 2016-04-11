@@ -15,6 +15,9 @@ namespace Investor.Common.Shared.Interfaces
         bool Update(long id, InvestmentPoco investment);
         IEnumerable<InvestmentClientPoco> ReadClient(long id);
         void CreateInvestmentType(InvestmentTypePoco investmenttype);
+        InvestmentTypePoco ReadInvestmentType(long id);
+        void DeleteInvestmentType(long id);
+        bool UpdateInvestmentType(long id, InvestmentTypePoco investmenttype);
         
     }
 }

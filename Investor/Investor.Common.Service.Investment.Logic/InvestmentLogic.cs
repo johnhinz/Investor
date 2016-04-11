@@ -29,6 +29,11 @@ namespace Investor.Common.Service.Investment.Logic
             _repository.Delete(id);
         }
 
+        public void DeleteInvestmentType(long id)
+        {
+            _repository.DeleteInvestmentType(id);
+        }
+
         public InvestmentPoco Read(long id)
         {
             return _repository.Read(id);
@@ -37,6 +42,11 @@ namespace Investor.Common.Service.Investment.Logic
         public IEnumerable<InvestmentClientPoco> ReadClient(long id)
         {
             return _repository.ReadClient(id);
+        }
+
+        public InvestmentTypePoco ReadInvestmentType(long id)
+        {
+            return _repository.ReadInvestmentType(id);
         }
 
         public bool Update(long id, InvestmentPoco investment)
@@ -51,6 +61,11 @@ namespace Investor.Common.Service.Investment.Logic
             {
                 return false;
             }
+        }
+
+        public bool UpdateInvestmentType(long id, InvestmentTypePoco investmenttype)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -35,6 +35,13 @@ namespace Investor.Common.Service.Investment.Data
             _db.SaveChanges();
         }
 
+        public void DeleteInvestmentType(long id)
+        {
+            InvestmentTypePoco p = _db.InvestmentTypes.Find(id);
+            _db.InvestmentTypes.Remove(p);
+            _db.SaveChanges();
+        }
+
         public InvestmentPoco Read(long id)
         {
             return _db.Investments.Where(c => c.Id == id).FirstOrDefault();
@@ -45,6 +52,11 @@ namespace Investor.Common.Service.Investment.Data
 
             return null;
            //return _db.InvestmentClients.Where(a=>a.Investments.Select(c=>c.Id).Contains(id)).ToList();
+        }
+
+        public InvestmentTypePoco ReadInvestmentType(long id)
+        {
+            return _db.InvestmentTypes.Where(a => a.Id == id).FirstOrDefault();
         }
 
         public bool Update(long id, InvestmentPoco investment)
@@ -61,6 +73,11 @@ namespace Investor.Common.Service.Investment.Data
 
                 return false;
             }
+        }
+
+        public bool UpdateInvestmentType(long id, InvestmentTypePoco investmenttype)
+        {
+            throw new NotImplementedException();
         }
     }
 }
