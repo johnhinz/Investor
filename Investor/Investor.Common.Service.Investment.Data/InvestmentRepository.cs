@@ -77,7 +77,18 @@ namespace Investor.Common.Service.Investment.Data
 
         public bool UpdateInvestmentType(long id, InvestmentTypePoco investmenttype)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _db.Entry(investmenttype).State = System.Data.Entity.EntityState.Modified;
+                _db.SaveChanges();
+                return true;
+
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
     }
 }

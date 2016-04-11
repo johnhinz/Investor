@@ -65,7 +65,16 @@ namespace Investor.Common.Service.Investment.Logic
 
         public bool UpdateInvestmentType(long id, InvestmentTypePoco investmenttype)
         {
-            throw new NotImplementedException();
+            var isupdated = _repository.UpdateInvestmentType(id, investmenttype);
+            if (isupdated)
+            {
+                return true;
+
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

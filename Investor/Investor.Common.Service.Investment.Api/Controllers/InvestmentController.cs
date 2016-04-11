@@ -84,5 +84,17 @@ namespace Investor.Common.Service.Investment.Api
                 return Request.CreateResponse(HttpStatusCode.NotModified, investment);
 
         }
+
+        [HttpPut]
+        [Route("UpdateInvestmentType")]
+        public HttpResponseMessage UpdateInvestmentType([FromBody]InvestmentTypePoco investmenttype)
+        {
+            var isUpdated = _logic.UpdateInvestmentType(investmenttype.Id, investmenttype);
+            if (isUpdated == true)
+                return Request.CreateResponse(HttpStatusCode.OK, investmenttype);
+            else
+                return Request.CreateResponse(HttpStatusCode.NotModified, investmenttype);
+
+        }
     }
 }
