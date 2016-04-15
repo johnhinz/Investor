@@ -1,5 +1,8 @@
 ﻿USE Investor;
 
+IF EXISTS (select * from sys.objects where name = 'Users' and type = 'u') 
+	DROP TABLE [dbo].[Users];
+
 IF EXISTS (select * from sys.objects where name = 'CompanyAddressJoin' and type = 'u') 
 	DROP TABLE [dbo].[CompanyAddressJoin];
 IF EXISTS (select * from sys.objects where name = 'ClientAddressJoin' and type = 'u') 
@@ -219,6 +222,15 @@ CREATE TABLE [dbo].[InvestmentClient] (
     CONSTRAINT [FK_dbo.InvestmentClient_dbo.Invesetment_InvestmentId] FOREIGN KEY ([InvestmentId]) REFERENCES [dbo].[Investment] ([Id]),
 );
 
+CREATE TABLE [dbo].[Users] (
+	ID BIGINT IDENTITY (1,1) NOT NULL,
+	USERNAME NVARCHAR(MAX) NOT NULL,
+	PASS NVARCHAR(MAX) NOT NULL,
+	CONSTRAINT [PK_dbo.Users] PRIMARY KEY CLUSTERED ([Id] ASC)
+	);
+
+---- SEED DATA
+
 SET IDENTITY_INSERT [dbo].[Client] ON;
 INSERT INTO CLIENT (Id, FirstName, LastName, DoB, SocialIns)
 	VALUES (1, 'Joe', 'Smith', '12/15/1993', '111-111-111');
@@ -286,4 +298,8 @@ SET IDENTITY_INSERT [dbo].[Investment] OFF;
 INSERT INTO INVESTMENTCLIENT (ClientId, InvestmentId, ClientOrder)
 	VALUES (1, 1, 1);
 
-	GO
+SET IDENTITY_INSERT [dbo].[USERS] ON;
+INSERT INTO dbo.Users (ID, USERNAME, PASS) VALUES (1, 'user', 'TEt+dr2bmR4PCEaGut97+/TeM0x3U7R+xVCOud9CIHblvnpVUMjVZLsPh/egWQmxABW8z7VB51Y/ICdYi81ISycAAAAAAAAA');
+SET IDENTITY_INSERT [dbo].[USERS] OFF;
+
+GO

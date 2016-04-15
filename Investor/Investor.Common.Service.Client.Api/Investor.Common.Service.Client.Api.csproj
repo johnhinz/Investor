@@ -157,8 +157,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="BasicAuthenticationFilter.cs" />
-    <Compile Include="BasicAuthenticationIdentity.cs" />
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -196,6 +194,10 @@
     <ProjectReference Include="..\Investor.Common.Service.Client.Logic\Investor.Common.Service.Client.Logic.csproj">
       <Project>{971d42ce-dfc0-480c-a7c1-43bf7c064835}</Project>
       <Name>Investor.Common.Service.Client.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Investor.Common.Shared.Authentication\Investor.Common.Shared.Authentication.csproj">
+      <Project>{35550fc8-4e45-46a8-b005-807b485f95bf}</Project>
+      <Name>Investor.Common.Shared.Authentication</Name>
     </ProjectReference>
     <ProjectReference Include="..\Investor.Common.Shared.DataTransferObjects\Investor.Common.Shared.DataTransferObjects.csproj">
       <Project>{eb0f9d35-cc05-40d6-89b3-a0601e4562e5}</Project>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Security.Principal;
 using System.Web;
 
-namespace Investor.Common.Service.Client.Api
+namespace Investor.Common.Shared.Authentication
 {
     public class BasicAuthenticationIdentity : GenericIdentity
     {

@@ -1,16 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Investor.Common.Shared.Interfaces;
+//using Microsoft.Practices.Unity;
+using System;
+//using System.Collections.Generic;
+using System.Configuration;
+//using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Security.Principal;
 using System.Text;
 using System.Threading;
-using System.Web;
+//using System.Web;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
-
-namespace Investor.Common.Service.Client.Api
+namespace Investor.Common.Shared.Authentication
 {
     /// <summary>
     /// Generic Basic Authentication filter that checks for basic authentication
@@ -27,30 +29,18 @@ namespace Investor.Common.Service.Client.Api
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false)]
     public class BasicAuthenticationFilter : AuthorizationFilterAttribute
     {
-        bool Active = true;
-
+        private readonly bool _active = true;
         public BasicAuthenticationFilter()
-        { }
-
-        /// <summary>
-        /// Overriden constructor to allow explicit disabling of this
-        /// filter's behavior. Pass false to disable (same as no filter
-        /// but declarative)
-        /// </summary>
-        /// <param name="active"></param>
+        {
+            bool.TryParse(ConfigurationManager.AppSettings["EnableAuthentication"], out _active);
+        }
         public BasicAuthenticationFilter(bool active)
         {
-            Active = active;
+            _active = active;
         }
-
-
-        /// <summary>
-        /// Override to Web API filter method to handle Basic Auth check
-        /// </summary>
-        /// <param name="actionContext"></param>
         public override void OnAuthorization(HttpActionContext actionContext)
         {
-            if (Active)
+            if (_active)
             {
                 var identity = ParseAuthorizationHeader(actionContext);
                 if (identity == null)
@@ -77,34 +67,15 @@ namespace Investor.Common.Service.Client.Api
                 base.OnAuthorization(actionContext);
             }
         }
-
-        /// <summary>
-        /// Base implementation for user authentication - you probably will
-        /// want to override this method for application specific logic.
-        /// 
-        /// The base implementation merely checks for username and password
-        /// present and set the Thread principal.
-        /// 
-        /// Override this method if you want to customize Authentication
-        /// and store user data as needed in a Thread Principle or other
-        /// Request specific storage.
-        /// </summary>
-        /// <param name="username"></param>
-        /// <param name="password"></param>
-        /// <param name="actionContext"></param>
-        /// <returns></returns>
         protected virtual bool OnAuthorizeUser(string username, string password, HttpActionContext actionContext)
         {
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
                 return false;
-
-            return true;
+            var repo = actionContext.ControllerContext.
+                Configuration.DependencyResolver.GetService(typeof(IAuthenticationRepository)) as IAuthenticationRepository;
+            return repo.Verify(username, password);
         }
 
-        /// <summary>
-        /// Parses the Authorization header and creates user credentials
-        /// </summary>
-        /// <param name="actionContext"></param>
         protected virtual BasicAuthenticationIdentity ParseAuthorizationHeader(HttpActionContext actionContext)
         {
             string authHeader = null;
@@ -114,8 +85,14 @@ namespace Investor.Common.Service.Client.Api
 
             if (string.IsNullOrEmpty(authHeader))
                 return null;
-
-            authHeader = Encoding.Default.GetString(Convert.FromBase64String(authHeader));
+            try
+            {
+                authHeader = Encoding.Default.GetString(Convert.FromBase64String(authHeader));
+            }
+            catch
+            {
+                throw new Exception("Invalid Base-64 char array. (Authorization header)");
+            }
 
             var tokens = authHeader.Split(':');
             if (tokens.Length < 2)
