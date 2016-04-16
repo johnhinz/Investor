@@ -60,6 +60,12 @@ namespace Investor.Common.Service.Company.Data
             }
 
         }
+        public void CreateAddress(long id, CompanyAddressPoco address)
+        {
+            CompanyPoco c = _db.Companies.Single(comp => comp.Id == id);
+            c.Addresses.Add(address);
+            _db.SaveChanges();
+        }
         public bool UpdateAddress(long id, CompanyAddressPoco address)
         {
             try
