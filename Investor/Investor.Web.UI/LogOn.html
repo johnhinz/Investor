@@ -1,14 +1,30 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Investor Log On</title>
+    <title>Investor Sign In</title>
 	<meta charset="utf-8" />
     <link rel="stylesheet" href="Content/bootstrap.min.css" />
-    <script src="Scripts/jquery-1.9.1.min.js"></script>
+    <script src="Scripts/jquery-2.2.2.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript">
+            function WriteCookie()
+            {
+               cookievalue = escape(document.login.username.value);
+               cookievalue = cookievalue.concat(":", escape(document.login.password.value), ";");
+               document.cookie="id=" + window.btoa(cookievalue);
+            }
+    </script>
 </head>
 <body>
-    <p>User Name: <input id="username" type="text" /></p>
-    <p>Password: <input id="password" type="password" /></p>
+    <div class="container">
+        <form name="login" action="" class="form-signin">
+            <h2 class="form-signin-heading">Please sign in</h2>
+            <label class="sr-only">User Name</label>
+            <input id="username" class="form-control" placeholder="User Name" required="" autofocus="">
+            <label class="sr-only">Password</label>
+            <input type="password" id="password" class="form-control" placeholder="Password" required="" autofocus="">
+            <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="WriteCookie();">Sign in</button>
+        </form>
+    </div>
 </body>
 </html>
