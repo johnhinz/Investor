@@ -68,6 +68,11 @@ namespace Investor.Common.Service.Company.Logic
             return _repository.ReadAddresses(id);
         }
 
+        public void CreateAddress(long id, CompanyAddressPoco address)
+        {
+            _repository.CreateAddress(id, address);
+
+        }
 
         public bool UpdateAddress(long companyId, CompanyAddressPoco address)
         {
