@@ -33,7 +33,14 @@ namespace Investor.Common.Service.Company.Api.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, company);
 
         }
+        [HttpPost]
+        [Route("{companyId}/addresses")]
+        public HttpResponseMessage CreateAddress(long companyId, [FromBody] CompanyAddressPoco address)
+        {
+            _logic.CreateAddress(companyId, address);
+            return Request.CreateResponse(HttpStatusCode.OK);
 
+        }
         [HttpGet]
         [Route("{companyId}/addresses")]
         public HttpResponseMessage GetAddresses(long companyId)
@@ -60,6 +67,45 @@ namespace Investor.Common.Service.Company.Api.Controllers
         public HttpResponseMessage DeleteAddress(long companyId, long addressId)
         {
             _logic.DeleteAddress(companyId, addressId);
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
+
+        [HttpPost]
+        [Route("{companyId}/phoneNumber")]
+        public HttpResponseMessage CreatePhoneNumber(long companyId, [FromBody] CompanyPhoneNumberPoco phoneNumber)
+        {
+            _logic.CreatePhoneNumber(companyId, phoneNumber);
+            return Request.CreateResponse(HttpStatusCode.OK);
+
+        }
+
+         
+        [HttpGet]
+        [Route("{companyId}/phoneNumber")]
+        public HttpResponseMessage GetPhoneNumber(long companyId)
+        {
+            var phoneNumber = _logic.ReadPhoneNumber(companyId);
+            return Request.CreateResponse(HttpStatusCode.OK, phoneNumber);
+        }
+
+        [HttpPut]
+        [Route("{companyId}/phoneNumber/{phoneNumberId}")]
+        public HttpResponseMessage UpdatePhoneNumber(long companyId, [FromBody] CompanyPhoneNumberPoco phoneNumber)
+        {
+            var isUpdated = _logic.UpdatePhoneNumber(companyId, phoneNumber);
+            if (isUpdated == true)
+                return Request.CreateResponse(HttpStatusCode.OK, phoneNumber);
+            else
+                return Request.CreateResponse(HttpStatusCode.NotModified, phoneNumber);
+
+
+        }
+
+        [HttpDelete]
+        [Route("{companyId}/phoneNumber/{phoneNumberId}")]
+        public HttpResponseMessage DeletePhoneNumber(long companyId, long phoneNumberId)
+        {
+            _logic.DeletePhoneNumber(companyId, phoneNumberId);
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
