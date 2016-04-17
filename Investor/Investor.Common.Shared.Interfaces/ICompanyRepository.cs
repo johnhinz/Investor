@@ -10,12 +10,16 @@ namespace Investor.Common.Shared.Interfaces
     public interface ICompanyRepository
     {
 
-       CompanyPoco ReadCompany(long id);
-      //  AddressPoco ReadAddress(long id);
+        CompanyPoco ReadCompany(long id);
+        //  AddressPoco ReadAddress(long id);
 
         CompanyPoco Add(CompanyPoco company);
-       
-        bool Update(long id,CompanyPoco company);
+        IEnumerable<CompanyAddressPoco> ReadAddresses(long id);
+
+        bool Update(long id, CompanyPoco company);
+        void CreateAddress(long id, CompanyAddressPoco address);
+        bool UpdateAddress(long id, CompanyAddressPoco address);
+        void DeleteAddress(long companyId, long addressId);
         bool Delete(long id);
 
     }

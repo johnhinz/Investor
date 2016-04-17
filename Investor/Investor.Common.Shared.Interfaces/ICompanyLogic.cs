@@ -10,13 +10,15 @@ namespace Investor.Common.Shared.Interfaces
     public interface ICompanyLogic
     {
         CompanyPoco ReadCompany(long id);
-      //  AddressPoco ReadAddress(long id);
+        //  AddressPoco ReadAddress(long id);
 
         CompanyPoco Add(CompanyPoco company);
-      
-        bool Update(long id,CompanyPoco company);
+        IEnumerable<CompanyAddressPoco> ReadAddresses(long id);
 
-
+        bool Update(long id, CompanyPoco company);
+        void CreateAddress(long id, CompanyAddressPoco address);
+        bool UpdateAddress(long companyId, CompanyAddressPoco address);
+        void DeleteAddress(long companyId, long addressId);
 
         bool Delete(long id);
     }

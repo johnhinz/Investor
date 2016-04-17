@@ -24,7 +24,7 @@ namespace Investor.Common.Shared.EntityFramework
             modelBuilder.Configurations.Add(new ClientPhoneNumberMapping());
             modelBuilder.Configurations.Add(new CompanyPhoneNumberMapping());
             modelBuilder.Configurations.Add(new InvestmentTypeMapping());
-            //modelBuilder.Configurations.Add(new InvestmentClientMapping());
+            modelBuilder.Configurations.Add(new UserMapping());
 
             // map clients to investments
             modelBuilder.Entity<ClientPoco>()
@@ -94,6 +94,7 @@ namespace Investor.Common.Shared.EntityFramework
         public DbSet <ClientPhoneNumberPoco > ClientPhones { get; set; }
         public DbSet <CompanyPhoneNumberPoco > CompanyPhones { get; set; }
         public DbSet<InvestmentTypePoco> InvestmentTypes { get; set; }
+        public DbSet<UserPoco> Users { get; set; }
 
     }
 }

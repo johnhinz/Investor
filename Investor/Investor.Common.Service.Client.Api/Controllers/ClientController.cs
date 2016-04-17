@@ -5,11 +5,13 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using log4net;
+using Investor.Common.Shared.Authentication;
 
 namespace Investor.Common.Service.Client.Api.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix ("api.invest.com/clients")]
+    [BasicAuthenticationFilter]
     public class ClientController : ApiController
     {
         private readonly ILog _log;
