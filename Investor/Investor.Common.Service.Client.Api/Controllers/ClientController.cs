@@ -27,17 +27,17 @@ namespace Investor.Common.Service.Client.Api.Controllers
         [Route("{clientId}")]
         public IHttpActionResult Get(long clientId)
         {
-            //_log.Debug("Getting Client!");
-            //_log.DebugFormat("Method: Get, Accept: {0}", Request.Headers.Accept.ToString());
-            //var client = _logic.Read(clientId);
-            //if (client == null)
-            //{
+            _log.Debug("Getting Client!");
+            _log.DebugFormat("Method: Get, Accept: {0}", Request.Headers.Accept.ToString());
+            var client = _logic.Read(clientId);
+            if (client == null)
+            {
                 return NotFound();
-          //  }
-           // else
-           // {
-             //   return Ok(client);
-           // }
+            }
+            else
+            {
+                return Ok(client);
+            }
         }
 
         [HttpGet]
