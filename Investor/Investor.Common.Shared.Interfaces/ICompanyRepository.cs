@@ -20,6 +20,10 @@ namespace Investor.Common.Shared.Interfaces
         void CreateAddress(long id, CompanyAddressPoco address);
         bool UpdateAddress(long id, CompanyAddressPoco address);
         void DeleteAddress(long companyId, long addressId);
+        void CreatePhoneNumber(long id, CompanyPhoneNumberPoco phoneNumber);
+        IEnumerable<CompanyPhoneNumberPoco> ReadPhoneNumber(long id);
+        bool UpdatePhoneNumber(long id, CompanyPhoneNumberPoco phoneNumber);
+        void DeletePhoneNumber(long companyId, long phoneNumberId);
         bool Delete(long id);
 
     }

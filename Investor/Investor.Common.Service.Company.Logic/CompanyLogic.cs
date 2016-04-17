@@ -94,5 +94,35 @@ namespace Investor.Common.Service.Company.Logic
             _repository.DeleteAddress(companyId, addressId);
 
         }
+
+        public void CreatePhoneNumber(long id, CompanyPhoneNumberPoco phoneNumber)
+        {
+            _repository.CreatePhoneNumber(id, phoneNumber);
+
+        }
+
+        public IEnumerable<CompanyPhoneNumberPoco> ReadPhoneNumber(long id)
+        {
+           return _repository.ReadPhoneNumber(id);
+        }
+        public bool UpdatePhoneNumber(long companyId, CompanyPhoneNumberPoco phoneNumber)
+        {
+            var isupdated = _repository.UpdatePhoneNumber(companyId, phoneNumber);
+            if (isupdated)
+            {
+                return true;
+
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        public void DeletePhoneNumber(long companyId, long phoneNumberId)
+        {
+            _repository.DeleteAddress(companyId, phoneNumberId);
+        }
     }
 }

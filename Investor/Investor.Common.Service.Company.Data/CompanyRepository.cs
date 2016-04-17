@@ -26,11 +26,7 @@ namespace Investor.Common.Service.Company.Data
         //    throw new NotImplementedException();
         //}
 
-        public IEnumerable<CompanyAddressPoco> ReadAddresses(long id)
-        {
-            return _db.Companies.Where(c => c.Id == id).SelectMany(a => a.Addresses);
-            //return _db.CompanyAddresses.Where(a => a.Companies.Where(c=>c.Id==id).Select(ad=>ad.Addresses)).ToList();
-        }
+     
         public CompanyPoco Add(CompanyPoco company)
         {
 
@@ -66,6 +62,11 @@ namespace Investor.Common.Service.Company.Data
             c.Addresses.Add(address);
             _db.SaveChanges();
         }
+        public IEnumerable<CompanyAddressPoco> ReadAddresses(long id)
+        {
+            return _db.Companies.Where(c => c.Id == id).SelectMany(a => a.Addresses);
+            //return _db.CompanyAddresses.Where(a => a.Companies.Where(c=>c.Id==id).Select(ad=>ad.Addresses)).ToList();
+        }
         public bool UpdateAddress(long id, CompanyAddressPoco address)
         {
             try
@@ -96,9 +97,48 @@ namespace Investor.Common.Service.Company.Data
             _db.SaveChanges();
 
         }
+        public void CreatePhoneNumber(long id, CompanyPhoneNumberPoco phoneNumber)
+        {
+            CompanyPoco c = _db.Companies.Single(comp => comp.Id == id);
+            c.PhoneNumbers.Add(phoneNumber);
+            _db.SaveChanges();
+        }
 
 
+        public IEnumerable<CompanyPhoneNumberPoco> ReadPhoneNumber(long id)
+        {
+            return _db.Companies.Where(c => c.Id == id).SelectMany(a => a.PhoneNumbers);
+          
+        }
 
+        public bool UpdatePhoneNumber(long id, CompanyPhoneNumberPoco phoneNumber)
+        {
+            try
+            {
+                CompanyPoco c = _db.Companies.Where(comp => comp.Id == id).FirstOrDefault();
+                CompanyPhoneNumberPoco a = c.PhoneNumbers.Single(ad => ad.PhoneNumberId == phoneNumber.PhoneNumberId);
+                a.PhoneNo = phoneNumber.PhoneNo;
+                a.PhoneType = phoneNumber.PhoneType;
+               _db.SaveChanges();
+                return true;
+
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+
+        }
+
+        public void DeletePhoneNumber(long companyId, long phoneNumberId)
+        {
+            CompanyPhoneNumberPoco a = _db.CompanyPhones.Single(ad => ad.PhoneNumberId == phoneNumberId);
+            CompanyPoco c = _db.Companies.Single(comp => comp.Id == companyId);
+            c.PhoneNumbers.Remove(a);
+            _db.SaveChanges();
+
+        }
         public bool Delete(long id)
         {
             try
