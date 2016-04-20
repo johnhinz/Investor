@@ -53,6 +53,11 @@ namespace Investor.Common.Service.Client.Logic
         {
             return _repository.ReadAddresses(id);
         }
+        public IEnumerable <ClientPhoneNumberPoco > ReadPhoneNumbers(long id)
+        {
+            return _repository.ReadPhoneNumbers(id);
+
+        }
         public void DeleteClient(long id)
         {
             _repository.DeleteClient(id);
@@ -67,15 +72,31 @@ namespace Investor.Common.Service.Client.Logic
             _repository.CreateAddress(id, address);
         }
 
+        public void CreatePhoneNumber(long id,ClientPhoneNumberPoco phonenumber)
+        {
+            _repository.CreatePhoneNumber(id, phonenumber);
+
+        }
+
         public void DeleteAddress(long clientId, long addressId)
         {
             _repository.DeleteAddress(clientId, addressId);
 
         }
+        public void DeletePhoneNumber(long clientId,long phonenumberId)
+        {
+            _repository.DeletePhoneNumber(clientId, phonenumberId);
+        }
 
         public void UpdateAddress(long clientId, ClientAddressPoco address)
         {
             _repository.UpdateAddress(clientId, address);
+
+        }
+
+        public void UpdatePhoneNumber(long clientId, ClientPhoneNumberPoco phonenumber)
+        {
+            _repository.UpdatePhoneNumber(clientId, phonenumber);
 
         }
     }

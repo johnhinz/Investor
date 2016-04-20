@@ -49,6 +49,14 @@ namespace Investor.Common.Service.Client.Api.Controllers
         }
 
         [HttpGet]
+        [Route("{clientId}/phonenumbers")]
+        public HttpResponseMessage GetPhoneNumbers(long clientId)
+        {
+            var phonenumbers = _logic.ReadPhoneNumbers(clientId);
+            return Request.CreateResponse(HttpStatusCode.OK, phonenumbers);
+        }
+
+        [HttpGet]
         [Route("LastName/{LastName}")]
         public HttpResponseMessage GetLastName(string lastname)
         {
@@ -83,6 +91,15 @@ namespace Investor.Common.Service.Client.Api.Controllers
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
+        [HttpPut ]
+        [Route ("{cliendId}/phonenumbers/{phonenumberid}")]
+        public HttpResponseMessage UpdatePhoneNumber(long clientId, [FromBody ] ClientPhoneNumberPoco phonenumber)
+        {
+            _logic.UpdatePhoneNumber(clientId, phonenumber);
+            return Request.CreateResponse(HttpStatusCode.OK);
+
+        }
+
         [HttpPost]
         [Route ("create")]
         public HttpResponseMessage CreateClient([FromBody] ClientPoco client)
@@ -100,6 +117,13 @@ namespace Investor.Common.Service.Client.Api.Controllers
             return Request.CreateResponse(HttpStatusCode.OK);
 
         }
+        [HttpPost ]
+        [Route ("{clientId}/phonenumbers")]
+        public HttpResponseMessage CreatePhoneNumber(long clientId,[FromBody ] ClientPhoneNumberPoco phonenumber)
+        {
+            _logic.CreatePhoneNumber(clientId ,phonenumber );
+            return Request.CreateResponse(HttpStatusCode.OK );
+        }
 
         [HttpDelete]
         [Route ("{clientId}")]
@@ -116,5 +140,14 @@ namespace Investor.Common.Service.Client.Api.Controllers
             _logic.DeleteAddress(clientId, addressId);
             return Request.CreateResponse(HttpStatusCode.OK);
         }
+        [HttpDelete ]
+        [Route ("{clientId}/phonenumber/{phonenumberId}")]
+        public HttpResponseMessage DeletePhoneNumber(long clientId, long phonenumberId)
+        {
+            _logic.DeletePhoneNumber(clientId, phonenumberId);
+            return Request.CreateResponse(HttpStatusCode.OK);
+
+        }
+
     }
 }

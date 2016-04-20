@@ -41,6 +41,11 @@ namespace Investor.Common.Service.Client.Data
             return _db.ClientAddresses.Where(a => a.Clients.Select(c => c.Id).Contains(id)).ToList();  
         }
 
+        public IEnumerable <ClientPhoneNumberPoco > ReadPhoneNumbers(long id)
+        {
+            return _db.ClientPhones.Where(a => a.Clients.Select(c => c.Id).Contains(id)).ToList();
+
+        }
         public void DeleteClient(long id)
         {
             ClientPoco c = _db.Clients.Find(id);
@@ -62,6 +67,14 @@ namespace Investor.Common.Service.Client.Data
             c.Addresses.Add(address);
             _db.SaveChanges();
         }
+
+        public void CreatePhoneNumber(long id, ClientPhoneNumberPoco phonenumber)
+        {
+            ClientPoco c = _db.Clients.Single(cust => cust.Id == id);
+            c.PhoneNumbers.Add(phonenumber);
+            _db.SaveChanges();
+
+        }
         public void DeleteAddress(long clientid,long addressid)
         {
             ClientAddressPoco a = _db.ClientAddresses.Single(ad => ad.AddressId == addressid);
@@ -69,6 +82,14 @@ namespace Investor.Common.Service.Client.Data
             c.Addresses.Remove (a);
             _db.SaveChanges();
             
+        }
+        public void DeletePhoneNumber(long clientid,long phonenumberid)
+        {
+            ClientPhoneNumberPoco p = _db.ClientPhones.Single(ph => ph.PhoneNumberId == phonenumberid);
+            ClientPoco c = _db.Clients.Single(cust => cust.Id == clientid);
+            c.PhoneNumbers.Remove(p);
+            _db.SaveChanges();
+
         }
 
         public void UpdateAddress(long clientId, ClientAddressPoco address)
@@ -80,6 +101,16 @@ namespace Investor.Common.Service.Client.Data
             a.City = address.City;
             a.Postal_Code = address.Postal_Code;
             _db.SaveChanges();
+        }
+
+        public void UpdatePhoneNumber(long clientId, ClientPhoneNumberPoco phonenumber)
+        {
+            ClientPoco c = _db.Clients.Single(cu => cu.Id == clientId);
+            ClientPhoneNumberPoco p = c.PhoneNumbers.Single(pn => pn.PhoneNumberId == phonenumber.PhoneNumberId);
+            p.PhoneNo = phonenumber.PhoneNo;
+            p.PhoneType = phonenumber.PhoneType;
+            _db.SaveChanges();
+
         }
 
     }
