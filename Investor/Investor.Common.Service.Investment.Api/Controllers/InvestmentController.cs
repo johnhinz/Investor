@@ -3,6 +3,7 @@ using Investor.Common.Shared.Pocos;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System;
 
 namespace Investor.Common.Service.Investment.Api
 {
@@ -39,7 +40,13 @@ namespace Investor.Common.Service.Investment.Api
             return Request.CreateResponse(HttpStatusCode.OK, clients);
         }
 
-
+        [HttpGet]
+        [Route("maturing/{date}/{skip}/{take}")]
+        public HttpResponseMessage GetAllMaturedate(DateTime date,int skip,int take)
+        {
+            var investment = _logic.ReadByMatureDate(date,skip,take);
+            return Request.CreateResponse(HttpStatusCode.OK, investment);
+        }
 
         [HttpPost]
         [Route("createInvestment")]

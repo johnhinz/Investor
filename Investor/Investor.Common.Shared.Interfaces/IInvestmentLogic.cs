@@ -18,6 +18,7 @@ namespace Investor.Common.Shared.Interfaces
         InvestmentTypePoco ReadInvestmentType(long id);
         void DeleteInvestmentType(long id);
         bool UpdateInvestmentType(long id, InvestmentTypePoco investmenttype);
+        IEnumerable<InvestmentPoco> ReadByMatureDate(DateTime maturedate, int skip, int take);
         
     }
 }

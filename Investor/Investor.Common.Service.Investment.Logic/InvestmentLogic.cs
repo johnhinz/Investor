@@ -39,6 +39,11 @@ namespace Investor.Common.Service.Investment.Logic
             return _repository.Read(id);
         }
 
+        public IEnumerable<InvestmentPoco> ReadByMatureDate(DateTime maturedate, int skip, int take)
+        {
+            return _repository.ReadByMatureDate(maturedate, skip, take);
+        }
+
         public IEnumerable<InvestmentClientPoco> ReadClient(long id)
         {
             return _repository.ReadClient(id);

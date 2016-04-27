@@ -1,5 +1,6 @@
 ﻿using Investor.Common.Shared.Pocos;
 using System.Collections.Generic;
+using System;
 namespace Investor.Common.Shared.Interfaces
 {
     public interface IInvestmentRepository
@@ -21,5 +22,7 @@ namespace Investor.Common.Shared.Interfaces
         void DeleteInvestmentType(long id);
 
         bool UpdateInvestmentType(long id, InvestmentTypePoco investmenttype);
+
+        IEnumerable<InvestmentPoco> ReadByMatureDate(DateTime maturedate, int skip, int take);
     }
 }
