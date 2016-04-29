@@ -9,14 +9,17 @@ namespace Investor.Common.Service.Client.Logic
     public class ClientLogic : IClientLogic
     {
         private readonly IClientRepository _repository;
-        private readonly IMapper _mapper;
+        
 
         public ClientLogic(IClientRepository repository)
         {
             _repository = repository;
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<ClientPoco, ClientDto>());
-            _mapper = config.CreateMapper();
 
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<ClientAddressPoco, ClientAddressDto>();
+                cfg.CreateMap<ClientPoco, ClientDto>();
+            });
         }
 
         public void Create(ClientPoco client)
@@ -29,7 +32,7 @@ namespace Investor.Common.Service.Client.Logic
             var clientPoco = _repository.Read(id);
             if (clientPoco != null)
             {
-                ClientDto dto = _mapper.Map<ClientDto>(clientPoco);
+                ClientDto dto = Mapper.Map<ClientDto>(clientPoco);
                 return dto;
             }
             else

@@ -9,11 +9,10 @@ namespace Investor.Common.Shared.DataTransferObjects
 {
     public class ClientAddressDto
     {
-        public long Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public DateTime DoB { get; set; }
-        public string SocialIns { get; set; }
-        ICollection<ClientAddressPoco> Addresses {get;set;}
+        public long AddressId { get; set; }
+        public string Street { get; set; }
+        public string City { get; set; }
+        public string Province { get; set; }
+        public string Postal_Code { get; set; }
     }
 }

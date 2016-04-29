@@ -13,5 +13,7 @@ namespace Investor.Common.Shared.DataTransferObjects
         public string LastName { get; set; }
         public DateTime DoB { get; set; }
         public string SocialIns { get; set; }
+        public IEnumerable<ClientAddressDto> Addresses { get; set; }
+
     }
 }
