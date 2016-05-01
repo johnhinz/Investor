@@ -25,7 +25,7 @@ namespace Investor.Common.Shared.Interfaces
         void DeletePhoneNumber(long clientId, long phonenumberId);
         void CreateAddress(long id, ClientAddressPoco address);
         void CreatePhoneNumber(long id, ClientPhoneNumberPoco phonenumber);
-        void UpdateAddress(long clientId, ClientAddressPoco address);
+        void UpdateAddress(long clientId, long addressId, ClientAddressPoco address);
         void UpdatePhoneNumber(long clientId, ClientPhoneNumberPoco phonenumber);
 
     }

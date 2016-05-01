@@ -48,6 +48,7 @@ namespace Investor.Common.Service.Client.Api.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, addresses);
         }
 
+        //api.invest.com/clients/{clientId}/phonenumbers
         [HttpGet]
         [Route("{clientId}/phonenumbers")]
         public HttpResponseMessage GetPhoneNumbers(long clientId)
@@ -56,14 +57,23 @@ namespace Investor.Common.Service.Client.Api.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, phonenumbers);
         }
 
+        //api.invest.com/clients/LastName/{LastName}
         [HttpGet]
         [Route("LastName/{LastName}")]
         public HttpResponseMessage GetLastName(string lastname)
         {
             var client = _logic.ReadLastName(lastname);
-            return Request.CreateResponse(HttpStatusCode.OK, client);
+            if (client != null)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, client);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, client);
+            }
         }
 
+        //api.invest.com/clients/FirstName/{FirstName}
         [HttpGet]
         [Route("FirstName/{FirstName}")]
         public HttpResponseMessage GetFirstName(string firstname)
@@ -74,7 +84,7 @@ namespace Investor.Common.Service.Client.Api.Controllers
         }
 
         [HttpPut]
-        [Route ("update")]
+        [Route ("")]
         public HttpResponseMessage UpdateClient([FromBody] ClientPoco client)
         {
 
@@ -83,16 +93,19 @@ namespace Investor.Common.Service.Client.Api.Controllers
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
+
+        //api.invest.com/clients/{clientId}/addresses/{addressid}
         [HttpPut]
-        [Route ("{clientId}/address/{addressId}")]
-        public HttpResponseMessage UpdateAddress(long clientId, [FromBody] ClientAddressPoco address)
+        [Route ("{clientId}/addresses/{addressId}")]
+        public HttpResponseMessage UpdateAddress(long clientId, long addressId, [FromBody] ClientAddressPoco address)
         {
-            _logic.UpdateAddress(clientId, address);
+            _logic.UpdateAddress(clientId, addressId, address);
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
+       
         [HttpPut ]
-        [Route ("{cliendId}/phonenumbers/{phonenumberid}")]
+        [Route ("{clientId}/phonenumbers/{phonenumberid}")]
         public HttpResponseMessage UpdatePhoneNumber(long clientId, [FromBody ] ClientPhoneNumberPoco phonenumber)
         {
             _logic.UpdatePhoneNumber(clientId, phonenumber);

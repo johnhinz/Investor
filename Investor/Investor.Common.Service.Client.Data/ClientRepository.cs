@@ -92,10 +92,10 @@ namespace Investor.Common.Service.Client.Data
 
         }
 
-        public void UpdateAddress(long clientId, ClientAddressPoco address)
+        public void UpdateAddress(long clientId, long addressId, ClientAddressPoco address)
         {
             ClientPoco c = _db.Clients.Single(cu => cu.Id == clientId);
-            ClientAddressPoco a = c.Addresses.Single(ad => ad.AddressId == address.AddressId);
+            ClientAddressPoco a = c.Addresses.Single(ad => ad.AddressId == addressId);
             a.Street = address.Street;
             a.Province = address.Province;
             a.City = address.City;

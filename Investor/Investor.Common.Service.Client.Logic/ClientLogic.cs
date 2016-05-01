@@ -91,9 +91,9 @@ namespace Investor.Common.Service.Client.Logic
             _repository.DeletePhoneNumber(clientId, phonenumberId);
         }
 
-        public void UpdateAddress(long clientId, ClientAddressPoco address)
+        public void UpdateAddress(long clientId, long addressId, ClientAddressPoco address)
         {
-            _repository.UpdateAddress(clientId, address);
+            _repository.UpdateAddress(clientId, addressId, address);
 
         }
 

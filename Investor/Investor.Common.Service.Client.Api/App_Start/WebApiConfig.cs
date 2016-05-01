@@ -20,6 +20,12 @@ namespace Investor.Common.Service.Client.Api
             // Web API routes
             config.MapHttpAttributeRoutes();
 
+            config.Routes.MapHttpRoute(
+                name: "DefaultApi",
+                routeTemplate: "api.invest.com/{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            );
+
             // IoC Injection setup
             var container = new UnityContainer();
             container.RegisterType<IClientRepository, ClientRepository>(new HierarchicalLifetimeManager());

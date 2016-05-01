@@ -55,7 +55,7 @@ namespace Investor.Common.Service.Client.Test.Stubs
             throw new NotImplementedException();
         }
 
-        public void UpdateAddress(long clientId, ClientAddressPoco address)
+        public void UpdateAddress(long clientId, long addressId, ClientAddressPoco address)
         {
             throw new NotImplementedException();
         }
