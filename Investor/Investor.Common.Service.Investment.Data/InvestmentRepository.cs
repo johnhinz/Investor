@@ -49,7 +49,8 @@ namespace Investor.Common.Service.Investment.Data
 
         public IEnumerable<InvestmentPoco> ReadByMatureDate(DateTime maturedate, int skip, int take)
         {
-            return _db.Investments.Where(a => a.MatureDate.Contains(maturedate), skip, take).ToList();
+            //return _db.Investments.Where(a => a.MatureDate.Contains(maturedate), skip, take).ToList();
+            return null;
         }
 
         public IEnumerable<InvestmentClientPoco> ReadClient(long id)

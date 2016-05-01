@@ -59,5 +59,25 @@ namespace Investor.Common.Service.Client.Test.Stubs
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<ClientPhoneNumberPoco> ReadPhoneNumbers(long id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeletePhoneNumber(long clientId, long phonenumberId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CreatePhoneNumber(long id, ClientPhoneNumberPoco phonenumber)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdatePhoneNumber(long clientId, ClientPhoneNumberPoco phonenumber)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
