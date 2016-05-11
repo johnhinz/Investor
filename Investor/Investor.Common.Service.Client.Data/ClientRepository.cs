@@ -103,10 +103,10 @@ namespace Investor.Common.Service.Client.Data
             _db.SaveChanges();
         }
 
-        public void UpdatePhoneNumber(long clientId, ClientPhoneNumberPoco phonenumber)
+        public void UpdatePhoneNumber(long clientId, long PhoneNumberId, ClientPhoneNumberPoco phonenumber)
         {
             ClientPoco c = _db.Clients.Single(cu => cu.Id == clientId);
-            ClientPhoneNumberPoco p = c.PhoneNumbers.Single(pn => pn.PhoneNumberId == phonenumber.PhoneNumberId);
+            ClientPhoneNumberPoco p = c.PhoneNumbers.Single(pn => pn.PhoneNumberId == PhoneNumberId);
             p.PhoneNo = phonenumber.PhoneNo;
             p.PhoneType = phonenumber.PhoneType;
             _db.SaveChanges();

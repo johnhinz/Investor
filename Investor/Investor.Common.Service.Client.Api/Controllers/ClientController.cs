@@ -106,9 +106,9 @@ namespace Investor.Common.Service.Client.Api.Controllers
        
         [HttpPut ]
         [Route ("{clientId}/phonenumbers/{phonenumberid}")]
-        public HttpResponseMessage UpdatePhoneNumber(long clientId, [FromBody ] ClientPhoneNumberPoco phonenumber)
+        public HttpResponseMessage UpdatePhoneNumber(long clientId,long PhoneNumberId, [FromBody ] ClientPhoneNumberPoco phonenumber)
         {
-            _logic.UpdatePhoneNumber(clientId, phonenumber);
+            _logic.UpdatePhoneNumber(clientId,PhoneNumberId, phonenumber);
             return Request.CreateResponse(HttpStatusCode.OK);
 
         }

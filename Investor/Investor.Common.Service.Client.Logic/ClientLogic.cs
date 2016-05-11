@@ -97,9 +97,9 @@ namespace Investor.Common.Service.Client.Logic
 
         }
 
-        public void UpdatePhoneNumber(long clientId, ClientPhoneNumberPoco phonenumber)
+        public void UpdatePhoneNumber(long clientId, long PhoneNumberId,ClientPhoneNumberPoco phonenumber)
         {
-            _repository.UpdatePhoneNumber(clientId, phonenumber);
+            _repository.UpdatePhoneNumber(clientId, PhoneNumberId,phonenumber);
 
         }
     }

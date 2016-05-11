@@ -75,7 +75,7 @@ namespace Investor.Common.Service.Client.Test.Stubs
             throw new NotImplementedException();
         }
 
-        public void UpdatePhoneNumber(long clientId, ClientPhoneNumberPoco phonenumber)
+        public void UpdatePhoneNumber(long clientId, long PhoneNumberId,ClientPhoneNumberPoco phonenumber)
         {
             throw new NotImplementedException();
         }

@@ -30,6 +30,6 @@ namespace Investor.Common.Shared.Interfaces
 
         void UpdateAddress(long clientId, long addressId, ClientAddressPoco address);
 
-        void UpdatePhoneNumber(long clientId, ClientPhoneNumberPoco phonenumber);
+        void UpdatePhoneNumber(long clientId,long PhoneNumberId, ClientPhoneNumberPoco phonenumber);
     }
 }
