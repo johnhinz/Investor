@@ -35,6 +35,11 @@ namespace Investor.Common.Service.Client.Test.Stubs
             throw new NotImplementedException();
         }
 
+        public IEnumerable<ClientAddressPoco> ReadOneAddress(long clientId, long addressId)
+        {
+            throw new NotImplementedException();
+
+        }
         public void DeleteClient(long id)
         {
             throw new NotImplementedException();

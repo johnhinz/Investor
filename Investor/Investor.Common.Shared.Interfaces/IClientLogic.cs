@@ -16,6 +16,9 @@ namespace Investor.Common.Shared.Interfaces
         IEnumerable<ClientPoco> ReadFirstName(string firstname);
 
         IEnumerable<ClientAddressPoco> ReadAddresses(long id);
+
+        IEnumerable<ClientAddressPoco> ReadOneAddress(long clientId, long addressId);
+
         IEnumerable<ClientPhoneNumberPoco> ReadPhoneNumbers(long id);
 
 
