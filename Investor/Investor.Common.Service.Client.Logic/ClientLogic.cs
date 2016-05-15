@@ -52,9 +52,16 @@ namespace Investor.Common.Service.Client.Logic
             return _repository.ReadFirstName(firstname);
         }
 
-        public IEnumerable<ClientAddressPoco> ReadAddresses(long id)
+        public IEnumerable<ClientAddressDto> ReadAddresses(long id)
         {
-            return _repository.ReadAddresses(id);
+            List<ClientAddressDto> addressesDto = new List<ClientAddressDto>();
+            var addresses = _repository.ReadAddresses(id);
+            foreach (var address in addresses)
+            {
+                ClientAddressDto addressDto = Mapper.Map<ClientAddressDto>(address);
+                addressesDto.Add(addressDto);
+            }
+            return addressesDto;
         }
 
         public IEnumerable<ClientAddressPoco> ReadOneAddress(long clientId, long addressId)

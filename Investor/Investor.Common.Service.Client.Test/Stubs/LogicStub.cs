@@ -30,7 +30,7 @@ namespace Investor.Common.Service.Client.Test.Stubs
 
         
 
-        public IEnumerable<ClientAddressPoco> ReadAddresses(long id)
+        public IEnumerable<ClientAddressDto> ReadAddresses(long id)
         {
             throw new NotImplementedException();
         }
