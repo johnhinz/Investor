@@ -19,6 +19,7 @@ namespace Investor.Common.Shared.Interfaces
         IEnumerable<ClientAddressPoco> ReadAddresses(long id);
         IEnumerable<ClientPhoneNumberPoco> ReadPhoneNumbers(long id);
 
+        IEnumerable<ClientAddressPoco> ReadOneAddress(long clientId, long addressId);
 
         void DeleteClient(long id);
         void UpdateClient(ClientPoco client);
@@ -30,6 +31,6 @@ namespace Investor.Common.Shared.Interfaces
 
         void UpdateAddress(long clientId, long addressId, ClientAddressPoco address);
 
-        void UpdatePhoneNumber(long clientId, ClientPhoneNumberPoco phonenumber);
+        void UpdatePhoneNumber(long clientId,long PhoneNumberId, ClientPhoneNumberPoco phonenumber);
     }
 }

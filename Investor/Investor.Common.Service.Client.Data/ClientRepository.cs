@@ -41,6 +41,12 @@ namespace Investor.Common.Service.Client.Data
             return _db.ClientAddresses.Where(a => a.Clients.Select(c => c.Id).Contains(id)).ToList();  
         }
 
+        public IEnumerable <ClientAddressPoco > ReadOneAddress(long clientId, long addressId)
+        {
+            return _db.ClientAddresses.Where(ad => ad.AddressId == addressId).Where(a => a.Clients.Select(c => c.Id).Contains(clientId)).ToList();
+
+        }
+
         public IEnumerable <ClientPhoneNumberPoco > ReadPhoneNumbers(long id)
         {
             return _db.ClientPhones.Where(a => a.Clients.Select(c => c.Id).Contains(id)).ToList();
@@ -103,10 +109,10 @@ namespace Investor.Common.Service.Client.Data
             _db.SaveChanges();
         }
 
-        public void UpdatePhoneNumber(long clientId, ClientPhoneNumberPoco phonenumber)
+        public void UpdatePhoneNumber(long clientId, long PhoneNumberId, ClientPhoneNumberPoco phonenumber)
         {
             ClientPoco c = _db.Clients.Single(cu => cu.Id == clientId);
-            ClientPhoneNumberPoco p = c.PhoneNumbers.Single(pn => pn.PhoneNumberId == phonenumber.PhoneNumberId);
+            ClientPhoneNumberPoco p = c.PhoneNumbers.Single(pn => pn.PhoneNumberId == PhoneNumberId);
             p.PhoneNo = phonenumber.PhoneNo;
             p.PhoneType = phonenumber.PhoneType;
             _db.SaveChanges();

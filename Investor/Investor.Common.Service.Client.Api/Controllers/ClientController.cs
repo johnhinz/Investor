@@ -47,6 +47,16 @@ namespace Investor.Common.Service.Client.Api.Controllers
             var addresses = _logic.ReadAddresses(clientId);
             return Request.CreateResponse(HttpStatusCode.OK, addresses);
         }
+        //api.invest.com/clients/{clientId}/addresses/{addressId}
+
+        [HttpGet]
+        [Route ("clientId}/addresses/{addressId}")]
+        public HttpResponseMessage GetOneAddress(long clientId, long addressId)
+        {
+            var address = _logic.ReadOneAddress(clientId,addressId);
+            return Request.CreateResponse(HttpStatusCode.OK, address);
+
+        }
 
         //api.invest.com/clients/{clientId}/phonenumbers
         [HttpGet]
@@ -106,9 +116,9 @@ namespace Investor.Common.Service.Client.Api.Controllers
         //api.invest.com/clients/{clientId}/phonenumbers/{phonenumberid}
         [HttpPut ]
         [Route ("{clientId}/phonenumbers/{phonenumberid}")]
-        public HttpResponseMessage UpdatePhoneNumber(long clientId, [FromBody ] ClientPhoneNumberPoco phonenumber)
+        public HttpResponseMessage UpdatePhoneNumber(long clientId,long PhoneNumberId, [FromBody ] ClientPhoneNumberPoco phonenumber)
         {
-            _logic.UpdatePhoneNumber(clientId, phonenumber);
+            _logic.UpdatePhoneNumber(clientId,PhoneNumberId, phonenumber);
             return Request.CreateResponse(HttpStatusCode.OK);
 
         }

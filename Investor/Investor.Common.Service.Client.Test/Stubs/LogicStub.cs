@@ -35,6 +35,11 @@ namespace Investor.Common.Service.Client.Test.Stubs
             throw new NotImplementedException();
         }
 
+        public IEnumerable<ClientAddressPoco> ReadOneAddress(long clientId, long addressId)
+        {
+            throw new NotImplementedException();
+
+        }
         public void DeleteClient(long id)
         {
             throw new NotImplementedException();
@@ -75,7 +80,7 @@ namespace Investor.Common.Service.Client.Test.Stubs
             throw new NotImplementedException();
         }
 
-        public void UpdatePhoneNumber(long clientId, ClientPhoneNumberPoco phonenumber)
+        public void UpdatePhoneNumber(long clientId, long PhoneNumberId,ClientPhoneNumberPoco phonenumber)
         {
             throw new NotImplementedException();
         }
