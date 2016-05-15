@@ -50,7 +50,7 @@ namespace Investor.Common.Service.Client.Api.Controllers
         //api.invest.com/clients/{clientId}/addresses/{addressId}
 
         [HttpGet]
-        [Route ("clientId}/addresses/{addressId}")]
+        [Route ("{clientId}/addresses/{addressId}")]
         public HttpResponseMessage GetOneAddress(long clientId, long addressId)
         {
             var address = _logic.ReadOneAddress(clientId,addressId);
