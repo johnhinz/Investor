@@ -103,7 +103,7 @@ namespace Investor.Common.Service.Client.Api.Controllers
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-       
+        //api.invest.com/clients/{clientId}/phonenumbers/{phonenumberid}
         [HttpPut ]
         [Route ("{clientId}/phonenumbers/{phonenumberid}")]
         public HttpResponseMessage UpdatePhoneNumber(long clientId, [FromBody ] ClientPhoneNumberPoco phonenumber)
@@ -114,7 +114,7 @@ namespace Investor.Common.Service.Client.Api.Controllers
         }
 
         [HttpPost]
-        [Route ("create")]
+        [Route ("")]
         public HttpResponseMessage CreateClient([FromBody] ClientPoco client)
         {
             _logic.Create(client);
@@ -147,14 +147,14 @@ namespace Investor.Common.Service.Client.Api.Controllers
         }
 
         [HttpDelete]
-        [Route ("{clientId}/address/{addressId}")]
+        [Route ("{clientId}/addresses/{addressId}")]
         public HttpResponseMessage DeleteAddress(long clientId, long addressId)
         {
             _logic.DeleteAddress(clientId, addressId);
             return Request.CreateResponse(HttpStatusCode.OK);
         }
         [HttpDelete ]
-        [Route ("{clientId}/phonenumber/{phonenumberId}")]
+        [Route ("{clientId}/phonenumbers/{phonenumberId}")]
         public HttpResponseMessage DeletePhoneNumber(long clientId, long phonenumberId)
         {
             _logic.DeletePhoneNumber(clientId, phonenumberId);
