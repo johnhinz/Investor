@@ -57,7 +57,16 @@ namespace Investor.Common.Service.Client.Api.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, address);
 
         }
+        //api.invest.com/clients/{clientId}/addresses/{phonenumberId}
 
+        [HttpGet]
+        [Route ("{clientId}/phonenumbers/{phonenumberId}")]
+        public HttpResponseMessage GetOnePhoneNumber(long clientId,long phonenumberId)
+        {
+            var phonenumber = _logic.ReadOnePhoneNumber(clientId, phonenumberId);
+            return Request.CreateResponse(HttpStatusCode.OK, phonenumber);
+
+        }
         //api.invest.com/clients/{clientId}/phonenumbers
         [HttpGet]
         [Route("{clientId}/phonenumbers")]

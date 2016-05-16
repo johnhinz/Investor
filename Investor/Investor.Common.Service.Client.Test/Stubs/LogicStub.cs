@@ -40,6 +40,10 @@ namespace Investor.Common.Service.Client.Test.Stubs
             throw new NotImplementedException();
 
         }
+        public IEnumerable <ClientPhoneNumberPoco > ReadOnePhoneNumber(long clientId, long phonenumberId)
+        {
+            throw new NotImplementedException();
+        }
         public void DeleteClient(long id)
         {
             throw new NotImplementedException();

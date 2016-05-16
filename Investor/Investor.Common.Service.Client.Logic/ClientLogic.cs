@@ -69,6 +69,11 @@ namespace Investor.Common.Service.Client.Logic
             return _repository.ReadOneAddress(clientId, addressId);
 
         }
+        public IEnumerable <ClientPhoneNumberPoco  > ReadOnePhoneNumber(long clientId, long phonenumerId)
+        {
+            return _repository.ReadOnePhoneNumber(clientId, phonenumerId);
+
+        }
 
         public IEnumerable <ClientPhoneNumberPoco > ReadPhoneNumbers(long id)
         {

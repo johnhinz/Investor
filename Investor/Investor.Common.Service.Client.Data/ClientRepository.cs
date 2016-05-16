@@ -47,6 +47,12 @@ namespace Investor.Common.Service.Client.Data
 
         }
 
+        public IEnumerable <ClientPhoneNumberPoco > ReadOnePhoneNumber(long clientId, long phonenumberId)
+        {
+            return _db.ClientPhones.Where(ph => ph.PhoneNumberId == phonenumberId).Where(p => p.Clients.Select(c => c.Id).Contains(clientId)).ToList();
+
+        }
+
         public IEnumerable <ClientPhoneNumberPoco > ReadPhoneNumbers(long id)
         {
             return _db.ClientPhones.Where(a => a.Clients.Select(c => c.Id).Contains(id)).ToList();
