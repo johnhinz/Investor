@@ -40,6 +40,8 @@ namespace Investor.Common.Service.Client.Api.Controllers
             }
         }
 
+
+
         [HttpGet]
         [Route ("{clientId}/addresses")]
         public HttpResponseMessage GetAddresses(long clientId)

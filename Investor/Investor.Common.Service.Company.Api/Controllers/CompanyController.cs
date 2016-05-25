@@ -10,7 +10,7 @@ using Investor.Common.Shared.Pocos;
 namespace Investor.Common.Service.Company.Api.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    [RoutePrefix("api.invest.com/company")]
+    [RoutePrefix("api.invest.com/companies")]
     public class CompanyController : ApiController
     {
         // GET: Company
@@ -20,7 +20,7 @@ namespace Investor.Common.Service.Company.Api.Controllers
         {
             _logic = logic;
         }
-
+/*------------------------HttpGet----------------------*/
         [HttpGet]
         [Route("{companyId}")]
         public HttpResponseMessage GetCompany(long companyId)
@@ -31,16 +31,8 @@ namespace Investor.Common.Service.Company.Api.Controllers
                 return Request.CreateResponse(HttpStatusCode.NotFound);
             }
             return Request.CreateResponse(HttpStatusCode.OK, company);
-
         }
-        [HttpPost]
-        [Route("{companyId}/addresses")]
-        public HttpResponseMessage CreateAddress(long companyId, [FromBody] CompanyAddressPoco address)
-        {
-            _logic.CreateAddress(companyId, address);
-            return Request.CreateResponse(HttpStatusCode.OK);
 
-        }
         [HttpGet]
         [Route("{companyId}/addresses")]
         public HttpResponseMessage GetAddresses(long companyId)
@@ -49,8 +41,29 @@ namespace Investor.Common.Service.Company.Api.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, addresses);
         }
 
+        [HttpGet]
+        [Route("{companyId}/phoneNumbers")]
+        public HttpResponseMessage GetPhoneNumber(long companyId)
+        {
+            var phoneNumber = _logic.ReadPhoneNumber(companyId);
+            return Request.CreateResponse(HttpStatusCode.OK, phoneNumber);
+        }
+
+        /*------------------------HttpPut----------------------*/
         [HttpPut]
-        [Route("{companyId}/address/{addressId}")]
+        [Route("")]
+        public HttpResponseMessage UpdateCompany(CompanyPoco company)
+        {
+            var isUpdated = _logic.Update(company.Id, company);
+            if (isUpdated == true)
+                return Request.CreateResponse(HttpStatusCode.OK, company);
+            else
+                return Request.CreateResponse(HttpStatusCode.NotModified, company);
+
+        }
+
+        [HttpPut]
+        [Route("{companyId}/addresses/{addressId}")]
         public HttpResponseMessage UpdateAddress(long companyId, [FromBody] CompanyAddressPoco address)
         {
             var isUpdated = _logic.UpdateAddress(companyId, address);
@@ -62,34 +75,8 @@ namespace Investor.Common.Service.Company.Api.Controllers
 
         }
 
-        [HttpDelete]
-        [Route("{companyId}/address/{addressId}")]
-        public HttpResponseMessage DeleteAddress(long companyId, long addressId)
-        {
-            _logic.DeleteAddress(companyId, addressId);
-            return Request.CreateResponse(HttpStatusCode.OK);
-        }
-
-        [HttpPost]
-        [Route("{companyId}/phoneNumber")]
-        public HttpResponseMessage CreatePhoneNumber(long companyId, [FromBody] CompanyPhoneNumberPoco phoneNumber)
-        {
-            _logic.CreatePhoneNumber(companyId, phoneNumber);
-            return Request.CreateResponse(HttpStatusCode.OK);
-
-        }
-
-         
-        [HttpGet]
-        [Route("{companyId}/phoneNumber")]
-        public HttpResponseMessage GetPhoneNumber(long companyId)
-        {
-            var phoneNumber = _logic.ReadPhoneNumber(companyId);
-            return Request.CreateResponse(HttpStatusCode.OK, phoneNumber);
-        }
-
         [HttpPut]
-        [Route("{companyId}/phoneNumber/{phoneNumberId}")]
+        [Route("{companyId}/phoneNumbers/{phoneNumberId}")]
         public HttpResponseMessage UpdatePhoneNumber(long companyId, [FromBody] CompanyPhoneNumberPoco phoneNumber)
         {
             var isUpdated = _logic.UpdatePhoneNumber(companyId, phoneNumber);
@@ -97,32 +84,12 @@ namespace Investor.Common.Service.Company.Api.Controllers
                 return Request.CreateResponse(HttpStatusCode.OK, phoneNumber);
             else
                 return Request.CreateResponse(HttpStatusCode.NotModified, phoneNumber);
-
-
+            
         }
 
-        [HttpDelete]
-        [Route("{companyId}/phoneNumber/{phoneNumberId}")]
-        public HttpResponseMessage DeletePhoneNumber(long companyId, long phoneNumberId)
-        {
-            _logic.DeletePhoneNumber(companyId, phoneNumberId);
-            return Request.CreateResponse(HttpStatusCode.OK);
-        }
-
-        /* [HttpGet]
-         [Route("CompanyAddress/{companyId}")]
-         public HttpResponseMessage GetCompanyAddress(long companyId)
-         {
-             var address = _logic.ReadAddress(companyId);
-             if (address == null)
-             {
-                 return Request.CreateResponse(HttpStatusCode.NotFound);
-             }
-             return Request.CreateResponse(HttpStatusCode.OK, address);
-         }
-         */
+        /*------------------------HttpPost----------------------*/
         [HttpPost]
-        [Route("CreateCompany")]
+        [Route("")]
         public HttpResponseMessage CreateCompany([FromBody] CompanyPoco company)
         {
             var isAdded = _logic.Add(company);
@@ -137,28 +104,70 @@ namespace Investor.Common.Service.Company.Api.Controllers
             }
         }
 
-        [HttpPut]
-        [Route("UpdateCompany")]
-        public HttpResponseMessage UpdateCompany(CompanyPoco company)
+        [HttpPost]
+        [Route("{companyId}/phoneNumber")]
+        public HttpResponseMessage CreatePhoneNumber(long companyId, [FromBody] CompanyPhoneNumberPoco phoneNumber)
         {
-            var isUpdated = _logic.Update(company.Id, company);
-            if (isUpdated == true)
-                return Request.CreateResponse(HttpStatusCode.OK, company);
-            else
-                return Request.CreateResponse(HttpStatusCode.NotModified, company);
+            _logic.CreatePhoneNumber(companyId, phoneNumber);
+            return Request.CreateResponse(HttpStatusCode.OK);
 
         }
 
-        [HttpDelete]
-        [Route("DeleteCompany/{id}")]
-        public HttpResponseMessage DeleteCompany(long id)
+      
+
+        [HttpPost]
+        [Route("{companyId}/addresses")]
+        public HttpResponseMessage CreateAddress(long companyId, [FromBody] CompanyAddressPoco address)
         {
-            var isDeleted = _logic.Delete(id);
+            _logic.CreateAddress(companyId, address);
+            return Request.CreateResponse(HttpStatusCode.OK);
+
+        }
+
+       
+
+        /* [HttpGet]
+         [Route("CompanyAddress/{companyId}")]
+         public HttpResponseMessage GetCompanyAddress(long companyId)
+         {
+             var address = _logic.ReadAddress(companyId);
+             if (address == null)
+             {
+                 return Request.CreateResponse(HttpStatusCode.NotFound);
+             }
+             return Request.CreateResponse(HttpStatusCode.OK, address);
+         }
+         */
+
+        /*------------------------HttpDelete----------------------*/
+      
+
+        [HttpDelete]
+        [Route("{CompanyId}")]
+        public HttpResponseMessage DeleteCompany(long CompanyId)
+        {
+            var isDeleted = _logic.Delete(CompanyId);
             if (isDeleted == true)
                 return Request.CreateResponse(HttpStatusCode.OK);
             else
                 return Request.CreateResponse(HttpStatusCode.NotModified);
 
+        }
+
+        [HttpDelete]
+        [Route("{companyId}/addresses/{addressId}")]
+        public HttpResponseMessage DeleteAddress(long companyId, long addressId)
+        {
+            _logic.DeleteAddress(companyId, addressId);
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
+
+        [HttpDelete]
+        [Route("{companyId}/phoneNumber/{phoneNumberId}")]
+        public HttpResponseMessage DeletePhoneNumber(long companyId, long phoneNumberId)
+        {
+            _logic.DeletePhoneNumber(companyId, phoneNumberId);
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
     }
