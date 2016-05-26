@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="ClientAddressDto.cs" />
     <Compile Include="ClientDto.cs" />
+    <Compile Include="InvestementDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

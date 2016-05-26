@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using Investor.Common.Shared.Interfaces;
 using Investor.Common.Shared.Pocos;
+using AutoMapper;
+using Investor.Common.Shared.DataTransferObjects;
 
 namespace Investor.Common.Service.Investment.Logic
 {
@@ -12,6 +14,10 @@ namespace Investor.Common.Service.Investment.Logic
         public InvestmentLogic(IInvestmentRepository repository)
         {
             _repository = repository;
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<InvestmentPoco, InvestmentDto>();
+            });
         }
 
         public void Create(InvestmentPoco investment)
@@ -34,9 +40,18 @@ namespace Investor.Common.Service.Investment.Logic
             _repository.DeleteInvestmentType(id);
         }
 
-        public InvestmentPoco Read(long id)
+        public InvestmentDto Read(long id)
         {
-            return _repository.Read(id);
+            var investPoco = _repository.Read(id);
+            if (investPoco != null)
+            {
+                InvestmentDto dto = Mapper.Map<InvestmentDto>(investPoco);
+                return dto;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public IEnumerable<InvestmentPoco> ReadByMatureDate(DateTime maturedate, int skip, int take)

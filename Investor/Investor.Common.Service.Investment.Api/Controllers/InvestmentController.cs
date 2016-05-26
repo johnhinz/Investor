@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System;
 
+
 namespace Investor.Common.Service.Investment.Api
 {
     [RoutePrefix("api.invest.com/investments")]

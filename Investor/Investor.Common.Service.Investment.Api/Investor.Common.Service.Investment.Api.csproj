@@ -175,6 +175,10 @@
       <Project>{b275abe4-655a-458a-943c-e8c039de2e50}</Project>
       <Name>Investor.Common.Service.Investment.Logic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Investor.Common.Shared.DataTransferObjects\Investor.Common.Shared.DataTransferObjects.csproj">
+      <Project>{eb0f9d35-cc05-40d6-89b3-a0601e4562e5}</Project>
+      <Name>Investor.Common.Shared.DataTransferObjects</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Investor.Common.Shared.EntityFramework\Investor.Common.Shared.EntityFramework.csproj">
       <Project>{97103fe7-f45f-44a0-bc35-1b079210551f}</Project>
       <Name>Investor.Common.Shared.EntityFramework</Name>
