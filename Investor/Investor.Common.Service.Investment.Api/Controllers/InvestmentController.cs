@@ -26,7 +26,7 @@ namespace Investor.Common.Service.Investment.Api
             return Request.CreateResponse(HttpStatusCode.OK, investment);
         }
         [HttpGet]
-        [Route("investmenttype/{investmentId}")]
+        [Route("investmentTypes/{investmentId}")]
         public HttpResponseMessage GetInvestmentType(long investmentId)
         {
             var investment = _logic.ReadInvestmentType(investmentId);
@@ -50,7 +50,7 @@ namespace Investor.Common.Service.Investment.Api
         }
 
         [HttpPost]
-        [Route("createInvestment")]
+        [Route("")]
         public HttpResponseMessage CreateInvestment([FromBody] InvestmentPoco investment)
         {
             _logic.Create(investment);
@@ -58,7 +58,7 @@ namespace Investor.Common.Service.Investment.Api
         }
 
       [HttpPost]
-      [Route("CreateInvestmentType")]
+      [Route("Type")]
       public HttpResponseMessage CreateInvestmentType([FromBody] InvestmentTypePoco investmenttype)
         {
             _logic.CreateInvestmentType(investmenttype);
