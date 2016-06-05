@@ -10,7 +10,14 @@ namespace Investor.Common.Service.Client.Test.Stubs
     {
         public ClientDto Read(long id)
         {
-            return new ClientDto() { FirstName = "Joe", LastName = "Smith" };
+            if (id == 1)
+            {
+                return new ClientDto() { FirstName = "Joe", LastName = "Smith" };
+            }
+            else
+            {
+                return null;
+            }
         }
         public void Create(ClientPoco client)
         {

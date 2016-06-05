@@ -8,6 +8,8 @@ using Newtonsoft.Json;
 using Investor.Common.Shared.Pocos;
 using Investor.Common.Shared.Interfaces;
 using log4net;
+using System.Web.Http.Results;
+using Investor.Common.Shared.DataTransferObjects;
 
 namespace Investor.Common.Service.Client.Test
 {
@@ -19,22 +21,35 @@ namespace Investor.Common.Service.Client.Test
         public ApiTests()
         {
             IClientLogic logic = new LogicStub();
-            _controller = new ClientController(logic,null);
+            ILog log = new LogStub();
+            _controller = new ClientController(logic,log);
             _controller.Request = new HttpRequestMessage();
             _controller.Request.Properties.Add(HttpPropertyKeys.HttpConfigurationKey, new HttpConfiguration());
         }
 
         [TestMethod]
-        public void Client_API_Get()
+        public void ClientController_APILayer_GetMethod_ResultOk()
         {
             // arrange
             // -- done in the constructor
             //act
-            //var response = _controller.Get(1);
-            //var client = JsonConvert.DeserializeObject<ClientPoco>(response.ExecuteAsync.Content.ReadAsStringAsync().Result);
-            ////assert
-            //Assert.AreEqual("Joe", client.FirstName);
-            //Assert.AreEqual("Smith", client.LastName);
+            var response = _controller.Get(1);
+            //////assert
+            Assert.IsInstanceOfType(response, typeof(OkNegotiatedContentResult<ClientDto>));
+            var result = response as OkNegotiatedContentResult<ClientDto>;
+            Assert.AreEqual("Joe", result.Content.FirstName);
+            Assert.AreEqual("Smith", result.Content.LastName);
+        }
+        [TestMethod]
+        public void ClientController_APILayer_GetMethod_ResultVoid()
+        {
+            // arrange
+            // -- done in the constructor
+            //act
+            var response = _controller.Get(2);
+            //////assert
+            Assert.IsInstanceOfType(response, typeof(NotFoundResult));
+
         }
     }
 }
