@@ -82,3 +82,7 @@
 2016-04-28 12:43:25,548 [6] DEBUG Investor.Common.Service.Client.Api.WebApiConfig+<>c [(null)] - Getting Client!
 
 2016-04-28 12:43:25,669 [6] DEBUG Investor.Common.Service.Client.Api.WebApiConfig+<>c [(null)] - Method: Get, Accept: 
+
+2016-06-01 11:36:20,300 [6] DEBUG Investor.Common.Service.Client.Api.WebApiConfig+<>c [(null)] - Getting Client!
+
+2016-06-01 11:36:20,390 [6] DEBUG Investor.Common.Service.Client.Api.WebApiConfig+<>c [(null)] - Method: Get, Accept: 

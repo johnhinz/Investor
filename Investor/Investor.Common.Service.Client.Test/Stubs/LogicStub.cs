@@ -6,7 +6,7 @@ using Investor.Common.Shared.DataTransferObjects;
 
 namespace Investor.Common.Service.Client.Test.Stubs
 {
-    class LogicStub : IClientLogic
+   public class LogicStub : IClientLogic
     {
         public ClientDto Read(long id)
         {
@@ -39,12 +39,28 @@ namespace Investor.Common.Service.Client.Test.Stubs
 
         public IEnumerable<ClientAddressDto> ReadAddresses(long id)
         {
-            throw new NotImplementedException();
+           if(id == 1)
+            {
+               yield return new ClientAddressDto() { Street = "ABC St", City = "Toronto" };
+            }
+            else
+            {
+                yield return null;
+            }
+
         }
 
         public IEnumerable<ClientAddressPoco> ReadOneAddress(long clientId, long addressId)
         {
-            throw new NotImplementedException();
+            if (clientId == 1 && addressId == 1)
+            {
+               yield return new ClientAddressPoco() { Street = "ABC St", City ="Toronto"};
+            }
+            else
+            {
+               yield return null;
+            }
+
 
         }
         public IEnumerable <ClientPhoneNumberPoco > ReadOnePhoneNumber(long clientId, long phonenumberId)

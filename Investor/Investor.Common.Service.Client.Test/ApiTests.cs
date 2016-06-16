@@ -10,6 +10,7 @@ using Investor.Common.Shared.Interfaces;
 using log4net;
 using System.Web.Http.Results;
 using Investor.Common.Shared.DataTransferObjects;
+using System.Collections.Generic;
 
 namespace Investor.Common.Service.Client.Test
 {
@@ -49,6 +50,79 @@ namespace Investor.Common.Service.Client.Test
             var response = _controller.Get(2);
             //////assert
             Assert.IsInstanceOfType(response, typeof(NotFoundResult));
+
+        }
+        [TestMethod]
+        public void ClientController_APILayer_GetOneAddressMethod_ResultOk()
+        {
+            // arrange
+            // -- done in the constructor
+            //act
+            var response = _controller.GetOneAddress(1,1);
+          //assert
+           
+             List<ClientAddressPoco> address = JsonConvert.DeserializeObject<List<ClientAddressPoco>>(
+             response.Content.ReadAsStringAsync().Result);
+
+            foreach (ClientAddressPoco a in address)
+            {
+                Assert.AreEqual("ABC St", a.Street);
+                Assert.AreEqual("Toronto", a.City);
+
+            }
+        }
+        [TestMethod]
+        public void ClientController_APILayer_GetOneAddressMethod_ResultVoid()
+        {
+            // arrange
+            // -- done in the constructor
+            //act
+            var response = _controller.GetOneAddress(2, 2);
+            //////assert
+            List<ClientAddressPoco> address = JsonConvert.DeserializeObject<List<ClientAddressPoco>>(
+            response.Content.ReadAsStringAsync().Result);
+            foreach (ClientAddressPoco a in address)
+            {
+                Assert.IsNull(a);
+            }
+
+        }
+
+        [TestMethod]
+        public void ClientController_APILayer_GetAddressesMethod_ResultOk()
+        {
+            // arrange
+            // -- done in the constructor
+            //act
+            var response = _controller.GetAddresses(1);
+            //assert
+            //ClientAddressPoco client = response.Content.ReadAsAsync<ClientAddressPoco>().Result;
+            List<ClientAddressDto> addresses = JsonConvert.DeserializeObject<List<ClientAddressDto>>(
+              response.Content.ReadAsStringAsync().Result);
+
+            foreach (ClientAddressDto a in addresses)
+            {
+                Assert.AreEqual("ABC St", a.Street);
+                Assert.AreEqual("Toronto", a.City);
+
+            }
+
+        }
+
+        [TestMethod]
+        public void ClientController_APILayer_GetOneAddressesMethod_ResultVoid()
+        {
+            // arrange
+            // -- done in the constructor
+            //act
+            var response = _controller.GetAddresses(2);
+            //////assert
+            List<ClientAddressDto> addresses = JsonConvert.DeserializeObject<List<ClientAddressDto>>(
+            response.Content.ReadAsStringAsync().Result);
+            foreach (ClientAddressDto a in addresses)
+            {
+                Assert.IsNull(a);
+            }
 
         }
     }
