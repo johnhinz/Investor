@@ -14,6 +14,7 @@ namespace Investor.Common.Service.Client.Api.Controllers
     [BasicAuthenticationFilter]
     public class ClientController : ApiController
     {
+        // John added a test comment
         private readonly ILog _log;
         private readonly IClientLogic _logic;
 
